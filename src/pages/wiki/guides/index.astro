@@ -1,0 +1,41 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+const guides = await getCollection("guides");
+---
+
+<Layout title="Guides Index" description={`View ${guides.length} Vtuber${guides.length === 1 ? "" : "s"}`}>
+  <div
+    class="vw-section section-hero vw-position-relative"
+    data-vw-scrollspy="cls: vw-animation-slide-bottom-medium; repeat: true"
+  >
+    <div class="vw-container vw-container-small">
+      <h1 class="vw-heading-medium vw-text-center vw-margin-remove-top">
+        Guides Index
+      </h1>
+
+	<p class="vw-text-lead vw-text-center">View <code>{guides.length}</code> Vtuber{guides.length === 1 ? "" : "s"}</p>
+    </div>
+  </div>
+
+  <div class="vw-section">
+    <div class="vw-container">
+      <div
+        class="vw-child-width-1-3@m vw-grid-match vw-text-center vw-margin-medium-top"
+        data-vw-grid
+      >
+        {
+          guides.map((vtuber) => (
+            <div class="vtuber-card">
+              <div class="vw-card vw-card-default vw-box-shadow-medium vw-card-hover vw-card-body vw-inline border-radius-large border-xlight">
+                <a class="vw-position-cover" href={`/wiki/guides/${vtuber.slug}`}></a>
+                <h3 class="vw-card-title vw-margin">{vtuber.data.title}</h3>
+                <p>{vtuber.data.description}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</Layout>

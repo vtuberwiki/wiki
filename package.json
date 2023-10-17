@@ -1,0 +1,22 @@
+{
+  "name": "",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/node": "^6.0.3",
+    "@astrojs/preact": "^3.0.1",
+    "@astrojs/vercel": "^5.0.2",
+    "astro": "^3.3.0",
+    "astro-compress": "^2.0.15",
+    "developer-toolkit-utils": "^1.0.9",
+    "rehype-pretty-code": "^0.10.1",
+    "remark-toc": "^9.0.0"
+  }
+}

@@ -1,0 +1,34 @@
+---
+---
+
+<div class="vw-section section-team">
+	<div class="vw-container vw-container-expand">
+		<h2 class="vw-h1 vw-text-center">Our Team</h2>
+		<p class="vw-text-lead vw-text-center" id="contributors_description"></p>
+		<div class="vw-margin-medium-top vw-grid-small vw-flex-center vw-text-center vw-margin-medium-top" data-vw-grid id="contributors-container">
+			
+		</div>
+	</div>
+</div>
+
+
+<script is:inline>
+    (async function () {
+        const contributors = await fetch('https://api.github.com/repos/0xhylia/Community-Server-Discord-Bot/contributors').then(function(response) {
+            return response.json();
+        });
+
+        document.getElementById('contributors_description').innerHTML = ` We are a team of ${contributors.length} contributor${contributors.length > 1 ? 's' : ''}.`;
+
+        for (var i = 0; i < contributors.length; i++) {
+            document.getElementById('contributors-container').innerHTML += `<div>
+				<div class="vw-card">
+					<img class="vw-border-circle" src="${contributors[i].avatar_url}" alt="${contributors[i].login}" />
+					<h5 class="vw-margin-remove-bottom vw-margin-top">${contributors[i].login}</h5>
+					<p class="vw-article-meta vw-margin-remove-bottom vw-margin-small-top">${contributors[i].contributions} contributions</p>
+				</div>
+			</div>`;
+        }
+        
+    })();
+</script>

@@ -1,0 +1,64 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../../layouts/Layout.astro";
+import { fDate } from "developer-toolkit-utils";
+import Sidebar from "../../../components/Wiki/Sidebar.astro";
+
+export async function getStaticPaths() {
+  const blogEntries = await getCollection("guides");
+  return blogEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+
+const { data } = entry;
+
+const { Content } = await entry.render();
+
+const author = await fetch(
+  "https://api.github.com/repos/0xhylia/Community-Server-Discord-Bot/contributors"
+)
+  .then((response) => response.json())
+  .then((contributors) => {
+    return contributors.find((contributor) => {
+      return contributor.login === data.author;
+    });
+  });
+---
+
+<Layout title={`Guide • ${data.title}`}>
+  <div class="vw-section">
+    <div class="vw-container">
+      <div class="vw-grid-large" data-vw-grid>
+        <Sidebar />
+        <div class="vw-width-1-1 vw-width-expand@m">
+          <article class="vw-article">
+            <h1 class="vw-article-title">Guide • {data.title}</h1>
+            <p class="vw-text-lead vw-text-muted">{data.description}</p>
+            <div
+              class="vw-article-meta vw-margin-top vw-margin-medium-bottom vw-flex vw-flex-middle"
+            >
+              <img
+                class="vw-border-circle avatar"
+                src={author.avatar_url}
+                alt={author.login}
+              />
+              <div>
+                Written by
+                <span><a href={author.html_url}>{author.login}</a></span><br />
+                <time datetime={data.pubDate}>{fDate(new Date(data.pubDate))}</time>
+              </div>
+            </div>
+            <div class="article-content link-primary">
+                <Content />
+            </div>
+            <hr class="vw-margin-medium" />
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

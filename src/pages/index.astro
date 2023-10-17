@@ -1,0 +1,31 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Topics from '../components/Topics.astro';
+import Team from '../components/Team.astro';
+---
+
+<Layout title="Welcome!">
+	<div class="vw-section section-hero vw-position-relative" data-vw-scrollspy="cls: vw-animation-slide-bottom-medium; repeat: true">
+		<div class="vw-container vw-container-small">
+			<h1 class="vw-heading-medium vw-text-center vw-margin-remove-top">Welcome to the Vtuber Wiki</h1>
+			<p class="vw-text-lead vw-text-center">Search or browse in depth information about Vtubers or software related to Vtubers</p>
+			<br />
+			<div style="align-items: center; display: flex; justify-content: center;">
+				<img src="https://img.shields.io/github/stars/0xhylia/Community-Server-Discord-Bot?style=social" alt="Stars" />
+			</div>
+			<div class="hero-search">
+				<div class="vw-position-relative">
+					<form class="vw-search vw-search-default vw-width-1-1" name="search-hero" onsubmit="return false;">
+						<span class="vw-search-icon-flip" data-vw-search-icon></span>
+						<input id="search-hero" class="vw-search-input vw-box-shadow-large" type="search"
+							placeholder="Search for a specific vtuber" autocomplete="off" data-minchars="1" data-maxitems="30">
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<Topics />
+
+	<Team />
+</Layout>

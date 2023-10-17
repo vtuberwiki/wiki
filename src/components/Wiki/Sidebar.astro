@@ -1,0 +1,106 @@
+---
+import { getCollection } from "astro:content";
+
+const vtubers = await getCollection("vtubers").then((_) => {
+  return _.sort((a, b) => {
+    if (a.data.name < b.data.name) {
+      return -1;
+    } else if (a.data.name > b.data.name) {
+      return 1;
+    } else {
+      return 0;
+    }
+  });
+});
+
+const guides = await getCollection("guides").then((_) => {
+  return _.sort((a, b) => {
+    if (a.data.title < b.data.title) {
+      return -1;
+    } else if (a.data.title > b.data.title) {
+      return 1;
+    } else {
+      return 0;
+    }
+  });
+});
+---
+
+<div class="sidebar-fixed-width vw-visible@m">
+  <div class="sidebar-docs vw-position-fixed vw-margin-top">
+    <h5><i class="bi bi-webcam"></i> Vtubers</h5>
+    <ul class="vw-nav vw-nav-default doc-nav">
+      {
+        vtubers.map((vtuber: any) => (
+          <li class="sidebar_item">
+            <a href={`/wiki/vtubers/${vtuber.slug}`}>{vtuber.data.name}</a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <h5><i class="bi bi-book"></i> Guides</h5>
+    <ul class="vw-nav vw-nav-default doc-nav">
+      {
+        guides.map((guide: any) => (
+          <li class="sidebar_item">
+            <a href={`/wiki/guides/${guide.slug}`}>{guide.data.title}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</div>
+
+<div id="offcanvas" data-vw-offcanvas="flip: true; overlay: true">
+  <div class="vw-offcanvas-bar">
+    <a class="vw-logo" href="/">Vtuber Wiki</a>
+    <button class="vw-offcanvas-close" type="button" data-vw-close></button>
+    <ul class="vw-nav vw-nav-primary vw-nav-offcanvas vw-margin-top">
+      <h5>Vtubers</h5>
+      <ul class="vw-nav vw-nav-default doc-nav">
+        {
+          vtubers.map((vtuber) => (
+            <li class="sidebar_item">
+              <a href={`/wiki/vtubers/${vtuber.slug}`}>{vtuber.data.name}</a>
+            </li>
+          ))
+        }
+      </ul>
+
+      <h5><i class="bi bi-book"></i> Guides</h5>
+      <ul class="vw-nav vw-nav-default doc-nav">
+        {
+          guides.map((guide: any) => (
+            <li class="sidebar_item">
+              <a href={`/wiki/guides/${guide.slug}`}>{guide.data.title}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </ul>
+  </div>
+</div>
+
+<script is:inline>
+function ReplaceTrailingSlash(str) {
+  return str.replace(/\/$/, "");
+}
+function HELLO() {
+  const sidebar_items = document.querySelectorAll(".sidebar_item");
+
+  for (let i = 0; i < sidebar_items.length; i++) {
+    const sidebar_item = sidebar_items[i];
+    const href = sidebar_item.querySelector("a").href;
+
+    if (
+      ReplaceTrailingSlash(href.replace(window.location.origin, "")) ===
+      ReplaceTrailingSlash(window.location.pathname)
+    ) {
+      sidebar_item.classList.add("vw-active");
+    }
+  }
+}
+
+setTimeout(HELLO, 100);
+</script>

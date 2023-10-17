@@ -1,0 +1,41 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+const faq = await getCollection("faq");
+---
+
+<Layout title="FAQ">
+  <div class="vw-section">
+    <div class="vw-container vw-container-small">
+      <h2 class="vw-h1 vw-text-center">Frequently asked questions</h2>
+      <p class="vw-text-center vw-text-lead">
+        Find quick answers to frequent questions
+      </p>
+      <ul class="vw-margin-medium-top" data-vw-accordion="multiple: true">
+        {
+          faq.map(async (faq) => (
+            <li>
+              <a class="vw-accordion-title vw-box-shadow-hover-small" href="#">
+                {faq.data.title}
+              </a>
+              <div class="article-content vw-accordion-content link-primary">
+                {faq.body}
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+  <script is:inline src="https://cdn.jsdelivr.net/npm/showdown@2.1.0/dist/showdown.min.js"></script>
+
+  <script is:inline>
+    var converter = new showdown.Converter();
+
+    const content = document.querySelectorAll(".article-content");
+
+    content.forEach((item) => {
+      item.innerHTML = converter.makeHtml(item.innerHTML);
+    })
+  </script>
+</Layout>

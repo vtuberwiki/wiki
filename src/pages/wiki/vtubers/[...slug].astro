@@ -1,0 +1,91 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../../layouts/Layout.astro";
+import { fDate } from "developer-toolkit-utils";
+import Sidebar from "../../../components/Wiki/Sidebar.astro";
+
+export async function getStaticPaths() {
+  const blogEntries = await getCollection("vtubers");
+  return blogEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+
+const { data } = entry;
+
+const { Content } = await entry.render();
+
+const author = await fetch(
+  "https://api.github.com/repos/0xhylia/Community-Server-Discord-Bot/contributors"
+)
+  .then((response) => response.json())
+  .then((contributors) => {
+    return contributors.find((contributor: any) => {
+      return contributor.login === data.author;
+    });
+  });
+
+  function CreateSocials() {
+    const socials = data.links;
+    const socialsArray = socials.map((social: any) => {
+      return {
+        url: social,
+        name: social.split("/").pop(),
+        icon: social.split("https://").pop().split(".")[0],
+        iconUppercase: social.split("https://").pop().split(".")[0].charAt(0).toUpperCase() + social.split("https://").pop().split(".")[0].slice(1),
+      };
+    });
+
+    return socialsArray;
+  }
+
+const socials = CreateSocials();
+---
+
+<Layout title={data.name} favicon={data.image} description={data.description} img={data.image}>
+  <div class="vw-section">
+    <div class="vw-container">
+      <div class="vw-grid-large" data-vw-grid>
+        <Sidebar />
+        <div class="vw-width-1-1 vw-width-expand@m">
+          <article class="vw-article">
+            <h1 class="vw-article-title">Vtuber • {data.name}</h1>
+            <p class="vw-text-lead vw-text-muted">{data.description}</p>
+            <br />
+            <p class="vw-text-lead vw-text-muted">
+              {
+                socials.map((social: any) => (
+                  <a href={social.url} target="_blank" rel="noopener" title={social.name}>
+                    <img src={`/icons/${social.icon}.svg`} alt={social.icon} width="34" height="34" style="vertical-align: middle; margin-right: 5px;" title={social.iconUppercase} />
+                  </a>
+                ))
+              }
+              
+            </p>
+            <div
+              class="vw-article-meta vw-margin-top vw-margin-medium-bottom vw-flex vw-flex-middle"
+            >
+              <img
+                class="vw-border-circle avatar"
+                src={author.avatar_url}
+                alt={author.login}
+              />
+              <div>
+                Written by
+                <span><a href={author.html_url}>{author.login}</a></span><br />
+                <time datetime={data.pubDate}>{fDate(new Date(data.pubDate))}</time>
+              </div>
+            </div>
+            <div class="article-content link-primary">
+                <Content />
+            </div>
+            <hr class="vw-margin-medium" />
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>
