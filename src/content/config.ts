@@ -13,6 +13,7 @@ const vtuberCollection = defineCollection({
       author: z.string(),
       image: z.string(),
       links: z.array(z.string()),
+      graduated: z.boolean().optional(),
     })
 });
 

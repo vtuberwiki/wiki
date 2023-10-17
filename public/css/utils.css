@@ -1,0 +1,31 @@
+/* Badge styles */
+.badge {
+    display: inline-block;
+    padding: 5px 10px;
+    border: 1px solid #007BFF;
+    background-color: #007BFF;
+    color: #fff;
+    border-radius: 5px;
+}
+
+/* Badge colors */
+.badge-success {
+    background-color: #28A745;
+    border-color: #28A745;
+}
+
+.badge-warning {
+    background-color: #FFC107;
+    border-color: #FFC107;
+}
+
+.badge-danger {
+    background-color: #DC3545;
+    border-color: #DC3545;
+}
+
+/* Additional styles for links */
+.badge a {
+    text-decoration: none;
+    color: #fff;
+}

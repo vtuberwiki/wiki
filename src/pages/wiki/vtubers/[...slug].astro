@@ -53,7 +53,11 @@ const socials = CreateSocials();
         <div class="vw-width-1-1 vw-width-expand@m">
           <article class="vw-article">
             <h1 class="vw-article-title">Vtuber • {data.name}</h1>
-            <p class="vw-text-lead vw-text-muted">{data.description}</p>
+            <p class="vw-text-lead vw-text-muted">{data.description}
+            </p>
+            <br />
+            {data.graduated ? <span class="badge badge-danger">Graduated</span> : ""}
+            <br />
             <br />
             <p class="vw-text-lead vw-text-muted">
               {
