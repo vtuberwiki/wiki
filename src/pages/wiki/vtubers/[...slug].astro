@@ -19,7 +19,7 @@ const { data } = entry;
 const { Content } = await entry.render();
 
 const author = await fetch(
-  "https://api.github.com/repos/0xhylia/Community-Server-Discord-Bot/contributors"
+  "https://api.github.com/repos/vtuberwiki/wiki/contributors"
 )
   .then((response) => response.json())
   .then((contributors) => {
