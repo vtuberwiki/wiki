@@ -5,14 +5,7 @@ import path from "path";
 
 const CURRENT_DIR = path.dirname(import.meta.url);
 
-const endpoints = fs.readdirSync(CURRENT_DIR.replace("file:///", "").replace("%20", " ")).filter((file) => file.endsWith(".ts") || file.endsWith(".js"));
 
-function RemoveExtension(filename: string) {
-    return {
-        name: filename.split(".")[0],
-        isJson: filename.includes(".json"),
-    }
-}
 ---
 
 <Layout title="Api">
@@ -20,11 +13,10 @@ function RemoveExtension(filename: string) {
         <div class="vw-container vw-container-small">
             <h2 class="vw-h1 vw-text-center">Api Endpoints</h2>
             <ul class="vw-list vw-list-large vw-margin-medium-top">
-                {
-                    endpoints.map((endpoint) => (
-                    <li><a class="vw-box-shadow-hover-small" href={`/api/${RemoveExtension(endpoint).name}${RemoveExtension(endpoint).isJson ? ".json" : ""}`}>{`/api/${RemoveExtension(endpoint).name}${RemoveExtension(endpoint).isJson ? ".json" : ""}`}</a></li>
-                    ))
-                }
+                    <li><a class="vw-box-shadow-hover-small" href="/api/vtubers.json">Vtubers</a></li>
+                    <li><a class="vw-box-shadow-hover-small" href="/api/software.json">Software</a></li>
+                    <li><a class="vw-box-shadow-hover-small" href="/api/guides.json">Guides</a></li>
+                    <li><a class="vw-box-shadow-hover-small" href="/api/faq.json">Faq</a></li>
             </ul>
         </div>
     </div>
