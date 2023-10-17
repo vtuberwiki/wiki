@@ -4,7 +4,7 @@ import { getCollection } from "astro:content";
 const guides = await getCollection("guides");
 ---
 
-<Layout title="Guides Index" description={`View ${guides.length} Vtuber${guides.length === 1 ? "" : "s"}`}>
+<Layout title="Guides Index" description={`View ${guides.length} guide${guides.length === 1 ? "" : "s"}`}>
   <div
     class="vw-section section-hero vw-position-relative"
     data-vw-scrollspy="cls: vw-animation-slide-bottom-medium; repeat: true"
@@ -14,7 +14,7 @@ const guides = await getCollection("guides");
         Guides Index
       </h1>
 
-	<p class="vw-text-lead vw-text-center">View <code>{guides.length}</code> Vtuber{guides.length === 1 ? "" : "s"}</p>
+	<p class="vw-text-lead vw-text-center">View <code>{guides.length}</code> guide{guides.length === 1 ? "" : "s"}</p>
     </div>
   </div>
 
