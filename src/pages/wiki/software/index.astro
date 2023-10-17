@@ -1,0 +1,42 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+const softwares = await getCollection("software");
+---
+
+<Layout title="Software Index" description={`View ${softwares.length} Software${softwares.length === 1 ? "" : "s"}`}>
+  <div
+    class="vw-section section-hero vw-position-relative"
+    data-vw-scrollspy="cls: vw-animation-slide-bottom-medium; repeat: true"
+  >
+    <div class="vw-container vw-container-small">
+      <h1 class="vw-heading-medium vw-text-center vw-margin-remove-top">
+        Software Index
+      </h1>
+
+	<p class="vw-text-lead vw-text-center">View <code>{softwares.length}</code> Software{softwares.length === 1 ? "" : "s"}</p>
+    </div>
+  </div>
+
+  <div class="vw-section">
+    <div class="vw-container">
+      <div
+        class="vw-child-width-1-3@m vw-grid-match vw-text-center vw-margin-medium-top"
+        data-vw-grid
+      >
+        {
+          softwares.map((software) => (
+            <div class="software-card">
+              <div class="vw-card vw-card-default vw-box-shadow-medium vw-card-hover vw-card-body vw-inline border-radius-large border-xlight">
+                <a class="vw-position-cover" href={`/wiki/software/${software.slug}`}></a />
+                <img src={software.data.image} alt={software.data.title} title={software.data.title} />
+                <h3 class="vw-card-title vw-margin">{software.data.title}</h3>
+                <p>{software.data.description}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</Layout>

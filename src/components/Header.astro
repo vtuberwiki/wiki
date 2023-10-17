@@ -1,4 +1,6 @@
 ---
+import Nav from "./OffCanvas/Nav.astro";
+import Wiki from "./OffCanvas/Wiki.astro";
 ---
 
 <header>
@@ -8,6 +10,8 @@
 	      <div data-vw-navbar>
 	        <div class="vw-navbar-left">
 	          <a class="vw-navbar-item vw-logo vw-visible@m" href="/">Vtuber Wiki</a>
+			  <a class="vw-navbar-toggle vw-hidden@m" href="#offcanvas-docs" data-vw-toggle><span
+				data-vw-navbar-toggle-icon></span> <span class="vw-margin-small-left">Menu</span></a>
 	          <ul class="vw-navbar-nav vw-visible@m navbar_items">
 	            <li><a href="/">Home</a></li>
 	            <li><a href="/wiki/vtubers">Vtubers</a></li>
@@ -39,3 +43,6 @@
 	  </nav>
 	</div>
 </header>
+
+<Nav />
+<Wiki />

@@ -1,0 +1,39 @@
+---
+---
+
+<div id="offcanvas" data-vw-offcanvas="flip: true; overlay: true">
+    <div class="vw-offcanvas-bar">
+      <a class="vw-logo" href="/">Vtuber Wiki</a>
+      <button class="vw-offcanvas-close" type="button" data-vw-close></button>
+      <ul class="vw-nav vw-nav-primary vw-nav-offcanvas vw-margin-top">
+        <li class="sidebar_item"><a href="/">Home</a></li>
+        <li class="sidebar_item"><a href="/wiki/vtubers">Vtubers</a></li>
+        <li class="sidebar_item"><a href="/wiki/software">Software</a></li>
+      </ul>
+    </div>
+
+
+</div>
+
+<script is:inline>
+    function ReplaceTrailingSlash(str) {
+      return str.replace(/\/$/, "");
+    }
+    function HELLO() {
+      const sidebar_items = document.querySelectorAll(".sidebar_item");
+    
+      for (let i = 0; i < sidebar_items.length; i++) {
+        const sidebar_item = sidebar_items[i];
+        const href = sidebar_item.querySelector("a").href;
+    
+        if (
+          ReplaceTrailingSlash(href.replace(window.location.origin, "")) ===
+          ReplaceTrailingSlash(window.location.pathname)
+        ) {
+          sidebar_item.classList.add("vw-active");
+        }
+      }
+    }
+    
+    setTimeout(HELLO, 100);
+    </script>

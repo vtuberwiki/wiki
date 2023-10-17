@@ -1,0 +1,31 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import fs from "fs";
+import path from "path";
+
+const CURRENT_DIR = path.dirname(import.meta.url);
+
+const endpoints = fs.readdirSync(CURRENT_DIR.replace("file:///", "").replace("%20", " ")).filter((file) => file.endsWith(".ts") || file.endsWith(".js"));
+
+function RemoveExtension(filename: string) {
+    return {
+        name: filename.split(".")[0],
+        isJson: filename.includes(".json"),
+    }
+}
+---
+
+<Layout title="Api">
+    <div class="vw-section section-featured">
+        <div class="vw-container vw-container-small">
+            <h2 class="vw-h1 vw-text-center">Api Endpoints</h2>
+            <ul class="vw-list vw-list-large vw-margin-medium-top">
+                {
+                    endpoints.map((endpoint) => (
+                    <li><a class="vw-box-shadow-hover-small" href={`/api/${RemoveExtension(endpoint).name}${RemoveExtension(endpoint).isJson ? ".json" : ""}`}>{`/api/${RemoveExtension(endpoint).name}${RemoveExtension(endpoint).isJson ? ".json" : ""}`}</a></li>
+                    ))
+                }
+            </ul>
+        </div>
+    </div>
+</Layout>

@@ -33,9 +33,21 @@ const faqCollection = defineCollection({
   })
 })
 
+const softwareCollection = defineCollection({
+  type: "content",
+  schema: z.object({
+    title: z.string(),
+    pubDate: z.date(),
+    description: z.string(),
+    author: z.string(),
+    image: z.string(),
+  })
+})
+
 
 export const collections = {
   vtubers: vtuberCollection,
   guides: guideCollection,
-  faq: faqCollection
+  faq: faqCollection,
+ software: softwareCollection
 };
