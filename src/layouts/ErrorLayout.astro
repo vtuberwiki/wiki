@@ -19,25 +19,26 @@ const { title, description, img } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="https://pbs.twimg.com/profile_images/1713923311858593792/doH2HOXp_400x400.png" />
+    <meta name="generator" content={Astro.generator} />
     <meta name="generator" content={Astro.generator} />
     <title>{`${title} | Vtuber Wiki`}</title>
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="char32" />
-    <meta property="og:title" content="char32" />
+    <meta property="og:site_name" content="@VtubersWiki" />
+    <meta property="og:title" content={`${title} | Vtuber Wiki`} />
     <meta property="og:description" content={description} />
     <meta
       property="og:image"
-      content={img || "https://storage.hylia.dev/images/default_banner.jpg"}
+      content={img || "/images/banner.jpg"}
     />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="char32" />
-    <meta name="twitter:creator" content="char32vt" />
+    <meta name="twitter:site" content="@VtubersWiki" />
+    <meta name="twitter:creator" content="@VtubersWiki" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta content="#43B581" data-react-helmet="true" name="theme-color" />
     <meta
       name="keywords"
-      content="hylia, Hylia, Developer, char32, char32, transgender, x, twitter, anime, blog, Virtual YouTuber, Streaming, Virtual persona, 2D avatar, Live chat interaction, Virtual world, Kawaii, Virtual reality, Twitch, Hololive, Software development, Coding, Programming languages, GitHub, Code repositories, Open-source projects, Web development, App development, API integration, Debugging, Gaming, Esports, Twitch streamer, Let's Plays, Gaming hardware, Console gaming, PC gaming, Game reviews, Online multiplayer, Gaming community"
+      content="hylia, Hylia, Developer, char32, char32, transgender, x, twitter, anime, blog, Virtual YouTuber, Streaming, Virtual persona, 2D avatar, Live chat interaction, Virtual world, Kawaii, Virtual reality, Twitch, Hololive, Software development, Coding, Programming languages, GitHub, Code repositories, Open-source projects, Web development, App development, API integration, Debugging, Gaming, Esports, Twitch streamer, Let's Plays, Gaming hardware, Console gaming, PC gaming, Game reviews, Online multiplayer, Gaming community, VtuberWiki, Wiki, Wikipedia, Hololive Vtubers, Vtubers Wiki"
     />
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-E85TLW0B9F"
