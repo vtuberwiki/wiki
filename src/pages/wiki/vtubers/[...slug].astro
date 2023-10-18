@@ -53,7 +53,7 @@ const socials = CreateSocials();
         <div class="vw-width-1-1 vw-width-expand@m">
           <article class="vw-article">
             <h1 class="vw-article-title">Vtuber • {data.name}</h1>
-            <p class="vw-text-lead vw-text-muted">{data.description}
+            <p class="vw-text-lead vw-text-muted" id="vtuber-desc">{data.description}
             </p>
             <br />
             {data.graduated ? <span class="badge badge-danger">Graduated</span> : ""}
@@ -76,10 +76,11 @@ const socials = CreateSocials();
                 class="vw-border-circle avatar"
                 src={author.avatar_url}
                 alt={author.login}
+                id="author-avatar"
               />
               <div>
                 Written by
-                <span><a href={author.html_url}>{author.login}</a></span><br />
+                <span><a href={author.html_url} id="author-name">{author.login}</a></span><br />
                 <time datetime={data.pubDate}>{fDate(new Date(data.pubDate))}</time>
               </div>
             </div>
