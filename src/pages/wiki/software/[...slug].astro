@@ -39,21 +39,6 @@ const author = await fetch(
             <h1 class="vw-article-title">Software • {data.title}</h1>
             <p class="vw-text-lead vw-text-muted">{data.description}</p>
             <br />
-            <div
-              class="vw-article-meta vw-margin-top vw-margin-medium-bottom vw-flex vw-flex-middle"
-            >
-              <img
-                class="vw-border-circle avatar author-avatar"
-                src={author.avatar_url}
-                alt={author.login}
-                id="author-avatar"
-              />
-              <div>
-                Written by
-                <span><a href={author.html_url} class="author-name" id="author-name">{author.login}</a></span><br />
-                <time datetime={data.pubDate}>{fDate(new Date(data.pubDate))}</time>
-              </div>
-            </div>
             <div class="article-content link-primary">
                 <Content />
             </div>

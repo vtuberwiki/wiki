@@ -3,18 +3,19 @@ import { z, defineCollection } from "astro:content";
 
 
 const vtuberCollection = defineCollection({
-    type: 'content',
-    schema: z.object({
-      name: z.string(),
-      pubDate: z.date(),
-      banner: z.string(),
-      category: z.string(),
-      description: z.string(),
-      author: z.string(),
-      image: z.string(),
-      links: z.array(z.string()),
-      graduated: z.boolean().optional(),
-    })
+  type: 'content',
+  schema: z.object({
+    name: z.string(),
+    pubDate: z.date(),
+    banner: z.string(),
+    border_color: z.string().optional(),
+    category: z.string(),
+    description: z.string(),
+    author: z.string(),
+    image: z.string(),
+    links: z.array(z.string()),
+    graduated: z.boolean().optional(),
+  })
 });
 
 const guideCollection = defineCollection({
@@ -43,12 +44,27 @@ const softwareCollection = defineCollection({
     author: z.string(),
     image: z.string(),
   })
-})
+});
+
+// const artistCollection = defineCollection({
+//   type: 'content',
+//   schema: z.object({
+//     name: z.string(),
+//     pubDate: z.date(),
+//     description: z.string(),
+//     author: z.string(),
+//     image: z.string(),
+//     links: z.array(z.string()),
+//     priceRange: z.string(),
+//     examples: z.array(z.string()),
+//   })
+// })
 
 
 export const collections = {
   vtubers: vtuberCollection,
   guides: guideCollection,
   faq: faqCollection,
- software: softwareCollection
+  software: softwareCollection,
+  // artists: artistCollection
 };

@@ -6,6 +6,7 @@ category: Seiso
 description: 🐰 Vtuber Bunny Girl 🐇
 author: 0xhylia
 image: "/vtubers/fuzzikko/photo.jpg"
+border_color: "#0077D7"
 links: 
     - https://twitter.com/fuzzikkovt
     - https://youtube.com/channel/UC3XFbSws-6Wtcg7gKqJhI_w

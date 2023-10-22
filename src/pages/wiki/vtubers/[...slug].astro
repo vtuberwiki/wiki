@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import Layout from "../../../layouts/Layout.astro";
 import { fDate } from "developer-toolkit-utils";
 import Sidebar from "../../../components/Wiki/Sidebar.astro";
+import CreateSocials from "../../../utils/CreateSocials";
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection("vtubers");
@@ -28,21 +29,9 @@ const author = await fetch(
     });
   });
 
-  function CreateSocials() {
-    const socials = data.links;
-    const socialsArray = socials.map((social: any) => {
-      return {
-        url: social,
-        name: social.split("/").pop(),
-        icon: social.split("https://").pop().split(".")[0],
-        iconUppercase: social.split("https://").pop().split(".")[0].charAt(0).toUpperCase() + social.split("https://").pop().split(".")[0].slice(1),
-      };
-    });
+  
 
-    return socialsArray;
-  }
-
-const socials = CreateSocials();
+const socials = CreateSocials(data);
 ---
 
 <Layout title={data.name} favicon={data.image} description={data.description} img={data.image}>
@@ -69,21 +58,6 @@ const socials = CreateSocials();
               }
               
             </p>
-            <div
-              class="vw-article-meta vw-margin-top vw-margin-medium-bottom vw-flex vw-flex-middle"
-            >
-              <img
-                class="vw-border-circle avatar author-avatar"
-                src={author.avatar_url}
-                alt={author.login}
-                id="author-avatar"
-              />
-              <div>
-                Written by
-                <span><a href={author.html_url} class="author-name" id="author-name">{author.login}</a></span><br />
-                <time datetime={data.pubDate}>{fDate(new Date(data.pubDate))}</time>
-              </div>
-            </div>
             <div class="article-content link-primary">
                 <Content />
             </div>

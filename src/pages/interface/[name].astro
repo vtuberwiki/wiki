@@ -1,0 +1,71 @@
+---
+const { name } = Astro.params;
+import { getCollection } from "astro:content";
+import CreateSocials from "../../utils/CreateSocials";
+
+export const getStaticPaths = async () => {
+  const vtubers = await getCollection("vtubers");
+  return vtubers.map((vtuber) => ({
+    params: {
+      name: vtuber.slug,
+    },
+  }));
+};
+
+const vtuber = (await getCollection("vtubers")).find(
+  (vtuber) => vtuber.slug === name
+);
+
+if (!vtuber) {
+  return Astro.redirect("/");
+}
+
+const socials = CreateSocials(vtuber.data);
+---
+
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/css/interface.css" />
+    <meta charset="utf-8" /></head
+  >
+
+  <body style={`background-image: url('https://cdn.discordapp.com/attachments/1020761875979452457/1165486497584136202/rose.png');`}>
+    <div class="card">
+      <div class="top">
+        <div
+          class="logo-wrapper"
+          style={`border: 4px solid ${vtuber.data.border_color ? vtuber.data.border_color : "var(--discord-online)"}`}
+        >
+          <img
+            class="images"
+            src={vtuber.data.image}
+          />
+        </div>
+
+        <div class="text">
+          <h1>
+            <span id="user.username">{vtuber.data.name}</span>
+          </h1>
+
+          <p>{vtuber.data.description}</p>
+        </div>
+      </div>
+
+      <div class="socials">
+       {socials.map((social: any) => (
+           <a href={social.url} target="_blank" rel="noopener" title={social.name}>
+        <button class="icon">
+            <img src={`/icons/${social.icon}.svg`} alt={social.icon} width="16" height="16" title={social.iconUppercase} />
+        </button>
+      </a>
+       ))}
+      </div>
+
+      <div class="made-with">
+        <span style="padding-right: 3px;">Made with the</span>
+        <a href="https://wiki.hylia.dev">Vtuber Wiki</a>
+      </div>
+    </div>
+  </body>
+</html>
