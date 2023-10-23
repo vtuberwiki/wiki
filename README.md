@@ -84,3 +84,14 @@ Start the server
   </tbody>
 </table>
 
+
+
+</br>
+</br>
+</br>
+
+<div align="center">
+<p align="center">If you like this project, please sponser it to keep the project up and running.</p>
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/P5P5NTG8C)
+</div>
