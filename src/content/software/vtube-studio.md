@@ -1,14 +1,11 @@
 ---
 title: VTube Studio
-pubDate: 2023-10-17
+pubDate: 2023-10-24
 description: VTube Studio is an app for Virtual YouTubers that makes VTubing easy and fun!!
 author: withervt
 image: https://denchisoft.com/wp-content/uploads/2021/03/twitter_preview.jpg
+main_image: https://denchisoft.com/wp-content/uploads/2021/02/cropped-vts_logo_with_name.png
 ---
-
-# Vtube Studio
-
-![Vtube Studio Logo](https://denchisoft.com/wp-content/uploads/2021/02/cropped-vts_logo_with_name.png)
 
 **Vtube Studio** is a virtual YouTuber (Vtuber) software developed by Denchisoft. It is designed to facilitate real-time face and body tracking, animation, and live streaming capabilities, enabling users to create and customize their own virtual avatars for online content creation.
 

@@ -27,6 +27,14 @@ const author = await fetch(
       return contributor.login === data.author;
     });
   });
+
+const slugify = (str: string) => {
+  return str
+    .toLowerCase()
+    .replace(/[^\w\s-]/g, "")
+    .replace(/[\s_-]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
 ---
 
 <Layout title={data.title} description={data.description} img={data.image}>
@@ -50,12 +58,28 @@ const author = await fetch(
               />
               <div>
                 Written by
-                <span><a href={author.html_url} class="author-name" id="author-name">{author.login}</a></span><br />
-                <time datetime={data.pubDate}>{fDate(new Date(data.pubDate))}</time>
+                <span
+                  ><a
+                    href={author.html_url}
+                    class="author-name"
+                    id="author-name">{author.login}</a
+                  ></span
+                ><br />
+                <time datetime={data.pubDate}
+                  >{fDate(new Date(data.pubDate))}</time
+                >
               </div>
             </div>
             <div class="article-content link-primary">
-                <Content />
+              <h1 id={slugify(data.title)} style="text-align: center;">{data.title}</h1>
+              <p>
+                <img
+                  src={data.main_image}
+                  alt={`${data.title} main image`}
+                  style="width: 100%; border-radius: 10px;"
+                />
+              </p>
+              <Content />
             </div>
             <hr class="vw-margin-medium" />
           </article>

@@ -1,7 +1,7 @@
 ---
 title: Creating a VTuber Page
 description: A Comprehensive Guide to Crafting a VTuber Profile
-pubDate: 2023-10-22
+pubDate: 2023-10-24
 author: withervt
 ---
 

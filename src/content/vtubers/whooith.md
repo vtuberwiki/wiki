@@ -1,6 +1,6 @@
 ---
 name: Whooith
-pubDate: 2023-10-16
+pubDate: 2023-10-24
 banner: "/vtubers/whooith/banner.jpg"
 category: Seiso
 description: Digital Druid 🍃🪶

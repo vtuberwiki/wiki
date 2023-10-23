@@ -43,6 +43,7 @@ const softwareCollection = defineCollection({
     description: z.string(),
     author: z.string(),
     image: z.string(),
+    main_image: z.string(),
   })
 });
 

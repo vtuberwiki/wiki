@@ -1,6 +1,6 @@
 ---
 name: Fuzzikko
-pubDate: 2023-10-16
+pubDate: 2023-10-24
 banner: "/vtubers/fuzzikko/banner.jpg"
 category: Seiso
 description: 🐰 Vtuber Bunny Girl 🐇
