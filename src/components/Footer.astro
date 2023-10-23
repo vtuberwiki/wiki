@@ -2,20 +2,6 @@
 ---
 
 <footer class="vw-section vw-text-center vw-text-muted">
-		<div class="vw-margin-medium vw-text-small copyright link-secondary">Made by <a href="https://twitter.com/char32vt">@char32vt</a> with ❤️ and a lot of 🍵 <span>with the help of </span> <a href="https://code-wiki.hylia.dev/contributors" id="code-vtubers"></a> on github</div>
+		<div class="vw-margin-medium vw-text-small copyright link-secondary">Made by <a href="https://twitter.com/char32vt">@char32vt</a> with ❤️ and a lot of 🍵 <span>with the help of </span> <a href="https://code-wiki.hylia.dev/contributors" id="code-vtubers"></a> the community</div>
 	</div>
 </footer>
-
-
-<script is:inline>
-    (async function() {
-        const contributors = await fetch('https://api.github.com/repos/vtuberwiki/wiki/contributors').then(function(response) {
-            return response.json();
-        });
-
-        const length = contributors.length;
-
-        document.getElementById('code-vtubers').innerHTML = ` ${length} contributor${length > 1 ? 's' : ''}`;
-
-    })();
-</script>

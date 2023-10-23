@@ -14,21 +14,22 @@
 
 <script is:inline>
     (async function () {
-        const contributors = await fetch('https://api.github.com/repos/vtuberwiki/wiki/contributors').then(function(response) {
+        const contributors = await fetch('/api/authors.json').then(function(response) {
             return response.json();
         });
 
-        document.getElementById('contributors_description').innerHTML = ` We are a team of ${contributors.length} contributor${contributors.length > 1 ? 's' : ''}.`;
+		const length = contributors.data.length;
 
-        for (var i = 0; i < contributors.length; i++) {
-            document.getElementById('contributors-container').innerHTML += `<div>
+        document.getElementById('contributors_description').innerHTML = ` We are a team of ${length} contributor${length > 1 ? 's' : ''}.`;
+
+		for (const contributor of contributors.data) {
+			document.getElementById('contributors-container').innerHTML += `<div>
 				<div class="vw-card">
-					<img class="vw-border-circle" src="${contributors[i].avatar_url}" alt="${contributors[i].login}" />
-					<h5 class="vw-margin-remove-bottom vw-margin-top"><a href="${contributors[i].html_url}" target="_blank">@${contributors[i].login}</a></h5>
-					<p class="vw-article-meta vw-margin-remove-bottom vw-margin-small-top">${contributors[i].contributions} contribution${contributors[i].contributions > 1 ? 's' : ''}</p>
+					<img class="vw-border-circle" src="${contributor.avatar_url}" alt="${contributor.login}" />
+					<h5 class="vw-margin-remove-bottom vw-margin-top"><a href="${contributor.html_url}" target="_blank">@${contributor.login}</a></h5>
 				</div>
 			</div>`;
-        }
+		}
         
     })();
 </script>

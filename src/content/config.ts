@@ -47,6 +47,15 @@ const softwareCollection = defineCollection({
   })
 });
 
+const authorCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    login: z.string(),
+    avatar_url: z.string(),
+    html_url: z.string(),
+  })
+})
+
 // const artistCollection = defineCollection({
 //   type: 'content',
 //   schema: z.object({
@@ -67,5 +76,6 @@ export const collections = {
   guides: guideCollection,
   faq: faqCollection,
   software: softwareCollection,
+  authors: authorCollection,
   // artists: artistCollection
 };

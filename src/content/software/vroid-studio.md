@@ -13,6 +13,8 @@ By making your 2D characters able to move in a 3D space and usable in anime and 
 
 ## The Strengths of VRoid Studio
 
+
+
 ### Easy-to-use, intuitive software
 
 Face features, body shape, outfits — everything is customizable in infinite ways. Even first-time users can fully enjoy the software by picking preset items and playing around with the parameters’ sliders.
