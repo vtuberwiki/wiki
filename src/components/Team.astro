@@ -12,24 +12,4 @@
 </div>
 
 
-<script is:inline>
-    (async function () {
-        const contributors = await fetch('/api/authors.json').then(function(response) {
-            return response.json();
-        });
-
-		const length = contributors.data.length;
-
-        document.getElementById('contributors_description').innerHTML = ` We are a team of ${length} contributor${length > 1 ? 's' : ''}.`;
-
-		for (const contributor of contributors.data) {
-			document.getElementById('contributors-container').innerHTML += `<div>
-				<div class="vw-card">
-					<img class="vw-border-circle" src="${contributor.avatar_url}" alt="${contributor.login}" />
-					<h5 class="vw-margin-remove-bottom vw-margin-top"><a href="${contributor.html_url}" target="_blank">@${contributor.login}</a></h5>
-				</div>
-			</div>`;
-		}
-        
-    })();
-</script>
+<script is:inline src="/js/@include/team.js"></script>

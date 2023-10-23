@@ -29,13 +29,5 @@ const faq = await getCollection("faq");
   </div>
   <script is:inline src="https://cdn.jsdelivr.net/npm/showdown@2.1.0/dist/showdown.min.js"></script>
 
-  <script is:inline>
-    var converter = new showdown.Converter();
-
-    const content = document.querySelectorAll(".article-content");
-
-    content.forEach((item) => {
-      item.innerHTML = converter.makeHtml(item.innerHTML);
-    })
-  </script>
+  <script is:inline src="/js/@include/faq.js"></script>
 </Layout>
