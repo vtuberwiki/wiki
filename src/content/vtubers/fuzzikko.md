@@ -4,7 +4,7 @@ pubDate: 2023-10-16
 banner: "/vtubers/fuzzikko/banner.jpg"
 category: Seiso
 description: 🐰 Vtuber Bunny Girl 🐇
-author: 0xhylia
+author: withervt
 image: "/vtubers/fuzzikko/photo.jpg"
 border_color: "#0077D7"
 links: 

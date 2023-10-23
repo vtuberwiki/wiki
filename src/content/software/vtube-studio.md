@@ -2,7 +2,7 @@
 title: VTube Studio
 pubDate: 2023-10-17
 description: VTube Studio is an app for Virtual YouTubers that makes VTubing easy and fun!!
-author: 0xhylia
+author: withervt
 image: https://denchisoft.com/wp-content/uploads/2021/03/twitter_preview.jpg
 ---
 

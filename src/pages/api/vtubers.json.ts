@@ -7,8 +7,8 @@ export async function GET() {
   try {
     return {
       body: JSON.stringify({ status: 200, data: (await getCollection("vtubers")).map((vtuber) => ({
-        label: vtuber.data.name,
-        value: `/wiki/vtubers/${vtuber.slug}`,
+        name: vtuber.data.name,
+        link: `/wiki/vtubers/${vtuber.slug}`,
         description: vtuber.data.description,
         author: vtuber.data.author,
         image: vtuber.data.image,

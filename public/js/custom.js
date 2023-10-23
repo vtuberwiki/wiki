@@ -9,10 +9,10 @@
         var inputNavbar = document.getElementById("search-navbar");
 
         
-      var data = await fetch("/api/vtubers.json").then(response => response.json());
-      var list = data.data.map((vtuber) => ({
-        label: vtuber.label,
-        value: vtuber.value
+      var data = await fetch("/api/search-list.json").then(response => response.json());
+      var list = data.data.map((_) => ({
+        label: _.label,
+        value: _.value
       }))
   
       if (inputHero) {

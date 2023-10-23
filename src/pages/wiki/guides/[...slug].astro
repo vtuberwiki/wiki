@@ -19,7 +19,7 @@ const { data } = entry;
 const { Content } = await entry.render();
 
 const author = await fetch(
-  "https://api.github.com/repos/0xhylia/Community-Server-Discord-Bot/contributors"
+  "https://api.github.com/repos/vtuberwiki/wiki/contributors"
 )
   .then((response) => response.json())
   .then((contributors) => {
@@ -38,6 +38,21 @@ const author = await fetch(
           <article class="vw-article">
             <h1 class="vw-article-title">Guide • {data.title}</h1>
             <p class="vw-text-lead vw-text-muted">{data.description}</p>
+            <div
+              class="vw-article-meta vw-margin-top vw-margin-medium-bottom vw-flex vw-flex-middle"
+            >
+              <img
+                class="vw-border-circle avatar author-avatar"
+                src={author.avatar_url}
+                alt={author.login}
+                id="author-avatar"
+              />
+              <div>
+                Written by
+                <span><a href={author.html_url} class="author-name" id="author-name">{author.login}</a></span><br />
+                <time datetime={data.pubDate}>{fDate(new Date(data.pubDate))}</time>
+              </div>
+            </div>
             <div class="article-content link-primary">
                 <Content />
             </div>

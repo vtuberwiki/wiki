@@ -1,8 +1,8 @@
 ---
 title: Creating a VTuber Page
 description: A Comprehensive Guide to Crafting a VTuber Profile
-pubDate: 2022-11-08
-author: 0xhylia
+pubDate: 2023-10-22
+author: withervt
 ---
 
 When constructing a VTuber page for The Vtuber Wiki, it is imperative to furnish the following essential details:
@@ -15,6 +15,7 @@ When constructing a VTuber page for The Vtuber Wiki, it is imperative to furnish
 - `author`: Author's Name or Username (Github)
 - `image`: VTuber Avatar Image URL
 - `links`: Array of Relevant Links
+- `border_color`: The VTuber's Border Color (For profile cards)
 
 ## Standard Format Example
 
@@ -27,6 +28,7 @@ category: "Select Category"
 description: "A concise description of your VTuber persona."
 author: "Your Author Name or Username"
 image: "URL to VTuber Avatar Image"
+border_color: "Your VTuber's Border Color"
 links: 
   - "URL to Discord Server"
   - "URL to Social Media Profile"
