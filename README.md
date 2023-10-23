@@ -1,6 +1,16 @@
-# Vtuber Wiki
+<div align="center">
+   <h1 align="center">Vtuber Wiki</h1>
+</div>
 
 Search or browse in depth information about Vtubers or software related to Vtubers
+
+## Table of Contents
+
+- [Acknowledgements](#acknowledgements)
+- [Project Roadmap](#project-roadmap)
+- [Run Locally](#run-locally)
+- [Features](#features)
+- [Contributors](#contributors)
 
 ## Acknowledgements
 
