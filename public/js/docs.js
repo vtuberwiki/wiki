@@ -1,5 +1,6 @@
 const H2 = document.querySelectorAll("h2");
 const H3 = document.querySelectorAll("h3");
+const VIDEOS = document.querySelectorAll("video");
 
 function ScrollTo(id) {
     const element = document.getElementById(id);
@@ -40,6 +41,13 @@ for (let i = 0; i < H3.length; i++) {
     const current = H3[i];
     const id = current.id;
     AddHash(id, current);
+}
+
+for (let i = 0; i < VIDEOS.length; i++) {
+    const current = VIDEOS[i];
+    
+    current.style.marginBottom = "10px";
+    current.style.borderRadius = "10px";
 }
 
 window.onload = function () {

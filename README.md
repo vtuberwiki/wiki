@@ -69,7 +69,7 @@ Start the server
           <sub><b>withervt</b></sub>
         </a>
         <br />
-        <a href="https://code-wiki.hylia.dev" title="Programming">⌨️</a><a href="https://code-wiki.hylia.dev" title="Writing Documentation">🖋️</a>
+        <a href="https://code-vtubers.wiki" title="Programming">⌨️</a><a href="https://code-vtubers.wiki" title="Writing Documentation">🖋️</a>
       </td>
       <td align="center">
         <a href="https://github.com/win10Device">
@@ -78,7 +78,7 @@ Start the server
           <sub><b>win10Device</b></sub>
         </a>
         <br />
-        <a href="https://code-wiki.hylia.dev" title="Testing">⚠️</a><a href="https://code-wiki.hylia.dev" title="Writing Documentation">🖋️</a>
+        <a href="https://code-vtubers.wiki" title="Testing">⚠️</a><a href="https://code-vtubers.wiki" title="Writing Documentation">🖋️</a>
       </td>
     </tr>
   </tbody>
