@@ -11,6 +11,8 @@ export async function GET() {
         description: guide.data.description,
         pubDate: guide.data.pubDate,
         author: guide.data.author,
+        body: guide.body,
+        slug: guide.slug
       }))}),
     };
   } catch (error) {
