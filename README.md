@@ -72,13 +72,13 @@ Start the server
         <a href="https://code-vtubers.wiki" title="Programming">⌨️</a><a href="https://code-vtubers.wiki" title="Writing Documentation">🖋️</a>
       </td>
       <td align="center">
-        <a href="https://github.com/win10Device">
-          <img src="https://avatars.githubusercontent.com/u/44788187?v=4" width="100px;" alt="win10Device"/>
+        <a href="https://github.com/kamilatte ">
+          <img src="https://avatars.githubusercontent.com/u/118631823" width="100px;" alt="kamilatte"/>
           <br />
-          <sub><b>win10Device</b></sub>
+          <sub><b>kamilatte</b></sub>
         </a>
         <br />
-        <a href="https://code-vtubers.wiki" title="Testing">⚠️</a><a href="https://code-vtubers.wiki" title="Writing Documentation">🖋️</a>
+        <a href="https://code-vtubers.wiki" title="Writing Documentation">🖋️</a>
       </td>
     </tr>
   </tbody>
