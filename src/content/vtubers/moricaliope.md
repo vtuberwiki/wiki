@@ -5,7 +5,7 @@ banner: "/vtubers/moricaliope/banner.jpeg"
 category: Seiso
 description: "Musician, also Death. The Grim Reaper live-streamer. (💀)"
 author: kamilattevt
-image: "/vtubers/moricaliope/profile.jpeg"
+image: "/vtubers/moricaliope/photo.jpeg"
 border_color: "#FF0000"
 links: 
     - https://twitter.com/moricalliope
