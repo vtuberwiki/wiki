@@ -30,6 +30,7 @@ const socials = CreateSocials(data);
         <div class="vw-width-1-1 vw-width-expand@m">
           <article class="vw-article">
             <h1 class="vw-article-title">Vtuber • {data.name}</h1>
+            <img id="vtuber-image" src={data.image} alt={`${data.name} main image`} style="display: none;" />
             <p class="vw-text-lead vw-text-muted vtuber-desc" id="vtuber-desc">{data.description}
             </p>
             <br />
