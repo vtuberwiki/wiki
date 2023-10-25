@@ -1,11 +1,11 @@
 ---
 name: Mori Caliope
 pubDate: 2023-10-25
-banner: "/vtubers/moricaliope/banner.jpeg"
+banner: "/vtubers/moricaliope/banner.jpg"
 category: Seiso
 description: "Musician, also Death. The Grim Reaper live-streamer. (💀)"
 author: kamilattevt
-image: "/vtubers/moricaliope/photo.jpeg"
+image: "/vtubers/moricaliope/photo.jpg"
 border_color: "#FF0000"
 links: 
     - https://twitter.com/moricalliope
