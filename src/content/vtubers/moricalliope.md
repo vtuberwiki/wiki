@@ -1,5 +1,5 @@
 ---
-name: Mori Caliope
+name: Mori Calliope
 pubDate: 2023-10-25
 banner: "/vtubers/moricaliope/banner.jpg"
 category: Seiso
