@@ -4,53 +4,116 @@ import Wiki from "./OffCanvas/Wiki.astro";
 ---
 
 <header>
-	<div data-vw-sticky="animation: vw-animation-slide-top; sel-target: .vw-navbar-container; cls-active: vw-navbar-sticky; cls-inactive: vw-navbar-transparent; top: 200">
-	  <nav class="vw-navbar-container">
-	    <div class="vw-container">
-	      <div data-vw-navbar>
-	        <div class="vw-navbar-left">
-	          <a class="vw-navbar-item vw-logo vw-visible@m" href="/">Vtuber Wiki</a>
-			  <a class="vw-navbar-toggle vw-hidden@m" href="#offcanvas-wiki" data-vw-toggle><span
-				data-vw-navbar-toggle-icon></span> <span class="vw-margin-small-left">Wiki</span></a>
-	          <ul class="vw-navbar-nav vw-visible@m navbar_items">
-	            <li><a href="/">Home</a></li>
-	            <li><a href="/wiki/vtubers">Vtubers</a></li>
-	            <li><a href="/wiki/software">Software</a></li>
-	            <li><a href="/wiki/guides">Guides</a></li>
-	            <li><a href="/faq">Faq</a></li>
-	          </ul>
-	        </div>
-	        <div class="vw-navbar-right">
-	          <div>
-	            <a id="search-navbar-toggle" class="vw-navbar-toggle" data-vw-search-icon href="#"></a>
-	            <div class="vw-background-default vw-border-rounded"
-	              data-vw-drop="mode: click; pos: left-center; offset: 0">
-	              <form class="vw-search vw-search-navbar vw-width-1-1" onsubmit="return false;">
-	                <input id="search-navbar" class="vw-search-input" type="search" placeholder="Search for a specific vtuber"
-	                  autofocus autocomplete="off" data-minchars="1" data-maxitems="30">
-	              </form>
-	            </div>
-	          </div>
-	          <ul class="vw-navbar-nav vw-visible@m">
-				<li>
-					<div class="vw-navbar-item">
-					  <a class="vw-button vw-button-primary-outline" href="/changelog">Changelog</a>
-					</div>
-				  </li>
-	            <li>
-	              <div class="vw-navbar-item">
-	                <a class="vw-button vw-button-success" href="/wiki/guides/creating-vtuber-page">Submit a Vtuber</a>
-	              </div>
-	            </li>
-	          </ul>
-	          <a class="vw-navbar-toggle vw-hidden@m" href="#offcanvas" data-vw-toggle><span
-	              data-vw-navbar-toggle-icon></span> <span class="vw-margin-small-left">Menu</span></a>
-	        </div>
-	      </div>
-	    </div>
-	  </nav>
-	</div>
+  <div
+    data-vw-sticky="animation: vw-animation-slide-top; sel-target: .vw-navbar-container; cls-active: vw-navbar-sticky; cls-inactive: vw-navbar-transparent; top: 200"
+  >
+    <nav class="vw-navbar-container">
+      <div class="vw-container">
+        <div data-vw-navbar>
+          <div class="vw-navbar-left">
+            <a class="vw-navbar-item vw-logo vw-visible@m" href="/"
+              >Vtuber Wiki</a
+            >
+            <a
+              class="vw-navbar-toggle vw-hidden@m"
+              href="#offcanvas-wiki"
+              data-vw-toggle
+              ><span data-vw-navbar-toggle-icon></span>
+              <span class="vw-margin-small-left">Wiki</span></a
+            >
+            <ul class="vw-navbar-nav vw-visible@m navbar_items">
+              <li><a href="/">Home</a></li>
+              <li><a href="/wiki/vtubers">Vtubers</a></li>
+              <li><a href="/wiki/software">Software</a></li>
+              <li><a href="/wiki/guides">Guides</a></li>
+              <li><a href="/faq">Faq</a></li>
+            </ul>
+          </div>
+          <div class="vw-navbar-right">
+            <div>
+              <a
+                id="search-navbar-toggle"
+                class="vw-navbar-toggle"
+                data-vw-search-icon
+                href="#"></a>
+              <div
+                class="vw-background-default vw-border-rounded"
+                data-vw-drop="mode: click; pos: left-center; offset: 0"
+              >
+                <form
+                  class="vw-search vw-search-navbar vw-width-1-1"
+                  onsubmit="return false;"
+                >
+                  <input
+                    id="search-navbar"
+                    class="vw-search-input"
+                    type="search"
+                    placeholder="Search for a specific vtuber"
+                    autofocus
+                    autocomplete="off"
+                    data-minchars="1"
+                    data-maxitems="30"
+                  />
+                </form>
+              </div>
+            </div>
+            <ul class="vw-navbar-nav vw-visible@m">
+              <li>
+                <div class="vw-navbar-item">
+                  <a
+                    class="vw-button vw-button-primary-outline"
+                    href="/changelog">Changelog</a
+                  >
+                </div>
+              </li>
+
+              <li>
+                <div class="vw-navbar-item">
+                  <a
+                    class="vw-button vw-button-success"
+					id="discord-button-navbar"
+                    href="https://chat.vtubers.wiki">Discord</a
+                  >
+                </div>
+              </li>
+            </ul>
+            <a
+              class="vw-navbar-toggle vw-hidden@m"
+              href="#offcanvas"
+              data-vw-toggle
+              ><span data-vw-navbar-toggle-icon></span>
+              <span class="vw-margin-small-left">Menu</span></a
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
 </header>
 
 <Nav />
 <Wiki />
+
+<script is:inline>
+	(async function () {
+		try {
+			const response = await fetch("https://discord.com/api/guilds/1166212127044931718/widget.json");
+			if (!response.ok) {
+				throw new Error("Failed to fetch data");
+			}
+  
+			const data = await response.json();
+			const members = data.members.length;
+
+			const element = document.querySelector("#discord-button-navbar");
+
+			function FormatNumber(num) {
+				return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+			}
+
+			element.innerHTML = `Discord Server <span style="color: #dcddde; opacity: 0.9; font-size: 0.9em;">(${FormatNumber(members)})</span></h2>`;
+		} catch (error) {
+			console.error("An error occurred:", error);
+		}
+	})();
+</script>
