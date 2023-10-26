@@ -1,0 +1,27 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+const about = await getCollection("misc");
+
+const _ = about.find((about) => about.slug === "about");
+
+if (!_) {
+  return Astro.redirect("/");
+}
+
+const { Content } = await _.render();
+---
+
+<Layout title="About" description="Learn more about the Vtuber Wiki!">
+  <div class="vw-section">
+    <div class="vw-container vw-container-xsmall">
+      <article class="vw-article">
+        <h1 class="vw-article-title" style="text-align: center;">About Us</h1>
+        <div class="article-content link-primary">
+          <Content />
+        </div>
+      </article>
+    </div>
+  </div>
+  <script src="/js/docs.js" is:inline></script>
+</Layout>

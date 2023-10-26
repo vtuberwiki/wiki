@@ -1,0 +1,29 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const donateOptions = [
+    {
+        name: "Ko-Fi",
+        link: "https://ko-fi.com/unsignedint32"
+    },
+    {
+        name: "Throne",
+        link: "https://throne.com/int32"
+    }
+]
+---
+
+
+<Layout title="Donate" description="If you would like to support the project further, please consider donating. Your generosity will help us maintain and expand this invaluable resource for Vtuber enthusiasts and creators worldwide." img="https://media.tenor.com/jdNNn4PA-4MAAAAC/kanna-pay.gif">
+    <div class="vw-section vw-text-center">
+        <div class="vw-container vw-container-small">
+            <div data-vw-scrollspy="cls: vw-animation-slide-bottom-medium; repeat: true">
+                <h2 class="vw-h1 vw-margin-bottom">Donate</h2>
+                <p class="vw-text-lead vw-text-center">If you would like to support the project further, please consider donating. Your generosity will help us maintain and expand this invaluable resource for Vtuber enthusiasts and creators worldwide.</p>
+                {donateOptions.map((option) => (
+                    <a class="vw-button vw-button-primary vw-button-large vw-margin-medium-top" style="margin-right: 5px;" href={option.link} target="_blank">{option.name}</a>
+                ))}
+            </div>
+        </div>
+    </div>
+</Layout>
