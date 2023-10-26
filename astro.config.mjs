@@ -3,7 +3,6 @@ import Compress from "astro-compress";
 import preact from "@astrojs/preact";
 import remarkToc from 'remark-toc';
 import rehypePrettyCode from "rehype-pretty-code";
-import nodejs from '@astrojs/node';
 
 
 const prettyCodeOptions = {
