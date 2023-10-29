@@ -8,11 +8,5 @@ function replaceCheckboxesWithImages() {
                 checkbox.outerHTML = '<img src="/design/no.jpg" width="25" height="25">';
             }
         });
-
-        // Remove the script element
-        const scriptElement = document.currentScript;
-        if (scriptElement) {
-            scriptElement.parentElement.removeChild(scriptElement);
-        }
     }
     replaceCheckboxesWithImages();
