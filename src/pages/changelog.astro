@@ -1,5 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+const changelog = await getCollection("changelog");
+import { fDate, fTime } from "developer-toolkit-utils";
+
 ---
 
 <Layout
@@ -10,8 +14,39 @@ import Layout from "../layouts/Layout.astro";
     <div class="vw-container container-xxsmall">
       <h1 class="vw-article-title">Changelog</h1>
       <div class="article-content"><span><i class="bi bi-info-circle" style="color: #3778ff;"></i></span> When we release a new version of Vtuber Wiki we will post a changelog</div>
+      <hr class="vw-margin-medium-bottom">
+      <div class="vw-position-relative">
+        
+        {
+          changelog.map((changelog) => (
+          <article class="vw-article vw-margin-medium-top">
+          <h2>{changelog.data.name}<span style="color: #dcddde; opacity: 0.9; font-size: 0.6em; margin-left: 5px;">({changelog.data.code_name})</span></h2>
+        <div class="vw-position-center-left-out vw-position-large vw-visible@m vw-text-small vw-text-muted">
+          <time>
+            {fDate(changelog.data.date)}
+          </time>
+        </div>
+      <div class="article-content">
+        <div class="article-content-base">
+          {changelog.body}
+        </div>
+        <br />
+
+        {changelog.data.added ? <p><span class="vw-label" style="background-color: #3778ff"><i class="bi bi-plus-circle"></i> Added</span></p> <ul>{changelog.data.added.map((add) => <li>{add}</li>)}</ul> : ""}
+        {changelog.data.changed ? <p><span class="vw-label" style="background-color: #3aaa55"><i class="bi bi-question-lg"></i> Changed</span></p> <ul>{changelog.data.changed.map((add) => <li>{add}</li>)}</ul> : ""}
+        {changelog.data.deprecated ? <p><span class="vw-label" style="background-color: #333333"><i class="bi bi-exclamation-triangle"></i> Deprecated</span></p> <ul>{changelog.data.deprecated.map((add) => <li>{add}</li>)}</ul> : ""}
+        {changelog.data.fixed ? <p><span class="vw-label" style="background-color: #ff4772"><i class="bi bi-lightbulb"></i> Fixed</span></p> <ul>{changelog.data.fixed.map((add) => <li>{add}</li>)}</ul> : ""}
+        {changelog.data.removed ? <p><span class="vw-label" style="background-color: #ff3333"><i class="bi bi-dash-circle"></i> Removed</span></p> <ul>{changelog.data.removed.map((add) => <li>{add}</li>)}</ul> : ""}
+        {changelog.data.security ? <p><span class="vw-label" style="background-color: #fb3434"><i class="bi bi-shield"></i> Security</span></p> <ul>{changelog.data.security.map((add) => <li>{add}</li>)}</ul> : ""}
+        {changelog.data.unreleased ? <p><span class="vw-label" style="background-color: #a037ff"><i class="bi bi-slash-lg"></i> Unreleased</span></p> <ul>{changelog.data.unreleased.map((add) => <li>{add}</li>)}</ul> : ""}
+
+      </div>
+    </article>
+          ))
+        }
+    
     </div>
   </div>
-
+  <script is:inline src="https://cdn.jsdelivr.net/npm/showdown@2.1.0/dist/showdown.min.js"></script>
   <script is:inline src="/js/@include/@changelog/add.js"></script>
 </Layout>

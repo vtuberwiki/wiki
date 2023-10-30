@@ -56,6 +56,23 @@ const authorCollection = defineCollection({
   })
 })
 
+
+const changelogCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    name: z.string(),
+    code_name: z.string(),
+    date: z.date(),
+    added: z.array(z.string()).optional(),
+    changed: z.array(z.string()).optional(),
+    deprecated: z.array(z.string()).optional(),
+    fixed: z.array(z.string()).optional(),
+    removed: z.array(z.string()).optional(),
+    security: z.array(z.string()).optional(),
+    unreleased: z.array(z.string()).optional(),
+  })
+})
+
 // const artistCollection = defineCollection({
 //   type: 'content',
 //   schema: z.object({
@@ -77,5 +94,6 @@ export const collections = {
   faq: faqCollection,
   software: softwareCollection,
   authors: authorCollection,
+  changelog: changelogCollection,
   // artists: artistCollection
 };
