@@ -27,10 +27,6 @@ import { fDate, fTime } from "developer-toolkit-utils";
           </time>
         </div>
       <div class="article-content">
-        <div class="article-content-base">
-          {changelog.body}
-        </div>
-        <br />
 
         {changelog.data.added ? <p><span class="vw-label" style="background-color: #3778ff"><i class="bi bi-plus-circle"></i> Added</span></p> <ul>{changelog.data.added.map((add) => <li>{add}</li>)}</ul> : ""}
         {changelog.data.changed ? <p><span class="vw-label" style="background-color: #3aaa55"><i class="bi bi-question-lg"></i> Changed</span></p> <ul>{changelog.data.changed.map((add) => <li>{add}</li>)}</ul> : ""}
@@ -47,6 +43,4 @@ import { fDate, fTime } from "developer-toolkit-utils";
     
     </div>
   </div>
-  <script is:inline src="https://cdn.jsdelivr.net/npm/showdown@2.1.0/dist/showdown.min.js"></script>
-  <script is:inline src="/js/@include/@changelog/add.js"></script>
 </Layout>
