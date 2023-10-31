@@ -2,67 +2,67 @@
    <h1 align="center">Vtuber Wiki</h1>
 </div>
 
-Search or browse in depth information about Vtubers or software related to Vtubers
+Search or browse in-depth information about Vtubers or software related to Vtubers.
+Table of Contents
 
-## Table of Contents
+- Acknowledgements
+- Project Roadmap
+- Getting Started
+- Features
+- Contributors
+- Support Us
 
-- [Acknowledgements](#acknowledgements)
-- [Project Roadmap](#project-roadmap)
-- [Run Locally](#run-locally)
-- [Features](#features)
-- [Contributors](#contributors)
 
-## Acknowledgements
+# Acknowledgements
 
-- [@emilianavt](https://github.com/emilianavt) - **Inspiration**
 
-# Project Roadmap
+- Inspiration: Special thanks to [@emilianavt](https://github.com/emilianavt) for providing inspiration for this project.
 
-## Phase 1: `October-November`
 
-- [x] Vtubers, Software, and Guides
-- [x] Api
-- [ ] Artists
-- [ ] Documentation
+# Getting Started
 
-## Run Locally
+To get started with Vtuber Wiki, follow these simple steps:
 
-Clone the project
+1. Clone the project:
 
 ```shell
-  $ git clone https://github.com/vtuberwiki/wiki
+  user@hostname:~$ git clone https://github.com/vtuberwiki/wiki
 ```
 
-Go to the project directory
+2. Navigate to the project directory:
 
 ```shell
-  $ cd wiki
+  user@hostname:~$ cd wiki
 ```
 
-Install dependencies
+3. Install project dependencies:
 
 ```shell
-  $ npm install
+  user@hostname:~$ npm install
 ```
 
-Start the server
+4. Start the server:
 
 ```shell
-  $ npm run dev
+  user@hostname:~$ npm run dev
 ```
 
-## Features
+# Features
 
-- Cross platform
-- Vtuber Searching
-- Profile Cards
+- Cross-platform
+- Vtuber searching
+- Profile cards
+- No ads
+- All Free and Open Source
 
-### Contributors
+# Contributors
+
+Meet the contributors who have made this project possible:
 
 <table>
   <tbody>
     <tr>
-    <td align="center">
+      <td align="center">
         <a href="https://github.com/withervt">
           <img src="https://avatars.githubusercontent.com/u/93791569" width="100px;" alt="withervt"/>
           <br />
@@ -72,7 +72,7 @@ Start the server
         <a href="https://code-vtubers.wiki" title="Programming">⌨️</a><a href="https://code-vtubers.wiki" title="Writing Documentation">🖋️</a>
       </td>
       <td align="center">
-        <a href="https://github.com/kamilatte ">
+        <a href="https://github.com/kamilatte">
           <img src="https://avatars.githubusercontent.com/u/118631823" width="100px;" alt="kamilatte"/>
           <br />
           <sub><b>kamilatte</b></sub>
@@ -84,14 +84,12 @@ Start the server
   </tbody>
 </table>
 
-
-
 </br>
 </br>
 </br>
 
 <div align="center">
-<p align="center">If you like this project, please sponser it to keep the project up and running.</p>
+  <p align="center">If you like this project, please consider supporting it to keep the project up and running.</p>
 
-[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/P5P5NTG8C)
+  [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/P5P5NTG8C)
 </div>
