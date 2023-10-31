@@ -29,7 +29,7 @@ const socials = CreateSocials(data);
         <div class="vw-width-1-1 vw-width-expand@m">
           <article class="vw-article">
             <h1 class="vw-article-title">Vtuber • {data.name}</h1>
-            <img id="vtuber-image" src={data.image} alt={`${data.name} main image`} style="display: none;" />
+            <img loading="lazy" id="vtuber-image" src={data.image} alt={`${data.name} main image`} style="display: none;" />
             <p class="vw-text-lead vw-text-muted vtuber-desc" id="vtuber-desc">{data.description}
             </p>
             <br />
@@ -38,7 +38,7 @@ const socials = CreateSocials(data);
               {
                 socials.map((social: any) => (
                   <a href={social.url} target="_blank" rel="noopener" title={social.name}>
-                    <img src={`/icons/${social.icon}.svg`} alt={social.icon} width="34" height="34" style="vertical-align: middle; margin-right: 6px;" title={social.iconUppercase} />
+                    <img loading="lazy" src={`/icons/${social.icon}.svg`} alt={social.icon} width="34" height="34" style="vertical-align: middle; margin-right: 6px;" title={social.iconUppercase} />
                   </a>
                 ))
               }

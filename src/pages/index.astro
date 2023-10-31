@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Topics from '../components/Topics.astro';
 import Team from '../components/Team.astro';
+import Partners from '../components/Partners.astro';
 ---
 
 <Layout title="Welcome!" description='Welcome to the Vtuber Wiki! We have information about Vtubers of the world, and any information about software!'>
@@ -12,7 +13,7 @@ import Team from '../components/Team.astro';
 			<br />
 			<div style="align-items: center; display: flex; justify-content: center;">
 				<a href="https://github.com/vtuberwiki/wiki" style="margin-left: 5px;">
-				<img src="https://img.shields.io/github/stars/vtuberwiki/wiki?style=social" alt="Stars" />
+				<img loading="lazy" src="https://img.shields.io/github/stars/vtuberwiki/wiki?style=social" alt="Stars" />
 				</a>
 			</div>
 			<div class="hero-search">
@@ -30,4 +31,6 @@ import Team from '../components/Team.astro';
 	<Topics />
 
 	<Team />
+
+	<Partners />
 </Layout>

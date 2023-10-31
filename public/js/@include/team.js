@@ -15,7 +15,7 @@
         for (const contributor of contributors.data) {
             contributorsHTML += `<div>
                 <div class="vw-card">
-                    <img class="vw-border-circle" src="${contributor.avatar_url}" alt="${contributor.login}" />
+                    <img loading="lazy" class="vw-border-circle" src="${contributor.avatar_url}" alt="${contributor.login}" />
                     <h5 class="vw-margin-remove-bottom vw-margin-top"><a href="${contributor.html_url}" target="_blank">@${contributor.login}</a></h5>
                 </div>
             </div>`;

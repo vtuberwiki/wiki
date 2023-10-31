@@ -3,9 +3,9 @@ function replaceCheckboxesWithImages() {
 
         checkboxes.forEach(checkbox => {
             if (checkbox.hasAttribute('checked') && checkbox.hasAttribute('disabled')) {
-              checkbox.outerHTML = '<img src="/design/yes.jpg" width="25" height="25">';
+              checkbox.outerHTML = '<img loading="lazy" src="/design/yes.jpg" width="25" height="25">';
             } else if (checkbox.hasAttribute('disabled')) {
-                checkbox.outerHTML = '<img src="/design/no.jpg" width="25" height="25">';
+                checkbox.outerHTML = '<img loading="lazy" src="/design/no.jpg" width="25" height="25">';
             }
         });
     }

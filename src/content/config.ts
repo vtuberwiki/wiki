@@ -71,6 +71,16 @@ const changelogCollection = defineCollection({
     security: z.array(z.string()).optional(),
     unreleased: z.array(z.string()).optional(),
   })
+});
+
+const partnersCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    name: z.string(),
+    image: z.string(),
+    url: z.string(),
+    description: z.string(),
+  })
 })
 
 // const artistCollection = defineCollection({
@@ -95,5 +105,6 @@ export const collections = {
   software: softwareCollection,
   authors: authorCollection,
   changelog: changelogCollection,
+  partners: partnersCollection,
   // artists: artistCollection
 };

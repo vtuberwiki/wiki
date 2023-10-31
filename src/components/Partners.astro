@@ -1,0 +1,25 @@
+---
+import { getCollection } from "astro:content";
+const partners = await getCollection("partners");
+---
+
+<div class="vw-section">
+	<div class="vw-container">
+		<h2 class="vw-h1 vw-text-center">Partners</h2>
+		<p class="vw-text-lead vw-text-center">Check out our partners!</p>
+		<div class="vw-child-width-1-3@m vw-grid-match vw-text-center vw-margin-medium-top" data-vw-grid>
+			{
+                partners.map((partner) => (
+                <div>
+				<div class="vw-card vw-card-default vw-box-shadow-medium vw-card-hover vw-card-body vw-inline border-radius-large border-xlight">
+					<a class="vw-position-cover" href={`${partner.data.url}?utm_source=vtuberwiki&utm_medium=referral`}></a>
+                    <img loading="lazy" src={`/images/partners/${partner.data.image}`} alt={partner.data.name} style="width: 125px; border-radius: 50%;"/>
+					<h3 class="vw-card-title vw-margin">{partner.data.name}</h3>
+					<p>“{partner.data.description}”</p>
+				</div>
+			</div>
+                ))
+            }
+		</div>
+	</div>
+</div>
