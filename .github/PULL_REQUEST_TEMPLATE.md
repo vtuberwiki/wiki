@@ -1,17 +1,19 @@
-## Description 
-<!-- A clear and detailed description of the changes, referencing issues if applicable -->
+## Description
+<!-- Provide a clear and comprehensive description of the changes, including references to related issues if applicable. -->
 
 ## Acknowledgements
-- [ ] I read the [Guidelines](https://github.com/vtuberwiki/wiki/blob/main/.github/CONTRIBUTING.md)
-- [ ] This update is for a new Vtuber
-- [ ] This update is for a modification to an existing Vtuber
+- [ ] I have carefully reviewed the [Contributing Guidelines](https://github.com/vtuberwiki/wiki/blob/main/.github/CONTRIBUTING.md).
+- [ ] I have carefully reviewed the [Code of Conduct](https://github.com/vtuberwiki/wiki/blob/main/.github/CODE_OF_CONDUCT.md).
+<!-- Please select the most appropriate option. -->
+- [ ] This update is related to a new Vtuber.
+- [ ] This update involves modifying an existing Vtuber's information.
+- [ ] This update introduces a new functionality or feature.
 
 ## Screenshots
 <details>
-<summary> Proof showing the creation/modification is working as expected </summary>
+<summary> Proof of functionality: Screenshots and visual evidence </summary>
 
-<!-- Add screenshots here -->
-
-<!-- ![![screenshot](THIS A LINK)](THIS A LINK) -->
+<!-- Include relevant screenshots to demonstrate that the changes are working as intended. -->
+<!-- ![screenshot](INSERT_LINK_HERE) -->
 
 </details>
