@@ -3,21 +3,20 @@
 </div>
 
 Search or browse in-depth information about Vtubers or software related to Vtubers.
-Table of Contents
 
-- Acknowledgements
-- Project Roadmap
-- Getting Started
-- Features
-- Contributors
-- Support Us
+
+# Table of Contents
+
+- [Acknowledgements](#acknowledgements)
+- [Getting Started](#getting-started)
+- [Features](#features)
+- [Contributors](#contributors)
 
 
 # Acknowledgements
 
 
 - Inspiration: Special thanks to [@emilianavt](https://github.com/emilianavt) for providing inspiration for this project.
-
 
 # Getting Started
 
