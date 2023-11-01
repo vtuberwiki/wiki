@@ -15,6 +15,7 @@
     "@astrojs/vercel": "^5.0.2",
     "astro": "^3.3.0",
     "astro-compress": "^2.0.15",
+    "axios": "^1.6.0",
     "developer-toolkit-utils": "^1.0.9",
     "rehype-pretty-code": "^0.10.1",
     "remark-toc": "^9.0.0"
