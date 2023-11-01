@@ -9,7 +9,9 @@ export async function GET() {
         JSON.stringify({ ...config }), {
         status: 200,
         headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "Cache-Control": "max-age=0, s-maxage=3600",
+            "Content-Disposition": "inline",
         }
     });
 }
