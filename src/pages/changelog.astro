@@ -27,7 +27,7 @@ import { fDate, fTime } from "developer-toolkit-utils";
           </time>
         </div>
       <div class="article-content">
-
+        
         {changelog.data.added ? <p><span class="vw-label" style="background-color: #3778ff"><i class="bi bi-plus-circle"></i> Added</span></p> <ul>{changelog.data.added.map((add) => <li>{add}</li>)}</ul> : ""}
         {changelog.data.changed ? <p><span class="vw-label" style="background-color: #3aaa55"><i class="bi bi-question-lg"></i> Changed</span></p> <ul>{changelog.data.changed.map((add) => <li>{add}</li>)}</ul> : ""}
         {changelog.data.deprecated ? <p><span class="vw-label" style="background-color: #333333"><i class="bi bi-exclamation-triangle"></i> Deprecated</span></p> <ul>{changelog.data.deprecated.map((add) => <li>{add}</li>)}</ul> : ""}
