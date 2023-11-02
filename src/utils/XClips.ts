@@ -1,4 +1,4 @@
-import puppeteer from 'puppeteer';
+import puppeteer from 'puppeteer-core';
 import { getCollection } from 'astro:content';
 import axios from 'axios';
 import cron from 'node-cron';
