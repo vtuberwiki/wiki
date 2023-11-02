@@ -1,0 +1,85 @@
+---
+import ClipsLayout from "../../../layouts/ClipsLayout.astro";
+import { GetClipData } from "../../../utils/XClips";
+import type { Clip } from "../../../utils/XClips";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const entries = await getCollection("clips");
+
+  return entries.map((entry) => ({
+    params: {
+      streamer: entry.data.url
+        .replace("https://www.twitch.tv/", "")
+        .replace("/clip", "")
+        .split("/")[0],
+      slug: entry.data.url
+        .replace("https://www.twitch.tv/", "")
+        .replace("/clip", "")
+        .split("/")[1],
+    },
+  }));
+}
+
+const { streamer, slug } = Astro.params;
+
+const clip = await GetClipData(`${streamer}/${slug}`);
+---
+
+<ClipsLayout
+  title="Clips"
+  description="View all of the clips the community has contributed!"
+>
+  <section class="wiki-section-padding-3 wiki-single-movie">
+    <div class="container">
+      <div class="row no-gutters">
+        <div class="col-lg-12">
+          <div class="wiki-single-movie-wrapper style-1">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="wiki-video-holder">
+                  <video
+                    id="video"
+                    controls
+                    preload="auto"
+                    width="100%"
+                    height="550px"
+                  >
+                    <source src={clip.video} type="video/mp4" />
+                  </video>
+                </div>
+                <div class="wiki-single-movie-info">
+                  <h2 class="wiki-title">{clip.name}</h2>
+                  <div class="wiki-single-meta-holder">
+                    <ul>
+                      <li class="wiki-sen-rating">{clip.game.name}</li>
+                      <li>
+                        <i class="fas fa-eye"> </i>
+                        <span>{clip.views}</span>
+                      </li>
+                      <li>
+                        <img
+                          src="/clips/images/5881.png"
+                          alt="author-image"
+                          loading="lazy"
+                          style="width: 40px; border-radius: 50%; margin-right: 10px;"
+                        />
+                        <a
+                          href={`https://www.twitch.tv/${clip.clipper}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          style="text-decoration: none; background-color: transparent; border-color: transparent;"
+                          ><span>{clip.clipper}</span></a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</ClipsLayout>

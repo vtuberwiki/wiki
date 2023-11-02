@@ -9891,7 +9891,7 @@
 	                    if (type === 'image' || source.match(/\.(jp(e)?g|png|gif|svg|webp)($|\?)/i)) {
 
 	                        getImage(source).then(
-	                            function (img) { return this$1.setItem(item, ("<img width=\"" + (img.width) + "\" height=\"" + (img.height) + "\" src=\"" + source + "\" alt=\"" + (alt ? alt : '') + "\">")); },
+	                            function (img) { return this$1.setItem(item, ("<img loading="lazy" width=\"" + (img.width) + "\" height=\"" + (img.height) + "\" src=\"" + source + "\" alt=\"" + (alt ? alt : '') + "\">")); },
 	                            function () { return this$1.setError(item); }
 	                        );
 
