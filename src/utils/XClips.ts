@@ -36,64 +36,69 @@ const clips: Record<string, Clip> = {};
 
 
 export async function GetClip(url: string): Promise<any> {
+  try {
 
-  if (!url.startsWith("https://www.twitch.tv/")) url = `https://www.twitch.tv/${url.split("/")[0]}/clip/${url.split("/").pop()}`
-  
+    if (!url.startsWith("https://www.twitch.tv/")) url = `https://www.twitch.tv/${url.split("/")[0]}/clip/${url.split("/").pop()}`
 
-  const BASED_URL = url.replace("https://www.twitch.tv/", "").replace("/clip", "");
 
-  if (clips[BASED_URL]) return clips[BASED_URL];
+    const BASED_URL = url.replace("https://www.twitch.tv/", "").replace("/clip", "");
 
-  const browser = await puppeteer.launch({
-    headless: "new"
-  });
-  const page = await browser.newPage();
+    if (clips[BASED_URL]) return clips[BASED_URL];
 
-  await page.goto(url);
+    const browser = await puppeteer.connect({
+      browserWSEndpoint: `wss://chrome.browserless.io/?token=${import.meta.env.BROWSERLESS_TOKEN}`,
+    });
 
-  // Get the item with the class "video-ref"
+    const page = await browser.newPage();
 
-  const clip = page.evaluate(async () => {
-    const videoDiv = document.querySelector(`.video-ref`);
+    await page.goto(url);
 
-    if (!videoDiv) return EMPTY_DATA; // Provide default values
+    // Get the item with the class "video-ref"
 
-    const video = videoDiv?.querySelector('video');
+    const clip = page.evaluate(async () => {
+      const videoDiv = document.querySelector(`.video-ref`);
 
-    if (!video) return EMPTY_DATA; // Provide default values
+      if (!videoDiv) return EMPTY_DATA; // Provide default values
 
-    const clipData = document.querySelector(`.metadata-layout__split-top`);
+      const video = videoDiv?.querySelector('video');
 
-    const time = clipData?.querySelector(".CoreText-sc-1txzju1-0")?.textContent || '';
-    const name = clipData?.querySelector("h2")?.textContent || '';
-    const gameName = clipData?.querySelectorAll(".ScCoreLink-sc-16kq0mq-0")[0]?.textContent || '';
-    const gameUrl = clipData?.querySelectorAll(".ScCoreLink-sc-16kq0mq-0")[0]?.getAttribute('href') || '';
-    const clipper = clipData?.querySelectorAll(".ScCoreLink-sc-16kq0mq-0")[1]?.textContent || '';
-    const _views = clipData?.querySelectorAll(".CoreText-sc-1txzju1-0");
-    //@ts-ignore
-    const views = _views[_views.length - 1]?.textContent || '';
-    const url = window.location.href; // Get the URL from the window object
+      if (!video) return EMPTY_DATA; // Provide default values
 
-    return {
-      video: video.src,
-      name,
-      time,
-      url,
-      game: {
-        name: gameName,
-        url: gameUrl
-      },
-      clipper,
-      views: views,
-      clip_duration: new Date(video.duration * 1000).toISOString().substr(11, 8),
-    }
-  });
+      const clipData = document.querySelector(`.metadata-layout__split-top`);
 
-  clips[BASED_URL] = await clip;
+      const time = clipData?.querySelector(".CoreText-sc-1txzju1-0")?.textContent || '';
+      const name = clipData?.querySelector("h2")?.textContent || '';
+      const gameName = clipData?.querySelectorAll(".ScCoreLink-sc-16kq0mq-0")[0]?.textContent || '';
+      const gameUrl = clipData?.querySelectorAll(".ScCoreLink-sc-16kq0mq-0")[0]?.getAttribute('href') || '';
+      const clipper = clipData?.querySelectorAll(".ScCoreLink-sc-16kq0mq-0")[1]?.textContent || '';
+      const _views = clipData?.querySelectorAll(".CoreText-sc-1txzju1-0");
+      //@ts-ignore
+      const views = _views[_views.length - 1]?.textContent || '';
+      const url = window.location.href; // Get the URL from the window object
 
-  await browser.close();
+      return {
+        video: video.src,
+        name,
+        time,
+        url,
+        game: {
+          name: gameName,
+          url: gameUrl
+        },
+        clipper,
+        views: views,
+        clip_duration: new Date(video.duration * 1000).toISOString().substr(11, 8),
+      }
+    });
 
-  return clip;
+    clips[BASED_URL] = await clip;
+
+    await browser.close();
+
+    return clip;
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 export async function GetClipData(url: string) {
