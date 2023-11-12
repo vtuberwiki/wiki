@@ -3,6 +3,7 @@ import Compress from "astro-compress";
 import preact from "@astrojs/preact";
 import remarkToc from 'remark-toc';
 import rehypePrettyCode from "rehype-pretty-code";
+import sitemap from '@astrojs/sitemap';
 
 
 const prettyCodeOptions = {
@@ -30,6 +31,8 @@ export default defineConfig({
   server: {
     port: 4321
   },
+  site: 'https://vtubers.wiki',
+  integrations: [sitemap()],
   markdown: {
     remarkPlugins: [remarkToc],
     extendDefaultPlugins: true,
