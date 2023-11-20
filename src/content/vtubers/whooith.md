@@ -6,6 +6,7 @@ category: Seiso
 description: Digital Druid 🍃🪶
 author: withervt
 image: "/vtubers/whooith/photo.jpg"
+is_draft: true
 links: 
     - https://twitch.tv/whooith
     - https://discord.gg/h56zqEujpw

@@ -6,6 +6,7 @@ category: Lewd
 description: "The Celestial Wolf Goddess of Stars, Prophecy, and Vengeance is ready to meet you~"
 author: withervt
 image: "/vtubers/goddessastra/photo.jpg"
+is_draft: true
 border_color: "#d97adc"
 links: 
     - https://twitch.tv/goddessastra
