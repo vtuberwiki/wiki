@@ -68,7 +68,7 @@ Meet the contributors who have made this project possible:
           <sub><b>withervt</b></sub>
         </a>
         <br />
-        <a href="https://code-vtubers.wiki" title="Programming">⌨️</a><a href="https://code-vtubers.wiki" title="Writing Documentation">🖋️</a>
+        <a href="https://https://github.com/vtuberwiki/wiki" title="Programming">⌨️</a><a href="https://https://github.com/vtuberwiki/wiki" title="Writing Documentation">🖋️</a>
       </td>
       <td align="center">
         <a href="https://github.com/kamilatte">
@@ -77,7 +77,7 @@ Meet the contributors who have made this project possible:
           <sub><b>kamilatte</b></sub>
         </a>
         <br />
-        <a href="https://code-vtubers.wiki" title="Writing Documentation">🖋️</a>
+        <a href="https://https://github.com/vtuberwiki/wiki" title="Writing Documentation">🖋️</a>
       </td>
     </tr>
   </tbody>

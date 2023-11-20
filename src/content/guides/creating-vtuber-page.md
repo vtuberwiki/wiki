@@ -50,7 +50,7 @@ Information that **SHOULD NOT** be provided includes:
 
 To get started, follow these steps:
 
-1. Fork the repository by clicking the "Fork" button at the top of the [GitHub repository](https://code-vtubers.wiki).
+1. Fork the repository by clicking the "Fork" button at the top of the [GitHub repository](https://https://github.com/vtuberwiki/wiki).
 
 2. Clone your forked repository to your local machine
 
