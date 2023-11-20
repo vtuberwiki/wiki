@@ -5,7 +5,7 @@ pubDate: 2023-10-24
 author: withervt
 ---
 
-# Introduction
+## Introduction
 
 Are you ready to showcase your VTuber persona on The Vtuber Wiki? This guide, tailored for individuals with no prior experience in GitHub or programming, will walk you through the process step by step.
 
@@ -38,7 +38,7 @@ Now that you've gathered the essentials, you're ready to dive into creating your
 
 <br />
 
-# Essential Details
+## Essential Details
 
 When creating your VTuber page, it's crucial to include the following key information:
 
@@ -52,7 +52,7 @@ When creating your VTuber page, it's crucial to include the following key inform
 - `Border Color`: The color for your VTuber's profile card.
 - `Links`: Relevant URLs, such as Discord server, social media profiles, and streaming platform.
 
-# Standard Format Example
+## Standard Format Example
 
 Copy and paste the following template, replacing the placeholder information with your details:
 
@@ -73,7 +73,7 @@ links:
 ---
 ```
 
-# Providing Information
+## Providing Information
 
 Include comprehensive details about your VTuber while respecting privacy:
 
@@ -87,7 +87,7 @@ Do **NOT** Include:
 - Personal, private, or contact information.
 - Family details.
 
-# Getting Started
+## Getting Started
 
 Follow these beginner-friendly steps to set up your VTuber page:
 
@@ -107,7 +107,7 @@ Follow these beginner-friendly steps to set up your VTuber page:
        git checkout -b your-username
      ```
 
-## Making Changes
+### Making Changes
 
 Make your contributions with ease:
 
@@ -132,13 +132,13 @@ Make your contributions with ease:
 4. Create a Pull Request (PR):
    - Visit the original repository and click "New Pull Request." Provide a clear title and description.
 
-# Reporting Issues
+## Reporting Issues
 
 Encounter issues or bugs? Follow these steps:
 
 - Create an issue on the repository.
 - Provide detailed information, including steps to reproduce the problem.
 
-# Code of Conduct
+## Code of Conduct
 
 Our community follows a [Code of Conduct](https://github.com/vtuberwiki/wiki/blob/main/CODE_OF_CONDUCT.md). It ensures a respectful and welcoming environment for all contributors. Familiarize yourself with it for a positive collaboration experience.
