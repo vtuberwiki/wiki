@@ -53,7 +53,7 @@ function MakeProperSeo() {
 
            
             <div class="article-content link-primary">
-              {data.is_draft ? <Alert type="warning" message="This page is a draft and is not ready for public viewing. So please note that some data is incomplete." /> : ""}
+              {data.is_draft ? <Alert type="warning" message="This page is a draft and is not ready for public viewing. So please note that some data is incomplete." includeCloseButton={false} /> : ""}
                 <Content />
             </div>
             <hr class="vw-margin-medium" />
