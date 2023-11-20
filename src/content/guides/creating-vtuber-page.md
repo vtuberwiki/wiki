@@ -1,23 +1,60 @@
 ---
-title: Creating a VTuber Page
+title: "Crafting Your VTuber Profile: A Beginner-Friendly Guide"
 description: A Comprehensive Guide to Crafting a VTuber Profile
 pubDate: 2023-10-24
 author: withervt
 ---
 
-When constructing a VTuber page for The Vtuber Wiki, it is imperative to furnish the following essential details:
+# Introduction
 
-- `name`: Name of the VTuber
-- `pubDate`: Inauguration Date
-- `banner`: Banner Image URL
-- `category`: Content Category
-- `description`: VTuber Description
-- `author`: Author's Name or Username (Github)
-- `image`: VTuber Avatar Image URL
-- `links`: Array of Relevant Links
-- `border_color`: The VTuber's Border Color (For profile cards)
+Are you ready to showcase your VTuber persona on The Vtuber Wiki? This guide, tailored for individuals with no prior experience in GitHub or programming, will walk you through the process step by step.
 
-## Standard Format Example
+<details><summary>Prerequisites</summary>
+
+Before embarking on the journey to create your VTuber profile on The Vtuber Wiki, let's ensure you have everything you need. Here are the prerequisites for a smooth experience, even if you have no prior experience with GitHub or programming:
+
+1. GitHub Account:
+    - If you don't have a GitHub account, [create one](https://github.com/join). This account will be your gateway to managing and contributing to your VTuber page.
+
+2. Basic Understanding of Markdown:
+
+    - Familiarize yourself with basic [Markdown syntax](https://www.markdownguide.org/basic-syntax/) since your VTuber profile will be written in this lightweight markup language.
+
+3. Access to Git:
+
+    - Install [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) on your local machine. Git is the version control system that helps you manage your code changes.
+
+4. Text Editor:
+
+    - Choose a text editor for editing your Markdown files. If you don't have a preferred one, [Visual Studio Code](https://code.visualstudio.com/) is a popular and user-friendly choice.
+
+5. Web Browser:
+  
+      - Choose a web browser for viewing your VTuber page. If you don't have a preferred one, [Google Chrome](https://www.google.com/chrome/) is a popular and user-friendly choice.
+
+Now that you've gathered the essentials, you're ready to dive into creating your VTuber profile. Follow the step-by-step guide provided earlier, and don't hesitate to refer back to this section if needed.
+
+</details>
+
+<br />
+
+# Essential Details
+
+When creating your VTuber page, it's crucial to include the following key information:
+
+- `Name`: Your VTuber's name.
+- `Inauguration Date`: When you started your VTuber journey.
+- `Banner Image`: A URL link to your banner image.
+- `Category`: Choose the content category that best fits your style.
+- `Description`: A concise overview of your VTuber persona.
+- `Author`: Your name or username (GitHub).
+- `Avatar Image`: URL link to your VTuber avatar.
+- `Border Color`: The color for your VTuber's profile card.
+- `Links`: Relevant URLs, such as Discord server, social media profiles, and streaming platform.
+
+# Standard Format Example
+
+Copy and paste the following template, replacing the placeholder information with your details:
 
 ```markdown
 ---
@@ -29,65 +66,79 @@ description: "A concise description of your VTuber persona."
 author: "Your Author Name or Username"
 image: "URL to VTuber Avatar Image"
 border_color: "Your VTuber's Border Color"
-links: 
+links:
   - "URL to Discord Server"
   - "URL to Social Media Profile"
   - "URL to Streaming Platform"
+---
 ```
 
-## Providing Information
+# Providing Information
 
-When compiling a VTuber page, it's essential to include a **comprehensive** amount of information about the VTuber. This practice greatly aids the community in discovering the VTuber or finding similar ones.
+Include comprehensive details about your VTuber while respecting privacy:
 
-Information that **SHOULD NOT** be provided includes:
+Do Include:
 
-- Personal Information
-- Private Details
-- Contact Information
-- Family Information
+- VTuber-related information.
+- Details that help the community discover or connect with your VTuber.
 
-## Getting Started
+Do **NOT** Include:
 
-To get started, follow these steps:
+- Personal, private, or contact information.
+- Family details.
 
-1. Fork the repository by clicking the "Fork" button at the top of the [GitHub repository](https://https://github.com/vtuberwiki/wiki).
+# Getting Started
 
-2. Clone your forked repository to your local machine
+Follow these beginner-friendly steps to set up your VTuber page:
 
-```bash
-  git clone https://github.com/your-username/wiki.git
-  cd wiki
-```
+1. Fork the Repository:
 
-3. Create a new branch for your contributions:
+   - Click the "Fork" button on the [GitHub repository](https://https//github.com/vtuberwiki/wiki).
 
-```bash
-  git checkout -b feature/your-feature-name
-```
+2. Clone the Repository:
+   - Open your terminal and run the following commands:
+     ```bash
+       git clone https://github.com/your-username/wiki.git
+       cd wiki
+     ```
+3. Create a New Branch:
+   - Run the following command:
+     ```bash
+       git checkout -b your-username
+     ```
 
 ## Making Changes
 
-1. Make the necessary code changes and improvements in your branch.
+Make your contributions with ease:
 
-2. Commit your changes with a meaningful commit message:
+1. Code Changes:
 
-```bash
-  git commit -m "Add new feature: Your feature description"
-```
+   - Modify your branch with the necessary changes.
 
-3. Push your changes to your forked repository:
+2. Commit Changes:
 
-```bash
-  git push origin feature/your-feature-name
-```
+   - Commit your changes with a clear & descriptive message.
+     ```bash
+       git commit -m "Your Commit Message"
+     ```
 
-4. Create a pull request (PR) by navigating to the original repository and clicking the "New Pull Request" button. Provide a clear title and description for your PR.
+3. Push Changes:
 
-## Reporting Issues
+   - Push your changes to your forked repository:
+     ```bash
+       git push origin feature/your-feature-name
+     ```
 
-If you encounter any issues or bugs in the wiki, please create an issue on the repository. Provide as much detail as possible, including the steps to reproduce the issue.
+4. Create a Pull Request (PR):
+   - Visit the original repository and click "New Pull Request." Provide a clear title and description.
 
+# Reporting Issues
 
-## Code of Conduct
+Encounter issues or bugs? Follow these steps:
 
-We adhere to the [Code of Conduct](https://github.com/vtuberwiki/wiki/blob/main/CODE_OF_CONDUCT.md) for maintaining a respectful and welcoming environment for all contributors.
+- Create an issue on the repository.
+- Provide detailed information, including steps to reproduce the problem.
+
+# Code of Conduct
+
+Our community follows a [Code of Conduct](https://github.com/vtuberwiki/wiki/blob/main/CODE_OF_CONDUCT.md). It ensures a respectful and welcoming environment for all contributors. Familiarize yourself with it for a positive collaboration experience.
