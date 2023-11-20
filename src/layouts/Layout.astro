@@ -1,4 +1,14 @@
 ---
+interface CustomSeo {
+  favicon?: string;
+  img?: string;
+  description?: string;
+  title?: string;
+  keywords?: string;
+  generator?: string;
+  ThemeColor?: string;
+}
+
 interface Props {
   title: string;
   description?:
@@ -6,12 +16,58 @@ interface Props {
     | "Welcome to the Vtuber Wiki! We have information about Vtubers of the world, and any information about software!";
   img?: string;
   favicon?: string;
+  CustomSeo?: CustomSeo;
 }
 
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 
-const { title, description, img, favicon } = Astro.props;
+const { title, description, img, favicon, CustomSeo } = Astro.props;
+
+const seo: CustomSeo = CustomSeo || {};
+
+
+// if (Object.keys(seo).length === 0) {
+//   seo.favicon = `${favicon || "https://pbs.twimg.com/profile_images/1713923311858593792/doH2HOXp_400x400.png"}`
+//   seo.img = img || "/images/banner.jpg";
+//   seo.description = description || "Welcome to the Vtuber Wiki! We have information about Vtubers of the world, and any information about software!";
+//   seo.title = `${title}`;
+//   seo.keywords = "anime, blog streaming, twitch, twitter, x, Virtual persona, VtuberWiki, Wiki, Wikipedia, Hololive Vtubers, Vtubers Wiki, Github, Vtuber, Vtubers, Open-source, Open-source projects, Open-source software, Open-source code, Open-source repositories";
+//   seo.generator = "Github/Vercel";
+//   seo.ThemeColor = "#74e7a0";
+// }
+
+// Check if some of the values are empty
+
+function AddValues() {
+  if (!seo.favicon) seo.favicon = `${favicon || "https://pbs.twimg.com/profile_images/1713923311858593792/doH2HOXp_400x400.png"}`;
+  
+  if (!seo.img) seo.img = img || "/images/banner.jpg";
+
+  if (!seo.description) seo.description = description || "Welcome to the Vtuber Wiki! We have information about Vtubers of the world, and any information about software!";
+
+  if (!seo.title) seo.title = `${title}`;
+
+  if (!seo.keywords) seo.keywords = "anime, blog streaming, twitch, twitter, x, Virtual persona, VtuberWiki, Wiki, Wikipedia, Hololive Vtubers, Vtubers Wiki, Github, Vtuber, Vtubers, Open-source, Open-source projects, Open-source software, Open-source code, Open-source repositories";
+
+  if (!seo.generator) seo.generator = "Github/Vercel";
+
+  if (!seo.ThemeColor) seo.ThemeColor = "#74e7a0";
+
+  return seo;
+}
+
+AddValues();
+
+console.log(seo);
+
+const makeTitle = (title: string) => {
+  return `${title} | Vtuber Wiki`;
+};
+
+const makeKeywords = (keywords: string) => {
+  return `${keywords}, anime, blog streaming, twitch, twitter, x, Virtual persona, VtuberWiki, Wiki, Wikipedia, Hololive Vtubers, Vtubers Wiki, Github, Vtuber, Vtubers, Open-source, Open-source projects, Open-source software, Open-source code, Open-source repositories`;
+};
 ---
 
 <!doctype html>
@@ -23,27 +79,27 @@ const { title, description, img, favicon } = Astro.props;
     <link
       rel="icon"
       type="image/png"
-      href={favicon ||
-        "https://pbs.twimg.com/profile_images/1713923311858593792/doH2HOXp_400x400.png"}
+      href={seo.favicon}
     />
     <link rel="sitemap" href="/sitemap-index.xml" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{`${title} | Vtuber Wiki`}</title>
+    <meta name="generator" content={seo.generator} />
+    <title>{makeTitle(seo.title as string)}</title>
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="@VtubersWiki" />
-    <meta property="og:title" content={`${title} | Vtuber Wiki`} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={img || "/images/banner.jpg"} />
+    <meta property="og:title" content={makeTitle(seo.title as string)} />
+    <meta property="og:description" content={seo.description} />
+    <meta property="og:image" content={seo.img} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@VtubersWiki" />
     <meta name="twitter:creator" content="@VtubersWiki" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta content="#74e7a0" data-react-helmet="true" name="theme-color" />
+    <meta content={seo.ThemeColor} data-react-helmet="true" name="theme-color" />
     <link rel="manifest" href="/manifest.json" />
     <meta
       name="keywords"
-      content="hylia, Hylia, Developer, char32, char32, transgender, x, twitter, anime, blog, Virtual YouTuber, Streaming, Virtual persona, 2D avatar, Live chat interaction, Virtual world, Kawaii, Virtual reality, Twitch, Hololive, Software development, Coding, Programming languages, GitHub, Code repositories, Open-source projects, Web development, App development, API integration, Debugging, Gaming, Esports, Twitch streamer, Let's Plays, Gaming hardware, Console gaming, PC gaming, Game reviews, Online multiplayer, Gaming community, VtuberWiki, Wiki, Wikipedia, Hololive Vtubers, Vtubers Wiki"
+      content={makeKeywords(seo.keywords as string)}
     />
+
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="stylesheet" href="/css/mdown.css" />
     <link rel="stylesheet" href="/css/utils.css" />

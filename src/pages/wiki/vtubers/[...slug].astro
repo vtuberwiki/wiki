@@ -20,9 +20,13 @@ const { data } = entry;
 const { Content } = await entry.render();
 
 const socials = CreateSocials(data);
+
+function MakeProperSeo() {
+  return `${data.name}, ${data.name} Vtuber, ${data.name} Twitch, ${data.name} Face Reveal, ${data.name} Wiki, ${data.name} Twitter, ${data.name} Onlyfans, ${data.name} Discord, ${data.name}Vt, ${data.name} VT, ${data.name} X`
+}
 ---
 
-<Layout title={data.name} favicon={data.image} description={data.description} img={data.image}>
+<Layout title={data.name} favicon={data.image} description={data.description} img={data.image}, CustomSeo={{ keywords: MakeProperSeo() }}>
   <div class="vw-section">
     <div class="vw-container">
       <div class="vw-grid-large" data-vw-grid>
