@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import Layout from "../../../layouts/Layout.astro";
 import Sidebar from "../../../components/Wiki/Sidebar.astro";
 import CreateSocials from "../../../utils/CreateSocials";
+import Alert from "../../../components/Alerts.astro";
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection("vtubers");
@@ -48,6 +49,7 @@ const socials = CreateSocials(data);
 
            
             <div class="article-content link-primary">
+              {data.is_draft ? <Alert type="warning" message="This page is a draft and is not ready for public viewing. So please note that some data is incomplete." /> : ""}
                 <Content />
             </div>
             <hr class="vw-margin-medium" />

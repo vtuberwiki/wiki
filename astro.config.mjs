@@ -4,6 +4,7 @@ import preact from "@astrojs/preact";
 import remarkToc from 'remark-toc';
 import rehypePrettyCode from "rehype-pretty-code";
 import sitemap from '@astrojs/sitemap';
+import mdx from "@astrojs/mdx";
 
 
 const prettyCodeOptions = {
@@ -32,7 +33,6 @@ export default defineConfig({
     port: 4321
   },
   site: 'https://vtubers.wiki',
-  integrations: [sitemap()],
   markdown: {
     remarkPlugins: [remarkToc],
     extendDefaultPlugins: true,
@@ -49,5 +49,5 @@ export default defineConfig({
     Image: false,
     JavaScript: true,
     SVG: false
-  }), preact()],
+  }), preact(), sitemap(), mdx()]
 });

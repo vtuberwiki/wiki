@@ -3,7 +3,7 @@ import { z, defineCollection } from "astro:content";
 
 
 const vtuberCollection = defineCollection({
-  type: 'content',
+  type: "content",
   schema: z.object({
     name: z.string(),
     pubDate: z.date(),
@@ -15,6 +15,7 @@ const vtuberCollection = defineCollection({
     image: z.string(),
     links: z.array(z.string()),
     graduated: z.boolean().optional(),
+    is_draft: z.boolean().optional(),
   })
 });
 

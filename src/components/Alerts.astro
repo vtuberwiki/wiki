@@ -1,0 +1,40 @@
+---
+
+type AlertType = 'success' | 'danger' | 'warning' | 'info';
+
+interface Props {
+    type: AlertType;
+    message: string;
+    includeCloseButton?: boolean;
+}
+
+const { type, message, includeCloseButton } = Astro.props;
+
+const createAlertType = (type: AlertType) => {
+    switch (type) {
+        case 'success':
+            return 'background-color: #4CAF50; color: white;';
+        case 'danger':
+            return 'background-color: #f44336; color: white;';
+        case 'warning':
+            return 'background-color: #ff9800; color: white;';
+        case 'info':
+            return 'background-color: #2196F3; color: white;';
+        default:
+            return 'background-color: #2196F3; color: white;';
+    }
+}
+
+const needsCloseButton = () => {
+    if (includeCloseButton === undefined || includeCloseButton === true || includeCloseButton === null) {
+        return true;
+    }
+    return false;
+}
+
+---
+
+<div class="alert" style={createAlertType(type)}>
+    {needsCloseButton() && <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>}
+    <strong>{message}</strong>
+</div> 

@@ -51,6 +51,7 @@ When creating your VTuber page, it's crucial to include the following key inform
 - `Avatar Image`: URL link to your VTuber avatar.
 - `Border Color`: The color for your VTuber's profile card.
 - `Links`: Relevant URLs, such as Discord server, social media profiles, and streaming platform.
+- `Is a draft`: Set to `true` if you're still working on your VTuber page.
 
 ## Standard Format Example
 
@@ -58,14 +59,15 @@ Copy and paste the following template, replacing the placeholder information wit
 
 ```markdown
 ---
-name: "Your VTuber Name"
-pubDate: 20XX-XX-XX
-banner: "URL to Your Banner Image"
-category: "Select Category"
-description: "A concise description of your VTuber persona."
-author: "Your Author Name or Username"
-image: "URL to VTuber Avatar Image"
-border_color: "Your VTuber's Border Color"
+name: "Your VTuber Name" # Your VTuber's name.
+pubDate: 20XX-XX-XX # YYYY-MM-DD
+banner: "URL to Your Banner Image" # Recommended size: 1920x1080px
+category: "Select Category" # Choose from Seiso or Lewd.
+description: "A concise description of your VTuber persona." # Keep it short and sweet.
+author: "Your Author Name or Username" # GitHub Username
+image: "URL to VTuber Avatar Image" # Recommended size: 500x500px
+border_color: "Your VTuber's Border Color" # Use a hex color code.
+is_draft: false # Set to true if you're still working on your VTuber page.
 links:
   - "URL to Discord Server"
   - "URL to Social Media Profile"
