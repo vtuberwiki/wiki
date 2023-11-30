@@ -1,0 +1,32 @@
+---
+import SearchLayout from "../layouts/SearchLayout.astro";
+---
+
+<SearchLayout title="Search" description="Search for things in the wiki!">
+  <main>
+    <div class="px-4 my-5 text-center">
+      <img
+        class="d-block mx-auto mb-4"
+        src="/images/logo.png"
+        alt="Logo"
+        width="64"
+        height="64"
+      />
+      <h1 class="display-5 fw-bold" style="color: white;">
+        Vtuber Wiki Search Engine
+      </h1>
+    </div>
+    <!-- Content goes here -->
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Search..." />
+      <button
+        class="btn btn-primary"
+        onclick="(async function () { await search() })();">Search</button
+      >
+    </div>
+
+    <div id="results"></div>
+  </main>
+
+  <script is:inline src="/js/@include/search.js"></script>
+</SearchLayout>

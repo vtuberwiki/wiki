@@ -48,6 +48,14 @@ export default defineConfig({
     HTML: true,
     Image: false,
     JavaScript: true,
-    SVG: false
-  }), preact(), sitemap(), mdx()]
+    SVG: true
+  }), preact(), sitemap({
+    filter: (page) => {
+      if (page.includes('/interface/')) {
+        return false;
+      } else {
+        return true;
+      }
+    },
+  }), mdx()]
 });

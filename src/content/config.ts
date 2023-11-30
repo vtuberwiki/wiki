@@ -80,6 +80,7 @@ const partnersCollection = defineCollection({
     name: z.string(),
     image: z.string(),
     url: z.string(),
+    pubDate: z.date(),
     description: z.string(),
   })
 })
