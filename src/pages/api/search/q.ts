@@ -8,9 +8,9 @@ interface Vtuber {
   description: string;
   image: string;
   border_color: string | undefined;
-  category: string;
   date: Date;
   links: string[];
+  category: string;
 }
 
 interface Guide {
@@ -18,6 +18,7 @@ interface Guide {
   description: string;
   date: Date;
   link: string;
+  category: string;
 }
 
 interface Partner {
@@ -25,6 +26,7 @@ interface Partner {
   link: string;
   description: string;
   image: string;
+  category: string;
   date: Date;
 }
 
@@ -33,6 +35,7 @@ interface Software {
   link: string;
   description: string;
   image: string;
+  category: string;
   date: Date;
 }
 
@@ -56,15 +59,16 @@ const getData = async () => {
       description: vtuber.data.description,
       image: `${vtuber.data.image}`,
       border_color: vtuber.data.border_color,
-      category: vtuber.data.category,
       date: vtuber.data.pubDate,
       links: vtuber.data.links,
+      category: "Vtubers"
     })),
     guides: guides.map((guide) => ({
       name: guide.data.title,
       description: guide.data.description,
       link: `https://vtubers.wiki/wiki/guides/${guide.slug}`,
       date: guide.data.pubDate,
+      category: "Guides"
     })),
     partners: partners.map((partner) => ({
       name: partner.data.name,
@@ -72,6 +76,7 @@ const getData = async () => {
       description: partner.data.description,
       image: `/images/partners/${partner.data.image}`,
       date: partner.data.pubDate,
+      category: "Partners"
     })),
     software: software.map((software) => ({
       name: software.data.title,
@@ -79,6 +84,7 @@ const getData = async () => {
       description: software.data.description,
       image: software.data.main_image,
       date: software.data.pubDate,
+      category: "Software"
     })),
   };
 

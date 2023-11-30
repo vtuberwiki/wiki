@@ -114,3 +114,12 @@ main {
 .result-links a:hover {
     text-decoration: underline;
 }
+
+.tag-cloud {
+    display: inline-block;
+    color: white;
+    padding: 8px 20px;
+    border-radius: 25px;
+    background-color: #2196F3;
+    margin-top: 8px;
+  }

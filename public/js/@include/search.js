@@ -152,6 +152,7 @@ function TruncateString(str, num) {
   <p class="result-description">${item.description || "Unknown"}</p>
   <div class="result-meta">
     <span class="result-date">${FormatDate(item.date)}</span>
+    <span class="tag-cloud">${item.category}</span>
   </div>
 </div>
 </div>`;
