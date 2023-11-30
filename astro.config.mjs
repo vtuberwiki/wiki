@@ -5,8 +5,7 @@ import remarkToc from 'remark-toc';
 import rehypePrettyCode from "rehype-pretty-code";
 import sitemap from '@astrojs/sitemap';
 import mdx from "@astrojs/mdx";
-
-
+import vercel from "@astrojs/vercel/serverless";
 const prettyCodeOptions = {
   theme: "github-dark",
   onVisitLine(node) {
@@ -50,12 +49,21 @@ export default defineConfig({
     JavaScript: true,
     SVG: true
   }), preact(), sitemap({
-    filter: (page) => {
+    filter: page => {
       if (page.includes('/interface/')) {
         return false;
       } else {
         return true;
       }
+    }
+  }), mdx()],
+  output: "server",
+  adapter: vercel({
+    webAnalytics: {
+      enabled: true,
     },
-  }), mdx()]
+    speedInsights: {
+      enabled: true,
+    },
+  }),
 });

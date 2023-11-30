@@ -14,7 +14,7 @@
     "@astrojs/node": "^6.0.3",
     "@astrojs/preact": "^3.0.1",
     "@astrojs/sitemap": "^3.0.3",
-    "@astrojs/vercel": "^5.0.2",
+    "@astrojs/vercel": "^5.2.0",
     "@types/puppeteer": "^7.0.4",
     "astro": "^3.3.0",
     "astro-compress": "^2.0.15",
