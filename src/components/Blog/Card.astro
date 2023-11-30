@@ -1,0 +1,67 @@
+---
+import { getCollection } from "astro:content";
+import { fDate } from "developer-toolkit-utils"
+
+function fTime(date: Date) {
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+    const ampm = hours >= 12 ? "pm" : "am";
+    const fHours = hours % 12;
+    const fMinutes = minutes < 10 ? `0${minutes}` : minutes;
+    return `${fHours}:${fMinutes} ${ampm}`;
+}
+
+interface Props {
+    title: string;
+    author: string
+    date: Date;
+    content: string;
+    slug: string;
+}
+
+const props = Astro.props;
+
+
+
+const author = (await getCollection("authors").then((authors: any) => {
+    return authors.find((author: any) => author.data.login === props.author).data;
+}))
+
+const date = `${fDate(new Date(props.date))} at ${fTime(new Date(props.date))}`;
+
+const url = `/blog/${props.slug}`;
+---
+
+<div
+  class="vw-card vw-card-default vw-box-shadow-small vw-box-shadow-hover-medium card-post vw-inline border-radius-medium border-xlight vw-width-1-1 vw-margin"
+>
+  <a class="vw-position-cover" href={url}></a>
+  <div class="vw-card-header">
+    <div class="vw-grid-small vw-flex-middle" data-vw-grid>
+      <div class="vw-width-auto vw-first-column">
+        <img
+          class="vw-border-circle avatar"
+          src={author.avatar_url}
+          alt={author.login}
+          title={author.login}
+        />
+      </div>
+      <div class="vw-width-expand">
+        <h3 class="vw-card-title vw-margin-remove-bottom">
+          {props.title}
+        </h3>
+        <p class="vw-text-meta vw-margin-remove-top">
+          <time datetime={props.date.toString()}>{date}</time>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="vw-card-body">
+    <p>
+      {props.content}
+    </p>
+  </div>
+  <div class="vw-card-footer">
+    <span class="vw-button vw-button-text">Read more →</span>
+  </div>
+</div>

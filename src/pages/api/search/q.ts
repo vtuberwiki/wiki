@@ -13,6 +13,14 @@ interface Vtuber {
   category: string;
 }
 
+interface Blog {
+  name: string;
+  link: string;
+  description: string;
+  date: Date;
+  category: string;
+}
+
 interface Guide {
   name: string;
   description: string;
@@ -44,6 +52,7 @@ interface Data {
   guides: Guide[];
   partners: Partner[];
   software: Software[];
+  blogs: Blog[];
 }
 
 const getData = async () => {
@@ -51,6 +60,7 @@ const getData = async () => {
   const guides = await getCollection("guides");
   const partners = await getCollection("partners");
   const software = await getCollection("software");
+  const blogs = await getCollection("posts");
 
   const data: Data = {
     vtubers: vtubers.map((vtuber) => ({
@@ -86,6 +96,13 @@ const getData = async () => {
       date: software.data.pubDate,
       category: "Software"
     })),
+    blogs: blogs.map((blog) => ({
+      name: blog.data.title,
+      link: `https://vtubers.wiki/blog/${blog.slug}`,
+      description: blog.data.description,
+      date: blog.data.pubDate,
+      category: "Blog"
+    }))
   };
 
   return data;

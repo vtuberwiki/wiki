@@ -1,0 +1,210 @@
+---
+title: "Mastering Page Formatting: A Comprehensive Guide"
+pubDate: "2023-11-30T20:58:35.042Z"
+description: "Discover the art of effective page formatting using Markdown syntax and diverse types."
+author: "withervt"
+---
+
+import Alert from '../../components/Alerts.astro'
+import Post from '../../components/Post.astro'
+
+## Introduction
+
+In the realm of content creation, understanding how to format pages is essential for delivering information effectively. This guide will walk you through the nuances of page formatting using Markdown syntax and custom components. Whether you're a seasoned writer or a newcomer, these tips will enhance the readability and aesthetics of your content.
+
+
+## References
+<Post url="/wiki/guides/creating-vtuber-page" />
+
+## Markdown syntax
+
+Markdown syntax provides a straightforward way to structure your text. Familiarize yourself with some commonly used elements:
+
+### Headers
+
+
+
+```markdown
+# H1
+## H2
+### H3
+#### H4
+##### H5
+###### H6
+```
+
+
+### Text formatting
+
+
+```markdown
+**Bold text**
+*Italic text*
+~~Strikethrough text~~
+```
+
+
+### Lists
+
+
+
+```markdown
+- Item 1
+- Item 2
+- Item 3
+- [ ] Checkbox
+- [x] Checked checkbox
+```
+
+
+
+### Links
+
+
+
+```markdown
+[Link text](https://www.google.com)
+```
+
+
+### Images
+
+
+
+```markdown
+![Image alt text](https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png)
+```
+
+
+### Code blocks
+
+```markdown
+`Inline code`
+```
+
+```markdown
+```javascript
+const foo = 'bar';
+```
+```
+
+
+### Blockquotes
+
+```markdown
+> Blockquote
+```
+
+```markdown
+>> Nested blockquote
+```
+
+
+### Tables
+
+
+
+```markdown
+| Header 1 | Header 2 |
+| -------- | -------- |
+| Cell 1   | Cell 2   |
+| Cell 3   | Cell 4   |
+```
+
+
+### Details
+
+```markdown
+<details>
+This is a details block
+</details>
+```
+
+```markdown
+<details open>
+This is a details block that is open by default
+</details>
+```
+
+```markdown
+<details><summary>Details with summary</summary>
+This is a details block with a summary
+</details>
+```
+
+
+While not all elements may be used frequently, having them at your disposal enhances your flexibility. Embrace Markdown syntax to simplify both the writing and reading processes.
+
+## Custom components
+
+Beyond Markdown, our platform offers custom components to elevate your page formatting.
+
+#### Alert
+
+
+
+```javascript
+<Alert type="info | warning | danger | success" message="Hello, World" includeCloseButton="false | true">
+</Alert>
+```
+
+- Info: <Alert type="info" message="Hello, World" includeCloseButton={false} />
+- Warning: <Alert type="warning" message="Hello, World" includeCloseButton={false} />
+- Danger: <Alert type="danger" message="Hello, World" includeCloseButton={false} />
+- Success: <Alert type="success" message="Hello, World" includeCloseButton={false} />
+
+
+
+
+## Page types
+
+Tailor your content using specific page types. Here are the available options:
+
+### Vtuber
+
+Ideal for pages dedicated to vtubers, offering additional fields for detailed information.
+
+- Name
+- Date
+- Banner
+- Category
+- Description
+- Author
+- Image
+- Border Color
+- Is Draft
+- Links
+
+Example:
+
+<script src="https://gist.github.com/VtuberWikiBot/5afe7eb33a8c6da6ab8c9863e7296883.js"></script>
+
+### Guide
+
+Designed for comprehensive guides, providing extra fields for additional context.
+
+- Title
+- Description
+- Author
+- Date
+
+Example:
+<script src="https://gist.github.com/VtuberWikiBot/7db90716e109c2e18fed81b924370cc4.js"></script>
+
+### Software
+
+Tailored for software-related content, with supplementary fields for comprehensive details.
+
+- Title
+- Description
+- Date
+- Author
+- Image
+- Main Image
+
+Example:
+
+<script src="https://gist.github.com/VtuberWikiBot/4869d8267ddffe48b6819daa8dd9cdba.js"></script>
+
+
+Enhance your content creation journey by leveraging Markdown syntax and custom components. These tools empower you to craft visually appealing and informative pages, captivating your audience with a polished presentation.

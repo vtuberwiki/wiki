@@ -66,3 +66,44 @@
 .closebtn:hover {
     color: black;
 }
+
+.anchor {
+    display: inline-flex;
+    /* Use flexbox for the anchor container */
+    align-items: center;
+    /* Vertically center the items */
+    margin-right: 0.5em;
+    /* Adjust the spacing between the SVG and text */
+    vertical-align: middle;
+    /* Align the SVG vertically with the text */
+    fill: currentColor;
+    /* Use the current text color for the SVG */
+    transition: fill 0.3s ease;
+    /* Add a smooth transition effect for the fill property */
+
+    /* Additional styles if needed */
+    /* For example: font-size, color, etc. */
+}
+
+.anchor:hover {
+    fill: #007bff;
+    /* Change the fill color on hover */
+}
+
+.chip {
+    display: inline-block;
+    padding: 0 25px;
+    height: 50px;
+    font-size: 16px;
+    line-height: 50px;
+    border-radius: 25px;
+    background-color: #f1f1f1;
+}
+
+.chip img {
+    float: left;
+    margin: 0 10px 0 -25px;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
