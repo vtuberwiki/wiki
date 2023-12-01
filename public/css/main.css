@@ -4280,6 +4280,17 @@ select.vw-form-width-xsmall {
   margin: 0;
 }
 
+.vw-search-d {
+  /* 1 */
+  display: inline-block;
+  /* 2 */
+  position: relative;
+  /* 3 */
+  max-width: 100%;
+  /* 4 */
+  margin: 0;
+}
+
 /* Input
  ========================================================================== */
 /*

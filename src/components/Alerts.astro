@@ -8,6 +8,7 @@ interface Props {
     includeCloseButton?: boolean;
 }
 
+
 const { type, message, includeCloseButton } = Astro.props;
 
 const createAlertType = (type: AlertType) => {
@@ -36,5 +37,5 @@ const needsCloseButton = () => {
 
 <div class="alert" style={createAlertType(type)}>
     {needsCloseButton() && <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>}
-    <strong>{message}</strong>
+    <strong set:html={message}></strong>
 </div> 

@@ -1,54 +1,48 @@
 ---
-import SearchLayout from "../layouts/SearchLayout.astro";
+import Layout from "../layouts/Layout.astro";
+import Alert from "../components/Alerts.astro";
 ---
 
-<SearchLayout title="Search" description="Search for things in the wiki!">
-  <main>
-    <div class="px-4 my-5 text-center">
-      <img
-        class="d-block mx-auto mb-4"
-        src="/images/logo.png"
-        alt="Logo"
-        width="64"
-        height="64"
-      />
-      <h1 class="display-5 fw-bold" style="color: white;">
-        Vtuber Wiki Search Engine
-      </h1>
-    </div>
-    <div class="alert alert-primary d-flex align-items-center" role="alert">
-      <i class="bi bi-info-circle-fill me-2"></i>
-      <div>
-        <p class="mb-0">
-          This search engine is still in development. If you have any
-          suggestions, please let us know on our <a
-            href="https://github.com/vtuberwiki/.github/discussions"
-            >Discussions</a
-          > page.
-        </p>
+<Layout title="Search" description="Search for things in the wiki!">
+  <div
+    class="vw-section section-hero vw-position-relative"
+    data-vw-scrollspy="cls: vw-animation-slide-bottom-medium; repeat: true"
+  >
+    <div class="vw-container vw-container-small">
+      <p class="hero-image vw-text-center">
+        <img src="/images/knowledge.svg" alt="Hero" />
+      </p>
+      <p class="vw-text-lead vw-text-center">How can we help you?</p>
+      <div class="hero-search">
+        <div class="vw-position-relative">
+          <form
+            class="vw-search vw-search-default vw-width-1-1"
+            name="search"
+            onsubmit="return false;"
+          >
+            <span class="vw-search-icon-flip" data-vw-search-icon></span>
+            <input
+              id="search"
+              class="vw-search-input vw-box-shadow-large"
+              type="search"
+              placeholder="Search for answers"
+              autocomplete="off"
+              data-minchars="1"
+              data-maxitems="30"
+            />
+          </form>
+        </div>
       </div>
-    </div>
-    <!-- Content goes here -->
-    <div class="search-bar">
-      <input type="text" id="searchInput" placeholder="Search..." />
-      <div class="btn-group">
-        <button type="button" class="btn btn-primary" onclick="(async function () { await search() })();">Search</button>
-        <button
-          type="button"
-          class="btn btn-primary dropdown-toggle dropdown-toggle-split"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-        >
-          <span class="visually-hidden">Toggle Dropdown</span>
-        </button>
-        <ul class="dropdown-menu" id="search_quick"></ul>
+      <br />
+      <br />
+      <br />
+      <div id="res_banner">
+        <Alert type="info" message="This Search Engine Feature is in <strong><i>BETA</i></strong>. That means some things might break. If they do, please open a <a href='https://github.com/vtuberwiki/wiki/issues' style='color: red;'>issue here</a>" includeCloseButton={false} />
       </div>
+      <div id="results"></div>
     </div>
-
-    <div id="res_banner"></div>
-    <div id="results">
-    </div>
-  </main>
+  </div>
 
   <script is:inline src="/js/@include/search.js"></script>
-</SearchLayout>
+  <link rel="stylesheet" href="/css/search/styles.css">
+</Layout>
