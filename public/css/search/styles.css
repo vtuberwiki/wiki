@@ -126,6 +126,8 @@ main {
     margin-top: 8px;
 }
 
+
+
 .skeleton-loader {
     animation: loading 1.5s infinite;
     background: linear-gradient(90deg, #2c2e3e 25%, #313340 50%, #2c2e3e 75%);
