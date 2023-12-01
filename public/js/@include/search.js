@@ -132,6 +132,7 @@ function AddData(data) {
     return;
   }
 
+
   data.forEach((item) => {
     const template = `<div class="search-result" style="border: 1px solid ${item.border_color ? item.border_color : "#7289da"
       };">
