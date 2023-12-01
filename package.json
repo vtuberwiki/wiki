@@ -16,18 +16,14 @@
     "@astrojs/preact": "^3.0.1",
     "@astrojs/sitemap": "^3.0.3",
     "@astrojs/vercel": "^5.2.0",
-    "@types/puppeteer": "^7.0.4",
     "@vercel/analytics": "^1.1.1",
     "astro": "^3.3.0",
     "astro-compress": "^2.0.15",
     "axios": "^1.6.0",
-    "canvas": "^2.11.2",
     "developer-toolkit-utils": "^1.0.9",
-    "get-pixels": "^3.3.3",
     "node-cron": "^3.0.2",
     "rehype-pretty-code": "^0.10.1",
-    "remark-toc": "^9.0.0",
-    "stream-to-buffer": "^0.1.0"
+    "remark-toc": "^9.0.0"
   },
   "devDependencies": {
     "@types/node-cron": "^3.0.10"
