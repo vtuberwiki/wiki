@@ -204,7 +204,11 @@ function TruncateString(str, num) {
 
   document.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
-      search();
+      if (document.activeElement.id === "searchInput") {
+        search();
+      } else {
+        document.getElementById("searchInput").focus();
+      }
     }
   });
 
