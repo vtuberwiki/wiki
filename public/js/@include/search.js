@@ -162,7 +162,22 @@ showLink ? item.link : item.link.replace("https://vtubers.wiki", "~")
 
 const searchInput = document.getElementById("search");
 
-searchInput.addEventListener("input", async (e) => {
+const debounce = (func, delay) => {
+  let timeoutId;
+  return (...args) => {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => {
+      func.apply(null, args);
+    }, delay);
+  };
+};
+
+const delayedSearch = debounce(async (query) => {
+  const reqData = await fetch(`/api/search/q`).then((res) => res.json());
+  await search(reqData, query);
+}, 500); // You can adjust the delay time (in milliseconds) as needed
+
+searchInput.addEventListener("input", (e) => {
   const query = e.target.value;
 
   if (query.length === 0) {
@@ -170,9 +185,7 @@ searchInput.addEventListener("input", async (e) => {
     return;
   }
 
-  const reqData = await fetch(`/api/search/q`).then((res) => res.json());
-
-  await search(reqData, query);
+  delayedSearch(query);
 });
 
 function AutoFill() {
