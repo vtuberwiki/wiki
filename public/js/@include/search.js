@@ -54,12 +54,10 @@ async function search(reqData, query) {
 
     // Add unique results outside the loop
     window.location.hash = searchQuery.replace(/\s/g, "+");
-    AddSkeletons(uniqueResultsArray.length);
-    setTimeout(() => {
-      document.getElementById("results").innerHTML = "";
-      AddData(uniqueResultsArray);
-      document.getElementById("res_banner").scrollIntoView();
-    }, 1000);
+
+    document.getElementById("results").innerHTML = "";
+    AddData(uniqueResultsArray);
+    document.getElementById("res_banner").scrollIntoView();
   }
 }
 
@@ -75,18 +73,18 @@ function FormatDate(date) {
 function CreateSocials(links) {
   return Array.isArray(links)
     ? links.map((link) => {
-        return {
-          url: link,
-          iconUppercase:
-            link
-              .split("https://")
-              .pop()
-              .split(".")[0]
-              .charAt(0)
-              .toUpperCase() +
-            link.split("https://").pop().split(".")[0].slice(1),
-        };
-      })
+      return {
+        url: link,
+        iconUppercase:
+          link
+            .split("https://")
+            .pop()
+            .split(".")[0]
+            .charAt(0)
+            .toUpperCase() +
+          link.split("https://").pop().split(".")[0].slice(1),
+      };
+    })
     : [];
 }
 
@@ -135,19 +133,15 @@ function AddData(data) {
   }
 
   data.forEach((item) => {
-    const template = `<div class="search-result" style="border: 1px solid ${
-      item.border_color ? item.border_color : "#7289da"
-    };">
-<img src="${
-      item.image || "/images/logo.png"
-    }" loading="lazy" alt="Favicon" class="favicon">
+    const template = `<div class="search-result" style="border: 1px solid ${item.border_color ? item.border_color : "#7289da"
+      };">
+<img src="${item.image || "/images/logo.png"
+      }" loading="lazy" alt="Favicon" class="favicon">
 <div class="result-info">
-<h3 class="result-name"><a href="${item.link}" target="_blank">${
-item.name || "Unknown"
-}</a></h3>
-<p class="result-link">${
-showLink ? item.link : item.link.replace("https://vtubers.wiki", "~")
-}</p>
+<h3 class="result-name"><a href="${item.link}" target="_blank">${item.name || "Unknown"
+      }</a></h3>
+<p class="result-link">${showLink ? item.link : item.link.replace("https://vtubers.wiki", "~")
+      }</p>
 <p class="result-description">${item.description || "Unknown"}</p>
 <div class="result-meta">
 <span class="result-date">${FormatDate(item.date)}</span>
@@ -184,6 +178,10 @@ searchInput.addEventListener("input", (e) => {
     document.getElementById("results").innerHTML = "";
     return;
   }
+
+  document.getElementById("results").innerHTML = "";
+
+  AddSkeletons(5);
 
   delayedSearch(query);
 });
