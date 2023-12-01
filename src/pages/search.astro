@@ -1,9 +1,23 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Alert from "../components/Alerts.astro";
+
+function MakeSeoDescription() {
+  // Check if Astro.url.search has ?q= in it
+  if (Astro.url.search.includes("?q=")) {
+    // If it does, then get the query
+    const query = Astro.url.search.split("?q=")[1];
+    // Then return the description
+    return `Search results for ${query} on Vtuber Wiki`;
+  } else {
+    // If it doesn't, then return the default description
+    return "Search for things in the wiki!";
+  }
+}
+
 ---
 
-<Layout title="Search" description="Search for things in the wiki!">
+<Layout title="Search" description={MakeSeoDescription()}>
   <div
     class="vw-section section-hero vw-position-relative"
     data-vw-scrollspy="cls: vw-animation-slide-bottom-medium; repeat: true"
