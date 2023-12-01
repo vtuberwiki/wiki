@@ -34,6 +34,7 @@ async function search(reqData, query) {
   }
 
   // If no results found in any iteration, show the "No results found" message
+  window.history.replaceState({}, '', `?q=${encodeURIComponent(query)}`);
   if (noResultsFound) {
     resultsContainer.innerHTML = errorMessages.NO_RESULTS.replace(
       "%{query}",
@@ -51,9 +52,6 @@ async function search(reqData, query) {
         }
       }
     });
-
-    // Add unique results outside the loop
-    window.location.hash = searchQuery.replace(/\s/g, "+");
 
     document.getElementById("results").innerHTML = "";
     AddData(uniqueResultsArray);
@@ -175,6 +173,8 @@ const delayedSearch = debounce(async (query) => {
 searchInput.addEventListener("input", (e) => {
   const query = e.target.value;
 
+  window.history.replaceState({}, '', `?q=${encodeURIComponent(query)}`);
+
   if (query.length === 0) {
     document.getElementById("results").innerHTML = "";
     return;
@@ -189,7 +189,7 @@ searchInput.addEventListener("input", (e) => {
 
 function AutoFill() {
   const searchInput = document.getElementById("search");
-  const searchQuery = window.location.hash.replace("#", "");
+  const searchQuery = new URLSearchParams(window.location.search).get("q");
   const removeWhiteSpace =
     new URLSearchParams(window.location.search).get("rm") === "";
 
@@ -205,12 +205,13 @@ function AutoFill() {
 
 window.addEventListener("load", async () => {
   AutoFill();
-  if (window.location.hash) {
-    if (window.location.hash.replace("#", "") !== "") {
+  const SearchQuery = new URLSearchParams(window.location.search).get("q");
+  if (SearchQuery) {
+    if (SearchQuery !== "") {
       const reqData = await fetch(`/api/search/q`).then((res) =>
         res.json()
       );
-      await search(reqData, window.location.hash.replace("#", ""));
+      await search(reqData, SearchQuery);
     }
   }
 });
