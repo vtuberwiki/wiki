@@ -106,8 +106,10 @@ main {
 }
 
 .result-links a {
-    margin-right: 5px; /* Adjust the margin to reduce spacing between links */
-    color: #7ec88c; /* Google green link color */
+    margin-right: 5px;
+    /* Adjust the margin to reduce spacing between links */
+    color: #7ec88c;
+    /* Google green link color */
     text-decoration: none;
 }
 
@@ -122,4 +124,77 @@ main {
     border-radius: 25px;
     background-color: #2196F3;
     margin-top: 8px;
-  }
+}
+
+.skeleton-loader {
+    animation: loading 1.5s infinite;
+    background: linear-gradient(90deg, #2c2e3e 25%, #313340 50%, #2c2e3e 75%);
+    background-size: 200% 100%;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    padding: 15px;
+    display: flex;
+}
+
+@keyframes loading {
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+.skeleton-loader .skeleton-favicon {
+    width: 64px;
+    height: 64px;
+    margin-right: 10px;
+    border-radius: 10px;
+}
+
+.skeleton-loader .skeleton-info {
+    flex: 1;
+}
+
+.skeleton-loader .skeleton-name,
+.skeleton-loader .skeleton-link,
+.skeleton-loader .skeleton-description,
+.skeleton-loader .skeleton-meta,
+.skeleton-loader .skeleton-date,
+.skeleton-loader .skeleton-links,
+.skeleton-loader .skeleton-cloud {
+    height: 16px;
+    margin-bottom: 8px;
+    background: linear-gradient(90deg, #2c2e3e 25%, #313340 50%, #2c2e3e 75%);
+    background-size: 200% 100%;
+    border-radius: 4px;
+}
+
+.skeleton-loader .skeleton-date {
+    width: 60px;
+}
+
+.skeleton-loader .skeleton-links a {
+    margin-right: 5px;
+    color: #2c2e3e;
+    text-decoration: none;
+    background: linear-gradient(90deg, #2c2e3e 25%, #313340 50%, #2c2e3e 75%);
+    background-size: 200% 100%;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.skeleton-loader .skeleton-links a:hover {
+    text-decoration: none;
+}
+
+.skeleton-loader .skeleton-cloud {
+    display: inline-block;
+    color: transparent;
+    padding: 8px 20px;
+    border-radius: 25px;
+    background: linear-gradient(90deg, #2c2e3e 25%, #313340 50%, #2c2e3e 75%);
+    background-size: 200% 100%;
+    margin-top: 8px;
+}

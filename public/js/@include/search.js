@@ -18,12 +18,6 @@ function TruncateString(str, num) {
     const searchQuery = searchInput.value;
     const resultsContainer = document.getElementById("results");
 
-    if (!searchQuery) {
-      // Clear the results cleanly
-      resultsContainer.innerHTML = "";
-      return;
-    }
-
     // Clear the results cleanly
 
     resultsContainer.innerHTML = "";
@@ -92,7 +86,11 @@ function TruncateString(str, num) {
 
       // Add unique results outside the loop
       window.location.hash = searchQuery.replace(/\s/g, "+");
-      AddData(uniqueResultsArray);
+      AddSkeletons(uniqueResultsArray.length);
+      setTimeout(() => {
+        document.getElementById("results").innerHTML = "";
+        AddData(uniqueResultsArray);
+      }, 1000);
     }
   }
 
@@ -123,6 +121,33 @@ function TruncateString(str, num) {
       : [];
   }
 
+  function AddSkeletons(length) {
+    const resultsContainer = document.getElementById("results");
+    const skeletonTemplate = `<div class="skeleton-loader">
+    <div class="skeleton-favicon"></div>
+    <div class="skeleton-info">
+      <div class="skeleton-name"></div>
+      <div class="skeleton-link"></div>
+      <div class="skeleton-description"></div>
+      <div class="skeleton-meta">
+        <div class="skeleton-date"></div>
+      </div>
+      <div class="skeleton-links">
+        <a href="#" class="skeleton-link"></a>
+        <a href="#" class="skeleton-link"></a>
+        <a href="#" class="skeleton-link"></a>
+      </div>
+    </div>
+    <div class="skeleton-cloud"></div>
+  </div>`;
+
+    for (let i = 0; i < length; i++) {
+      resultsContainer.innerHTML += skeletonTemplate;
+    }
+  }
+
+  const showLink = new URLSearchParams(window.location.search).get("sl") === "";
+
   function AddData(data) {
     const resultsContainer = document.getElementById("results");
 
@@ -148,7 +173,7 @@ function TruncateString(str, num) {
   <h3 class="result-name"><a href="${item.link}" target="_blank">${
     item.name || "Unknown"
   }</a></h3>
-  <p class="result-link">${item.link}</p>
+  <p class="result-link">${showLink ? item.link : item.link.replace("https://vtubers.wiki", "~")}</p>
   <p class="result-description">${item.description || "Unknown"}</p>
   <div class="result-meta">
     <span class="result-date">${FormatDate(item.date)}</span>
@@ -185,5 +210,10 @@ function TruncateString(str, num) {
 
   window.addEventListener("load", () => {
     AutoFill();
-    search();
+    // Check if there is something after the hash
+    if (window.location.hash) {
+      if (window.location.hash.replace("#", "") !== "") {
+        search();
+      }
+    }
   });
