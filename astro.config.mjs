@@ -5,7 +5,8 @@ import remarkToc from 'remark-toc';
 import rehypePrettyCode from "rehype-pretty-code";
 import sitemap from '@astrojs/sitemap';
 import mdx from "@astrojs/mdx";
-import vercel from "@astrojs/vercel/serverless";
+
+
 const prettyCodeOptions = {
   theme: "github-dark",
   onVisitLine(node) {
@@ -57,10 +58,4 @@ export default defineConfig({
       }
     }
   }), mdx()],
-  output: "hybrid",
-  adapter: vercel({
-    webAnalytics: {
-      enabled: true
-    },
-  }),
 });
