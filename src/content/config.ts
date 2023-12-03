@@ -102,7 +102,7 @@ const topicsCollection = defineCollection({
     description: z.string(),
     pubDate: z.date(),
   })
-})
+});
 
 // const artistCollection = defineCollection({
 //   type: 'content',

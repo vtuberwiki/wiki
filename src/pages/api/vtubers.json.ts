@@ -16,6 +16,8 @@ export async function GET() {
         category: vtuber.data.category,
         links: vtuber.data.links,
         graduated: vtuber.data.graduated ? "Yes" : "No",
+        is_draft: vtuber.data.is_draft ? "Yes" : "No",
+        border_color: vtuber.data.border_color,
       }))}),
     };
   } catch (error) {
