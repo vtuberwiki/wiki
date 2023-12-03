@@ -12,6 +12,7 @@ export async function GET() {
         description: _.data.description,
         author: _.data.author,
         image: _.data.image,
+        body: _.body,
       }))}),
     };
   } catch (error) {
