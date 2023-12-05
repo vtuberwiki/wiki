@@ -6,8 +6,13 @@ author: "withervt"
 icon: "/static/sdks/nodejs.png"
 ---
 
+<div style="text-align: center;">
+
 [![npm downloads](https://img.shields.io/npm/dt/vtuberwiki-sdk)](https://www.npmjs.com/package/vtuberwiki-sdk)
 [![npm version](https://img.shields.io/github/package-json/v/vtuberwiki/node-sdk)](https://www.npmjs.com/package/vtuberwiki-sdk)
+
+</div>
+
 
 The VtuberWiki SDK is a JavaScript library that provides a convenient interface to access various information related to Vtubers, software, guides, authors, changelogs, partners, topics, and blogs from the VtuberWiki API.
 
@@ -28,7 +33,7 @@ npm install vtuberwiki-sdk
 import Sdk from "vtuberwiki-sdk";
 
 // Create an instance of the SDK
-const sdk = Sdk.getInstance()
+const sdk = Sdk.getInstance();
 
 // Example: Get information about Vtubers
 const vtubers = await sdk.getVtubers({ limit: 5 });
@@ -98,12 +103,13 @@ Retrieve information about partners.
 Retrieve information about topics.
 
 ### Available Parameters
+
 Each data retrieval method supports specific parameters. See the [Parameter Interfaces](https://github.com/vtuberwiki/node-sdk/blob/main/src/interfaces/config/methods.ts) section for detailed information.
 
 ### Tests
 
 Check out the [tests](./tests/index.ts) directory for more detailed usage examples.
 
-### License 
+### License
 
 This project is licensed under the GPL-3.0 License - see the [LICENSE](./LICENSE) file for details.
