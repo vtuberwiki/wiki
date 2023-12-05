@@ -53,7 +53,7 @@ const date = `${fDate(new Date(data.pubDate))} at ${fTime(
           />
           <div>
             Made by {author?.data.login}<br />
-            <time datetime={data.pubDate}>{date}</time>
+            <time datetime={data.pubDate} id="sdk-time">{date}</time>
           </div>
         </div>
         <div class="article-content link-primary">
