@@ -112,6 +112,7 @@ const sdksCollection = defineCollection({
     description: z.string(),
     author: z.string(),
     icon: z.string(),
+    github: z.string(),
   })
 });
 

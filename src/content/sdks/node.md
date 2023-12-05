@@ -4,6 +4,7 @@ pubDate: "2023-12-05T02:10:07.816Z"
 description: "The VtuberWiki SDK is a JavaScript library that provides a convenient interface to access various information related to Vtubers, software, guides, authors, changelogs, partners, topics, and blogs from the VtuberWiki API."
 author: "withervt"
 icon: "/static/sdks/nodejs.png"
+github: "https://github.com/vtuberwiki/node-sdk"
 ---
 
 <div style="text-align: center;">
