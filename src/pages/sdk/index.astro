@@ -1,0 +1,20 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import SdkCard from "../../components/Sdk/Card.astro"
+import { getCollection } from "astro:content";
+
+const sdks = await getCollection("sdks");
+---
+
+<Layout title='SDKs' description='View all the SDKs available for the VtubersWiki API.'>
+    <div class="vw-section">
+        <div class="vw-container vw-container-xsmall">
+            <h1 class="vw-article-title vw-text-center">Software Development Kits</h1>
+
+            {sdks.map((sdk) => (
+               <SdkCard title={sdk.data.name} icon={sdk.data.icon} content={sdk.data.description} date={new Date(sdk.data.pubDate)} slug={sdk.slug} />
+            ))
+            }
+        </div>
+    </div>
+</Layout>

@@ -104,6 +104,17 @@ const topicsCollection = defineCollection({
   })
 });
 
+const sdksCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    name: z.string(),
+    pubDate: z.string(),
+    description: z.string(),
+    author: z.string(),
+    icon: z.string(),
+  })
+});
+
 // const artistCollection = defineCollection({
 //   type: 'content',
 //   schema: z.object({
@@ -129,5 +140,6 @@ export const collections = {
   partners: partnersCollection,
   posts: postsCollection,
   topics: topicsCollection,
+  sdks: sdksCollection,
   // artists: artistCollection
 };
