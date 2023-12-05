@@ -11265,7 +11265,6 @@ ul.doc-nav {
   color: #fff;
 }
 
-.vw-light :not(pre) > code, .vw-section-primary:not(.vw-preserve-color) :not(pre) > code, .vw-section-secondary:not(.vw-preserve-color) :not(pre) > code, .vw-tile-primary:not(.vw-preserve-color) :not(pre) > code, .vw-tile-secondary:not(.vw-preserve-color) :not(pre) > code, .vw-card-primary.vw-card-body :not(pre) > code, .vw-card-primary > :not([class*='vw-card-media']) :not(pre) > code, .vw-card-secondary.vw-card-body :not(pre) > code, .vw-card-secondary > :not([class*='vw-card-media']) :not(pre) > code, .vw-overlay-primary :not(pre) > code,
 .vw-light :not(pre) > kbd,
 .vw-section-primary:not(.vw-preserve-color) :not(pre) > kbd,
 .vw-section-secondary:not(.vw-preserve-color) :not(pre) > kbd,
