@@ -216,7 +216,7 @@ const debounce = (func, delay) => {
  * @type {function}
  */
 const delayedSearch = debounce(async (query) => {
-  const reqData = await fetch(`/api/search/q`).then((res) => res.json());
+  const reqData = await fetch(`/api/v1/search/q`).then((res) => res.json());
   await search(reqData, query);
 }, 500);
 
@@ -260,7 +260,7 @@ window.addEventListener("load", async () => {
   autoFill();
   const searchQuery = new URLSearchParams(window.location.search).get("q");
   if (searchQuery && searchQuery !== "") {
-    const reqData = await fetch(`/api/search/q`).then((res) =>
+    const reqData = await fetch(`/api/v1/search/q`).then((res) =>
       res.json()
     );
     await search(reqData, searchQuery);

@@ -1,6 +1,6 @@
 (async function () {
     try {
-        const response = await fetch('/api/authors.json');
+        const response = await fetch('/api/v1/authors.json');
         if (!response.ok) {
             throw new Error('Failed to fetch data');
         }
