@@ -116,6 +116,15 @@ const sdksCollection = defineCollection({
   })
 });
 
+const api_collection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    version: z.number(),
+    endpoints: z.array(z.string()),
+    endpoint: z.string(),
+  })
+});
+
 // const artistCollection = defineCollection({
 //   type: 'content',
 //   schema: z.object({
@@ -142,5 +151,6 @@ export const collections = {
   posts: postsCollection,
   topics: topicsCollection,
   sdks: sdksCollection,
+  api_endpoints: api_collection,
   // artists: artistCollection
 };
