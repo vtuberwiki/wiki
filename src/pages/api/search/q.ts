@@ -13,6 +13,14 @@ interface Vtuber {
   category: string;
 }
 
+interface Sdk {
+  name: string;
+  link: string;
+  description: string;
+  date: string;
+  category: string;
+}
+
 interface Blog {
   name: string;
   link: string;
@@ -63,6 +71,7 @@ interface Data {
   software: Software[];
   blogs: Blog[];
   topics: Topic[];
+  sdks: Sdk[];
 }
 
 const getData = async () => {
@@ -72,6 +81,7 @@ const getData = async () => {
   const software = await getCollection("software");
   const blogs = await getCollection("posts");
   const topics = await getCollection("topics");
+  const sdks = await getCollection("sdks");
 
   const data: Data = {
     vtubers: vtubers.map((vtuber) => ({
@@ -121,7 +131,14 @@ const getData = async () => {
       description: topic.data.description,
       date: topic.data.pubDate,
       category: "Topics"
-    }))
+    })),
+    sdks: sdks.map((sdk) => ({
+      name: sdk.data.name,
+      link: `https://vtubers.wiki/sdk/${sdk.slug}`,
+      description: sdk.data.description,
+      date: sdk.data.pubDate,
+      category: "SDKs"
+    })),
   };
 
   return data;
