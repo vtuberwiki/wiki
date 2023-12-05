@@ -108,7 +108,7 @@ Each data retrieval method supports specific parameters. See the [Parameter Inte
 
 ### Tests
 
-Check out the [tests](./tests/index.ts) directory for more detailed usage examples.
+Check out the [tests](https://github.com/vtuberwiki/node-sdk/blob/main/tests/index.ts) directory for more detailed usage examples.
 
 ### License
 
