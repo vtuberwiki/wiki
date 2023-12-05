@@ -14,8 +14,8 @@
             return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
         }
 
-        // element.innerHTML = `Discord Server <span style="color: #dcddde; opacity: 0.9; font-size: 0.9em;">(${FormatNumber(members)})</span></h2>`;
-        element.innerHTML = `Discord Server <span style="color: red; opacity: 0.9; font-size: 0.9em;">UNAVAILABLE</span>`;
+        element.innerHTML = `Discord Server</h2>`;
+        // element.innerHTML = `Discord Server <span style="color: red; opacity: 0.9; font-size: 0.9em;">UNAVAILABLE</span>`;
     } catch (error) {
         console.error("An error occurred:", error);
     }
