@@ -19,7 +19,7 @@ const { data } = entry;
 const { Content } = await entry.render();
 ---
 
-<Layout title={`Agency • ${data.name}`} description={data.description}>
+<Layout title={`Agency • ${data.name}`} description={data.description} favicon={`/agencies/${entry.slug}/logo.png`}>
   <div class="vw-section">
     <div class="vw-container">
       <div class="vw-grid-large" data-vw-grid>
