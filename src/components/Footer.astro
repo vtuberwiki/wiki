@@ -1,18 +1,60 @@
 ---
+const socials = [
+  {
+    name: "Twitter",
+    url: "https://twitter.com/VtubersWiki",
+    icon: "/images/socials/x.svg",
+  },
+  {
+    name: "Reddit",
+    url: "https://www.reddit.com/r/vtuberwiki/",
+    icon: "/images/socials/reddit.svg",
+  },
+  {
+    name: "Discord",
+    url: "https://discord.gg/kPRTP3eya4",
+    icon: "/images/socials/discord.svg",
+  },
+  {
+    name: "Patreon",
+    url: "https://www.patreon.com/withervt",
+    icon: "/images/socials/patreon.svg",
+  },
+  {
+    name: "Github",
+    url: "https://www.github.com/vtuberwiki",
+    icon: "/images/socials/github.svg"
+  },
+];
+
+const socialsHTML = socials
+  .map(
+    (social) =>
+      `<a href="${social.url}" title="${social.name}" style="margin-right: 5px; text-decoration: none;" target="_blank" rel="noopener noreferrer">
+         <img src="${social.icon}" alt="${social.name}" title="${social.name}" class="vw-icon-link vw-icon" width="24" height="24">
+       </a>`
+  )
+  .join("");
+
+  console.log(socialsHTML);
 ---
 
 <footer class="vw-section vw-text-center vw-text-muted">
-	<div class="vw-container vw-container-small">
-		<div class="vw-margin-medium">
-			<div data-vw-grid class="vw-child-width-auto vw-grid-small vw-flex-center">
-				<div class="vw-first-column">
-					<a href="https://twitter.com/VtubersWiki" title="Twitter" style="margin-right: 5px; font-size: 1.5em;" class="bi bi-twitter vw-icon-link vw-icon" target="_blank"></a>
-					<a href="https://www.reddit.com/r/vtuberwiki/" title="Reddit" style="margin-right: 5px; font-size: 1.5em;" class="bi bi-reddit vw-icon-link vw-icon" target="_blank"></a>
-					<a href="https://discord.gg/kPRTP3eya4" title="Discord" style="margin-right: 5px; font-size: 1.5em;" class="bi bi-discord vw-icon-link vw-icon" target="_blank"></a>
-				</div>
-			</div>
-		</div>
-	</div>
-		<div class="vw-margin-medium vw-text-small copyright link-secondary">Made by <a href="https://twitter.com/withervt">@withervt</a> with ❤️ and a lot of 🍵 <span>with the help of </span> <a href="https://github.com/vtuberwiki/wiki/contributors" id="code-vtubers">the community</a></div>
-	</div>
+  <div class="vw-container vw-container-small">
+    <div class="vw-margin-medium">
+      <div
+        data-vw-grid
+        class="vw-child-width-auto vw-grid-small vw-flex-center"
+      >
+        <div class="vw-first-column" set:html={socialsHTML}></div>
+      </div>
+    </div>
+  </div>
+  <div class="vw-margin-medium vw-text-small copyright link-secondary">
+    Made by <a href="https://twitter.com/withervt">@withervt</a> with ❤️ and a
+    lot of 🍵 <span>with the help of</span>
+    <a href="https://github.com/vtuberwiki/wiki/contributors" id="code-vtubers"
+      >the community</a
+    >
+  </div>
 </footer>
