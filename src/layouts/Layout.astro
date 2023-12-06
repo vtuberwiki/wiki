@@ -27,7 +27,6 @@ const { title, description, img, favicon, CustomSeo } = Astro.props;
 
 const seo: CustomSeo = CustomSeo || {};
 
-
 // if (Object.keys(seo).length === 0) {
 //   seo.favicon = `${favicon || "https://pbs.twimg.com/profile_images/1713923311858593792/doH2HOXp_400x400.png"}`
 //   seo.img = img || "/images/banner.jpg";
@@ -41,15 +40,24 @@ const seo: CustomSeo = CustomSeo || {};
 // Check if some of the values are empty
 
 function AddValues() {
-  if (!seo.favicon) seo.favicon = `${favicon || "https://pbs.twimg.com/profile_images/1713923311858593792/doH2HOXp_400x400.png"}`;
-  
+  if (!seo.favicon)
+    seo.favicon = `${
+      favicon ||
+      "https://pbs.twimg.com/profile_images/1713923311858593792/doH2HOXp_400x400.png"
+    }`;
+
   if (!seo.img) seo.img = img || "/images/banner.jpg";
 
-  if (!seo.description) seo.description = description || "Welcome to the Vtuber Wiki! We have information about Vtubers of the world, and any information about software!";
+  if (!seo.description)
+    seo.description =
+      description ||
+      "Welcome to the Vtuber Wiki! We have information about Vtubers of the world, and any information about software!";
 
   if (!seo.title) seo.title = `${title}`;
 
-  if (!seo.keywords) seo.keywords = "VtuberWiki, VtubersWiki, Vtuber, Wiki, Wikipedia, anime, blog streaming, twitch, twitter, x, Virtual persona, VtuberWiki, Wiki, Wikipedia, Hololive Vtubers, Vtubers Wiki, Github, Vtuber, Vtubers, Open-source, Open-source projects, Open-source software, Open-source code, Open-source repositories";
+  if (!seo.keywords)
+    seo.keywords =
+      "VtuberWiki, VtubersWiki, Vtuber, Wiki, Wikipedia, anime, blog streaming, twitch, twitter, x, Virtual persona, VtuberWiki, Wiki, Wikipedia, Hololive Vtubers, Vtubers Wiki, Github, Vtuber, Vtubers, Open-source, Open-source projects, Open-source software, Open-source code, Open-source repositories";
 
   if (!seo.generator) seo.generator = "Github/Vercel";
 
@@ -75,11 +83,7 @@ const makeKeywords = (keywords: string) => {
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
-    <link
-      rel="icon"
-      type="image/png"
-      href={seo.favicon}
-    />
+    <link rel="icon" type="image/png" href={seo.favicon} />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <meta name="generator" content={seo.generator} />
     <title>{makeTitle(seo.title as string)}</title>
@@ -92,12 +96,13 @@ const makeKeywords = (keywords: string) => {
     <meta name="twitter:site" content="@VtubersWiki" />
     <meta name="twitter:creator" content="@VtubersWiki" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta content={seo.ThemeColor} data-react-helmet="true" name="theme-color" />
-    <link rel="manifest" href="/manifest.json" />
     <meta
-      name="keywords"
-      content={makeKeywords(seo.keywords as string)}
+      content={seo.ThemeColor}
+      data-react-helmet="true"
+      name="theme-color"
     />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="keywords" content={makeKeywords(seo.keywords as string)} />
 
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="stylesheet" href="/css/mdown.css" />
@@ -148,8 +153,11 @@ const makeKeywords = (keywords: string) => {
     </noscript>
   </head>
   <body>
+    <div id="snackbar">Some text some message..</div>
     <Header />
     <slot />
     <Footer />
+
+    <script is:inline src="/js/@include/commits.js"></script>
   </body>
 </html>
