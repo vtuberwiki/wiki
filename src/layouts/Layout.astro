@@ -21,7 +21,6 @@ interface Props {
 
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import Google from "../components/Google.astro";
 
 const { title, description, img, favicon, CustomSeo } = Astro.props;
 
@@ -110,7 +109,25 @@ const makeKeywords = (keywords: string) => {
     <script is:inline src="/js/awesomplete.js"></script>
     <script is:inline src="/js/custom.js"></script>
     <script is:inline src="/js/uikit.js"></script>
-    <Google />
+    <script
+  is:inline
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=G-X7C99GC9H4"></script>
+<script is:inline>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+
+  gtag("config", "G-X7C99GC9H4");
+</script>
+<script
+  is:inline
+  async
+  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9106548277815950"
+  crossorigin="anonymous"></script>
+
 
     <link
       rel="stylesheet"
