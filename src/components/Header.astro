@@ -23,10 +23,20 @@ import Wiki from "./OffCanvas/Wiki.astro";
             >
             <ul class="vw-navbar-nav vw-visible@m navbar_items">
               <li><a href="/">Home</a></li>
-              <li><a href="/wiki/vtubers">Vtubers</a></li>
-              <li><a href="/wiki/software">Software</a></li>
-              <li><a href="/wiki/guides">Guides</a></li>
+              <li>
+                <a href="#">Wiki</a>
+                <div class="vw-navbar-dropdown">
+                  <ul class="vw-nav vw-navbar-dropdown-nav">
+                    <li><a href="/wiki/vtubers">Vtubers</a></li>
+                    <li><a href="/wiki/software">Software</a></li>
+                    <li><a href="/wiki/guides">Guides</a></li>
+                    <li><a href="/wiki/agencies">Agencies</a></li>
+                  </ul>
+                </div>
+              </li>
               <li><a href="/faq">Faq</a></li>
+              <li><a href="/about">About Us</a></li>
+              <li><a href="/donate">Donate</a></li>
             </ul>
           </div>
           <div class="vw-navbar-right">
@@ -71,7 +81,7 @@ import Wiki from "./OffCanvas/Wiki.astro";
                 <div class="vw-navbar-item">
                   <a
                     class="vw-button vw-button-success"
-					id="discord-button-navbar"
+                    id="discord-button-navbar"
                     href="https://discord.gg/kPRTP3eya4">Discord</a
                   >
                 </div>

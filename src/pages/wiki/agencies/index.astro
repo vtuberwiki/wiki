@@ -1,0 +1,42 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+const agencies = await getCollection("agencies");
+---
+
+<Layout title="Agencies Index" description={`View ${agencies.length} guide${agencies.length === 1 ? "" : "s"}`}>
+  <div
+    class="vw-section section-hero vw-position-relative"
+    data-vw-scrollspy="cls: vw-animation-slide-bottom-medium; repeat: true"
+  >
+    <div class="vw-container vw-container-small">
+      <h1 class="vw-heading-medium vw-text-center vw-margin-remove-top">
+        Agencies Index
+      </h1>
+
+	<p class="vw-text-lead vw-text-center">View <code class="amoumt-count">{agencies.length}</code> agencies{agencies.length === 1 ? "" : "s"}</p>
+    </div>
+  </div>
+
+  <div class="vw-section">
+    <div class="vw-container">
+      <div
+        class="vw-child-width-1-3@m vw-grid-match vw-text-center vw-margin-medium-top"
+        data-vw-grid
+      >
+        {
+          agencies.map((a) => (
+            <div class="vtuber-card">
+              <div class="vw-card vw-card-default vw-box-shadow-medium vw-card-hover vw-card-body vw-inline border-radius-large border-xlight">
+                <a class="vw-position-cover" href={`/wiki/agencies/${a.slug}`}></a>
+                <img loading="lazy" src={`/agencies/${a.slug}/logo.png`} alt={a.data.name} style="width: 125px; border-radius: 50%;" title={a.data.name} />
+                <h3 class="vw-card-title vw-margin">{a.data.title}</h3>
+                <p>{a.data.description}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</Layout>

@@ -125,6 +125,22 @@ const api_collection = defineCollection({
   })
 });
 
+const agencyCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    name: z.string(),
+    pubDate: z.date(),
+    is_draft: z.boolean().optional(),
+    description: z.string(),
+    author: z.string(),
+    links: z.array(z.object({
+      name: z.string(),
+      href: z.string(),
+      icon: z.string().optional(),
+    })),
+  })
+});
+
 // const artistCollection = defineCollection({
 //   type: 'content',
 //   schema: z.object({
@@ -152,5 +168,6 @@ export const collections = {
   topics: topicsCollection,
   sdks: sdksCollection,
   api_endpoints: api_collection,
+  agencies: agencyCollection,
   // artists: artistCollection
 };
