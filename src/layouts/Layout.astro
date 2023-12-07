@@ -110,25 +110,37 @@ const makeKeywords = (keywords: string) => {
     <script is:inline src="/js/custom.js"></script>
     <script is:inline src="/js/uikit.js"></script>
     <script
-  is:inline
-  async
-  src="https://www.googletagmanager.com/gtag/js?id=G-X7C99GC9H4"></script>
-<script is:inline>
-  window.dataLayer = window.dataLayer || [];
-  function gtag() {
-    dataLayer.push(arguments);
-  }
-  gtag("js", new Date());
+      is:inline
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-X7C99GC9H4"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-  gtag("config", "G-X7C99GC9H4");
-</script>
-<script
-  is:inline
-  async
-  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9106548277815950"
-  crossorigin="anonymous"></script>
-
-
+      gtag("config", "G-X7C99GC9H4");
+    </script>
+    <script
+      is:inline
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9106548277815950"
+      crossorigin="anonymous"></script>
+    <script is:inline>
+      var disqus_config = function () {
+        this.page.url = window.location.href;
+        this.page.identifier = window.location.pathname;
+      };
+      (function () {
+        // DON'T EDIT BELOW THIS LINE
+        var d = document,
+          s = d.createElement("script");
+        s.src = "https://vtuberwiki.disqus.com/embed.js";
+        s.setAttribute("data-timestamp", +new Date());
+        (d.head || d.body).appendChild(s);
+      })();
+    </script>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"
