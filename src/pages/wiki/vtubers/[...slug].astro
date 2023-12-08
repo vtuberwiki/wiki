@@ -81,4 +81,18 @@ function MakeProperSeo() {
   <script src="/js/docs.js" is:inline></script>
   <script src="/js/@include/@profile/classes.js" is:inline></script>
 <script src="/js/@include/CheckD.js" is:inline></script>
+<script is:inline>
+  var disqus_config = function () {
+    this.page.url = window.location.href;
+    this.page.identifier = window.location.pathname;
+  };
+  (function () {
+    // DON'T EDIT BELOW THIS LINE
+    var d = document,
+      s = d.createElement("script");
+    s.src = "https://vtuberwiki.disqus.com/embed.js";
+    s.setAttribute("data-timestamp", +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
 </Layout>
