@@ -46,7 +46,7 @@ export default defineConfig({
   integrations: [Compress({
     CSS: true,
     HTML: true,
-    Image: false,
+    Image: true,
     JavaScript: true,
     SVG: true
   }), preact(), sitemap({
