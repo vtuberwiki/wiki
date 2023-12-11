@@ -9,9 +9,9 @@ image: "/vtubers/aisha/photo.jpg"
 border_color: "#5458b1"
 links:
   - https://twitter.com/Aisha_Channel
-  - https://www.facebook.com/AishaChannelOfficial/
-  - https://www.tiktok.com/@aishachannel8
-  - https://www.instagram.com/aisha.aisika/
+  - https://facebook.com/AishaChannelOfficial
+  - https://tiktok.com/@aishachannel8
+  - https://instagram.com/aisha.aisika
 ---
 
 
