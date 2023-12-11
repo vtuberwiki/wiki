@@ -46,18 +46,20 @@
     //     });
     // }
 
-    function getTime() {
-      const timeLocal = localStorage.getItem("X-GitHub-Time");
+    // function getTime() {
+    //   const timeLocal = localStorage.getItem("X-GitHub-Time");
 
-      if (!timeLocal) return 3000;
-      else return parseInt(timeLocal);
-    }
+    //   if (!timeLocal) return 3000;
+    //   else return parseInt(timeLocal);
+    // }
 
-    snackbar.innerHTML = `Check out the latest commit: <a href="https://github.com/vtuberwiki/wiki/commits/main" style="color: white;">branch/main</a>`;
+    // snackbar.innerHTML = `Check out the latest commit: <a href="https://github.com/vtuberwiki/wiki/commits/main" style="color: white;">branch/main</a>`;
 
-    snackbar.classList.add("show");
+    // snackbar.classList.add("show");
 
-    setTimeout(() => {
-      snackbar.classList.remove("show");
-    }, getTime());
+    // setTimeout(() => {
+    //   snackbar.classList.remove("show");
+    // }, getTime()); 
+
+    console.warn("This is deprecated. As of now, it will be removed in the next major version")
   })();
