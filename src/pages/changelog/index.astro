@@ -1,5 +1,5 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import Layout from "../../layouts/Layout.astro";
 import { getCollection } from "astro:content";
 const changelog = await getCollection("changelog");
 import { fDate, fTime } from "developer-toolkit-utils";
@@ -21,8 +21,8 @@ import { fDate, fTime } from "developer-toolkit-utils";
         
         {
           changelog.map((changelog) => (
-          <article class="vw-article vw-margin-medium-top">
-          <h2>{changelog.data.name}<span style="color: #dcddde; opacity: 0.9; font-size: 0.6em; margin-left: 5px;">({changelog.data.code_name})</span></h2>
+          <article class="vw-article vw-margin-medium-top cl" data-id={changelog.slug}>
+          <h2>{changelog.data.name}<span style="color: #dcddde; opacity: 0.9; font-size: 0.6em; margin-left: 5px;">({fDate(changelog.data.date)})</span></h2>
         <div class="vw-position-center-left-out vw-position-large vw-visible@m vw-text-small vw-text-muted">
         </div>
       <div class="article-content">
@@ -34,9 +34,6 @@ import { fDate, fTime } from "developer-toolkit-utils";
         {changelog.data.removed ? <p><span class="vw-label" style="background-color: #ff3333"><i class="bi bi-dash-circle"></i> Removed</span></p> <ul>{changelog.data.removed.map((add) => <li>{add}</li>)}</ul> : ""}
         {changelog.data.security ? <p><span class="vw-label" style="background-color: #fb3434"><i class="bi bi-shield"></i> Security</span></p> <ul>{changelog.data.security.map((add) => <li>{add}</li>)}</ul> : ""}
         {changelog.data.unreleased ? <p><span class="vw-label" style="background-color: #a037ff"><i class="bi bi-slash-lg"></i> Unreleased</span></p> <ul>{changelog.data.unreleased.map((add) => <li>{add}</li>)}</ul> : ""}
-
-        <div class="clcont">{changelog.body}</div>
-
       </div>
     </article>
           )).reverse()
@@ -44,14 +41,18 @@ import { fDate, fTime } from "developer-toolkit-utils";
     
     </div>
   </div>
-  <script is:inline src="https://cdn.jsdelivr.net/npm/showdown@2.1.0/dist/showdown.min.js"></script>
+
   <script is:inline defer>
-    var converter = new showdown.Converter();
+    const ChangeLogs = document.querySelectorAll(".cl");
 
-const content = document.querySelectorAll(".clcont");
+for (const ChangeLog of ChangeLogs) {
+  const id = ChangeLog.getAttribute("data-id");
 
-content.forEach((item) => {
-    item.innerHTML = converter.makeHtml(item.innerHTML);
-})
+  ChangeLog.addEventListener("click", function (e) {
+    e.preventDefault();
+    window.location.href = `/changelog/${id}`;
+  });
+}
+
   </script>
 </Layout>

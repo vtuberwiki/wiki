@@ -1,0 +1,176 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import BlogCard from "../../components/Blog/Card.astro";
+import { getCollection } from "astro:content";
+import { fDate } from "developer-toolkit-utils";
+import alert from "../../components/Alerts.astro";
+import post from "../../components/Post.astro";
+
+function fTime(date: Date) {
+  const hours = date.getHours();
+  const minutes = date.getMinutes();
+  const ampm = hours >= 12 ? "pm" : "am";
+  const fHours = hours % 12;
+  const fMinutes = minutes < 10 ? `0${minutes}` : minutes;
+  return `${fHours}:${fMinutes} ${ampm}`;
+}
+
+export async function getStaticPaths() {
+  const Entries = await getCollection("changelog");
+  return Entries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+
+const { data } = entry;
+
+const { Content } = await entry.render();
+
+const date = `${fDate(new Date(data.date))} at ${fTime(new Date(data.date))}`;
+---
+
+<Layout title={`${data.name}`} description={`Check out ${data.name}`}>
+  <div class="vw-section">
+    <div class="vw-container vw-container-xsmall">
+      <article class="vw-article">
+        <h1 class="vw-article-title">{data.name}</h1>
+        <div class="article-content link-primary">
+            <hr />
+          {
+            data.added ? (
+              <>
+                <p>
+                  <span class="vw-label" style="background-color: #3778ff">
+                    <i class="bi bi-plus-circle" /> Added
+                  </span>
+                </p>
+                <ul>
+                  {data.added.map((add) => (
+                    <li>{add}</li>
+                  ))}
+                </ul>
+              </>
+            ) : (
+              ""
+            )
+          }
+          {
+            data.changed ? (
+              <>
+                <p>
+                  <span class="vw-label" style="background-color: #3aaa55">
+                    <i class="bi bi-question-lg" /> Changed
+                  </span>
+                </p>
+                <ul>
+                  {data.changed.map((add) => (
+                    <li>{add}</li>
+                  ))}
+                </ul>
+              </>
+            ) : (
+              ""
+            )
+          }
+          {
+            data.deprecated ? (
+              <>
+                <p>
+                  <span class="vw-label" style="background-color: #333333">
+                    <i class="bi bi-exclamation-triangle" /> Deprecated
+                  </span>
+                </p>
+                <ul>
+                  {data.deprecated.map((add) => (
+                    <li>{add}</li>
+                  ))}
+                </ul>
+              </>
+            ) : (
+              ""
+            )
+          }
+          {
+            data.fixed ? (
+              <>
+                <p>
+                  <span class="vw-label" style="background-color: #ff4772">
+                    <i class="bi bi-lightbulb" /> Fixed
+                  </span>
+                </p>
+                <ul>
+                  {data.fixed.map((add) => (
+                    <li>{add}</li>
+                  ))}
+                </ul>
+              </>
+            ) : (
+              ""
+            )
+          }
+          {
+            data.removed ? (
+              <>
+                <p>
+                  <span class="vw-label" style="background-color: #ff3333">
+                    <i class="bi bi-dash-circle" /> Removed
+                  </span>
+                </p>
+                <ul>
+                  {data.removed.map((add) => (
+                    <li>{add}</li>
+                  ))}
+                </ul>
+              </>
+            ) : (
+              ""
+            )
+          }
+          {
+            data.security ? (
+              <>
+                <p>
+                  <span class="vw-label" style="background-color: #fb3434">
+                    <i class="bi bi-shield" /> Security
+                  </span>
+                </p>
+                <ul>
+                  {data.security.map((add) => (
+                    <li>{add}</li>
+                  ))}
+                </ul>
+              </>
+            ) : (
+              ""
+            )
+          }
+          {
+            data.unreleased ? (
+              <>
+                <p>
+                  <span class="vw-label" style="background-color: #a037ff">
+                    <i class="bi bi-slash-lg" /> Unreleased
+                  </span>
+                </p>
+                <ul>
+                  {data.unreleased.map((add) => (
+                    <li>{add}</li>
+                  ))}
+                </ul>
+              </>
+            ) : (
+              ""
+            )
+          }
+            <hr />
+          <Content />
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <script src="/js/docs.js" is:inline></script>
+</Layout>
