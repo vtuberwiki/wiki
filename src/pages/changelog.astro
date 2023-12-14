@@ -4,6 +4,8 @@ import { getCollection } from "astro:content";
 const changelog = await getCollection("changelog");
 import { fDate, fTime } from "developer-toolkit-utils";
 
+
+
 ---
 
 <Layout
@@ -33,11 +35,23 @@ import { fDate, fTime } from "developer-toolkit-utils";
         {changelog.data.security ? <p><span class="vw-label" style="background-color: #fb3434"><i class="bi bi-shield"></i> Security</span></p> <ul>{changelog.data.security.map((add) => <li>{add}</li>)}</ul> : ""}
         {changelog.data.unreleased ? <p><span class="vw-label" style="background-color: #a037ff"><i class="bi bi-slash-lg"></i> Unreleased</span></p> <ul>{changelog.data.unreleased.map((add) => <li>{add}</li>)}</ul> : ""}
 
+        <div class="clcont">{changelog.body}</div>
+
       </div>
     </article>
-          ))
+          )).reverse()
         }
     
     </div>
   </div>
+  <script is:inline src="https://cdn.jsdelivr.net/npm/showdown@2.1.0/dist/showdown.min.js"></script>
+  <script is:inline defer>
+    var converter = new showdown.Converter();
+
+const content = document.querySelectorAll(".clcont");
+
+content.forEach((item) => {
+    item.innerHTML = converter.makeHtml(item.innerHTML);
+})
+  </script>
 </Layout>
