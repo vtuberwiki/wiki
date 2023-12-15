@@ -30,9 +30,7 @@ const socials = [
 const socialsHTML = socials
   .map(
     (social) =>
-      `<a href="${social.url}" title="${social.name}" style="margin-right: 5px; text-decoration: none;" target="_blank" rel="noopener noreferrer">
-         <img src="${social.icon}" alt="${social.name}" title="${social.name}" class="vw-icon-link vw-icon" width="24" height="24">
-       </a>`
+      ``
   )
   .join("");
 ---
@@ -44,7 +42,7 @@ const socialsHTML = socials
         data-vw-grid
         class="vw-child-width-auto vw-grid-small vw-flex-center"
       >
-        <div class="vw-first-column" set:html={socialsHTML}></div>
+        <div class="vw-first-column" id="foot_so"></div>
       </div>
     </div>
   </div>
@@ -55,3 +53,5 @@ const socialsHTML = socials
     >
   </div>
 </footer>
+
+<script is:inline src="/js/@bootstrap/socials_footer.js"></script>
