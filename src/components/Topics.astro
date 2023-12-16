@@ -17,7 +17,7 @@ const topics = await getCollection("topics");
           <div>
             <div class="vw-card vw-card-default vw-box-shadow-medium vw-card-hover vw-card-body vw-inline border-radius-large border-xlight">
               <a class="vw-position-cover" href={`/wiki/${topic.slug}`} />
-			  <img src={`/icons/misc/topics/${topic.slug}.svg`} style="width: 2.4rem;" />
+			  <img src={`/static/icons/misc/topics/${topic.slug}.svg`} style="width: 2.4rem;" />
               <h3 class="vw-card-title vw-margin">{topic.data.title}</h3>
               <p>{topic.data.description}</p>
             </div>

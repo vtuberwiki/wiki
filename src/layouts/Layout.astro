@@ -26,26 +26,14 @@ const { title, description, img, favicon, CustomSeo } = Astro.props;
 
 const seo: CustomSeo = CustomSeo || {};
 
-// if (Object.keys(seo).length === 0) {
-//   seo.favicon = `${favicon || "https://pbs.twimg.com/profile_images/1713923311858593792/doH2HOXp_400x400.png"}`
-//   seo.img = img || "/images/banner.jpg";
-//   seo.description = description || "Welcome to the Vtuber Wiki! We have information about Vtubers of the world, and any information about software!";
-//   seo.title = `${title}`;
-//   seo.keywords = "anime, blog streaming, twitch, twitter, x, Virtual persona, VtuberWiki, Wiki, Wikipedia, Hololive Vtubers, Vtubers Wiki, Github, Vtuber, Vtubers, Open-source, Open-source projects, Open-source software, Open-source code, Open-source repositories";
-//   seo.generator = "Github/Vercel";
-//   seo.ThemeColor = "#74e7a0";
-// }
-
-// Check if some of the values are empty
-
 function AddValues() {
   if (!seo.favicon)
     seo.favicon = `${
       favicon ||
-      "https://pbs.twimg.com/profile_images/1713923311858593792/doH2HOXp_400x400.png"
+      "/static/images/icon.png"
     }`;
 
-  if (!seo.img) seo.img = img || "/images/banner.jpg";
+  if (!seo.img) seo.img = img || "/static/images/banner.jpg";
 
   if (!seo.description)
     seo.description =
@@ -103,13 +91,13 @@ const makeKeywords = (keywords: string) => {
     <link rel="manifest" href="/manifest.json" />
     <meta name="keywords" content={makeKeywords(seo.keywords as string)} />
 
-    <link rel="stylesheet" href="/css/main.css" />
-    <link rel="stylesheet" href="/css/mdown.css" />
-    <link rel="stylesheet" href="/css/utils.css" />
-    <script is:inline src="/js/awesomplete.js"></script>
-    <script is:inline src="/js/custom.js"></script>
-    <script is:inline src="/js/uikit.js"></script>
-    <script is:inline src="/js/@bootstrap/translate.js"></script>
+    <link rel="stylesheet" href="/static/css/main.css" />
+    <link rel="stylesheet" href="/static/css/mdown.css" />
+    <link rel="stylesheet" href="/static/css/utils.css" />
+    <script is:inline src="/static/js/awesomplete.js"></script>
+    <script is:inline src="/static/js/custom.js"></script>
+    <script is:inline src="/static/js/uikit.js"></script>
+    <script is:inline src="/static/js/@bootstrap/translate.js"></script>
     <script is:inline type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <div id="google_translate_element"></div>
     <script
@@ -176,6 +164,6 @@ const makeKeywords = (keywords: string) => {
     <slot />
     <Footer />
 
-    <script is:inline src="/js/@include/commits.js"></script>
+    <script is:inline src="/static/js/@include/commits.js"></script>
   </body>
 </html>

@@ -1,11 +1,11 @@
 ---
 name: Pengy
 pubDate: 2023-10-24
-banner: "/vtubers/pengy/banner.jpg"
+banner: "/static/vtubers/pengy/banner.jpg"
 category: Lewd
 description: "Aussie Vtuber with a heart of gold, a passion for making friends and a love for retro, action and fps games"
 author: withervt
-image: "/vtubers/pengy/photo.jpg"
+image: "/static/vtubers/pengy/photo.jpg"
 border_color: "#5d4f9b"
 links: 
     - https://twitter.com/PengyVT

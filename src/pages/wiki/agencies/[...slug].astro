@@ -33,7 +33,7 @@ const { Content } = await entry.render();
               {data.is_draft ? <Alert type="warning" message="This page is a draft and is not ready for public viewing. So please note that some data is incomplete." includeCloseButton={false} /> : ""}
               <p>
                 <img
-                  src={`/agencies/${entry.slug}/banner.png`}
+                  src={`/static/agencies/${entry.slug}/banner.png`}
                   alt={`${data.name} main image`}
                   style="width: 100%; border-radius: 10px;"
                   loading="lazy"
@@ -61,7 +61,7 @@ const { Content } = await entry.render();
       </div>
     </div>
   </div>
-  <script src="/js/docs.js" is:inline></script>
+  <script src="/static/js/docs.js" is:inline></script>
   <script is:inline>
     var disqus_config = function () {
       this.page.url = window.location.href;
@@ -76,5 +76,5 @@ const { Content } = await entry.render();
       (d.head || d.body).appendChild(s);
     })();
   </script>
-  <script src="/js/@include/CheckD.js" is:inline></script>
+  <script src="/static/js/@include/CheckD.js" is:inline></script>
 </Layout>

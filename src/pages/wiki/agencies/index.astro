@@ -29,8 +29,8 @@ const agencies = await getCollection("agencies");
             <div class="vtuber-card">
               <div class="vw-card vw-card-default vw-box-shadow-medium vw-card-hover vw-card-body vw-inline border-radius-large border-xlight">
                 <a class="vw-position-cover" href={`/wiki/agencies/${a.slug}`}></a>
-                <img loading="lazy" src={`/agencies/${a.slug}/logo.png`} alt={a.data.name} style="width: 125px; border-radius: 50%;" title={a.data.name} />
-                <h3 class="vw-card-title vw-margin">{a.data.title}</h3>
+                <img loading="lazy" src={`/static/agencies/${a.slug}/logo.png`} alt={a.data.name} style="width: 125px; border-radius: 50%;" title={a.data.name} />
+                <h3 class="vw-card-title vw-margin">{a.data.name}</h3>
                 <p>{a.data.description}</p>
               </div>
             </div>

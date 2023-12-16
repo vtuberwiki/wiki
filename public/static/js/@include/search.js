@@ -173,7 +173,7 @@ function addData(data) {
     const template = `<div class="search-result" style="border: 1px solid ${
       item.border_color ? item.border_color : "#7289da"
     };">
-      <img src="${item.image || "/images/logo.png"}" loading="lazy" alt="Favicon" class="favicon">
+      <img src="${item.image || "/static/images/logo.png"}" loading="lazy" alt="Favicon" class="favicon">
       <div class="result-info">
         <h3 class="result-name"><a href="${item.link}" target="_blank">${item.name || "Unknown"}</a></h3>
         <p class="result-link">${showLink ? item.link : item.link.replace("https://vtubers.wiki", "~")}</p>

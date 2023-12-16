@@ -46,15 +46,6 @@ interface Topic {
   category: string;
 }
 
-interface Partner {
-  name: string;
-  link: string;
-  description: string;
-  image: string;
-  category: string;
-  date: Date;
-}
-
 interface Software {
   name: string;
   link: string;
@@ -67,7 +58,6 @@ interface Software {
 interface Data {
   vtubers: Vtuber[];
   guides: Guide[];
-  partners: Partner[];
   software: Software[];
   blogs: Blog[];
   topics: Topic[];
@@ -101,14 +91,6 @@ const getData = async () => {
       date: guide.data.pubDate,
       category: "Guides"
     })),
-    partners: partners.map((partner) => ({
-      name: partner.data.name,
-      link: partner.data.url,
-      description: partner.data.description,
-      image: `/images/partners/${partner.data.image}`,
-      date: partner.data.pubDate,
-      category: "Partners"
-    })),
     software: software.map((software) => ({
       name: software.data.title,
       link: `https://vtubers.wiki/wiki/software/${software.slug}`,
@@ -127,7 +109,7 @@ const getData = async () => {
     topics: topics.map((topic) => ({
       name: topic.data.title,
       link: `https://vtubers.wiki/wiki/${topic.slug}`,
-      image: `/icons/misc/topics/${topic.slug}.svg`,
+      image: `/static/icons/misc/topics/${topic.slug}.svg`,
       description: topic.data.description,
       date: topic.data.pubDate,
       category: "Topics"

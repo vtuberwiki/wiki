@@ -25,12 +25,12 @@ const guides = await getCollection("guides");
         data-vw-grid
       >
         {
-          guides.map((vtuber) => (
+          guides.map((guide) => (
             <div class="vtuber-card">
               <div class="vw-card vw-card-default vw-box-shadow-medium vw-card-hover vw-card-body vw-inline border-radius-large border-xlight">
-                <a class="vw-position-cover" href={`/wiki/guides/${vtuber.slug}`}></a>
-                <h3 class="vw-card-title vw-margin">{vtuber.data.title}</h3>
-                <p>{vtuber.data.description}</p>
+                <a class="vw-position-cover" href={`/wiki/guides/${guide.slug}`}></a>
+                <h3 class="vw-card-title vw-margin">{guide.data.title}</h3>
+                <p>{guide.data.description}</p>
               </div>
             </div>
           ))

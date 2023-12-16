@@ -1,11 +1,11 @@
 ---
 name: Aisika Wachanaroj
 pubDate: 2023-12-11
-banner: "/vtubers/aisha/banner.jpg"
+banner: "/static/vtubers/aisha/banner.jpg"
 category: Unknown
 description: "Aisha is a friendly and cheerful person. She always loves to learn something new and enjoys studying lots. At times, she's also quite childish and demanding of her viewers to fulfill her small demands. She is also an easily hopeful person. "
 author: withervt
-image: "/vtubers/aisha/photo.jpg"
+image: "/static/vtubers/aisha/photo.jpg"
 border_color: "#5458b1"
 links:
   - https://twitter.com/Aisha_Channel
@@ -26,24 +26,24 @@ However, a group of researchers, being sent by the X.A.L.T.Z. agency, sent her a
 ### Debut
 
 <video controls width="560" height="315">
-  <source src="/vtubers/aisha/media/videos/debut.mp4" type="video/mp4" />
+  <source src="/static/vtubers/aisha/media/videos/debut.mp4" type="video/mp4" />
 </video>
 
 ### Self Introduction
 
 <video controls width="560" height="315">
-  <source src="/vtubers/aisha/media/videos/intro.mp4" type="video/mp4" />
+  <source src="/static/vtubers/aisha/media/videos/intro.mp4" type="video/mp4" />
 </video>
 
 ## Images
 
 ### Live2D
 
-<img src="/vtubers/aisha/media/images/live2d.webp" type="image/webp" />
+<img src="/static/vtubers/aisha/media/images/live2d.webp" type="image/webp" />
 
 ### 3D
 
-<img src="/vtubers/aisha/media/images/3d.webp" type="image/webp" style="border-radius: 50px;" />
+<img src="/static/vtubers/aisha/media/images/3d.webp" type="image/webp" style="border-radius: 50px;" />
 
 ## Appearance
 

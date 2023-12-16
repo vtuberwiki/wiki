@@ -10,27 +10,27 @@ interface SocialMedia {
 const data = [
     {
         name: "X",
-        icon: "/images/socials/x.{{ext}}",
+        icon: "/static/images/socials/x.{{ext}}",
         href: "https://twitter.com/VtubersWiki",
     },
     {
         name: "Reddit",
-        icon: "/images/socials/reddit.{{ext}}",
+        icon: "/static/images/socials/reddit.{{ext}}",
         href: "https://www.reddit.com/r/vtuberwiki/",
     },
     {
         name: "Discord",
-        icon: "/images/socials/discord.{{ext}}",
+        icon: "/static/images/socials/discord.{{ext}}",
         href: "https://discord.gg/kPRTP3eya4",
     },
     {
         name: "Patreon",
-        icon: "/images/socials/patreon.{{ext}}",
+        icon: "/static/images/socials/patreon.{{ext}}",
         href: "https://www.patreon.com/withervt",
     },
     {
         name: "Github",
-        icon: "/images/socials/github.{{ext}}",
+        icon: "/static/images/socials/github.{{ext}}",
         href: "https://www.github.com/vtuberwiki",
     }
 ] as SocialMedia[];

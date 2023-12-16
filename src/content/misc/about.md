@@ -13,6 +13,7 @@ One of the core principles of this project is its unwavering commitment to open-
 
 - [Main Wiki](https://github.com/vtuberwiki/wiki)
 - [Discord Bot](https://github.com/vtuberwiki/bot)
+- [Public Discord Bot](https://github.com/vtuberwiki/Public-Bot)
 
 The Vtuber Wiki is a collaborative effort, and we're proud to have dedicated maintainers who work tirelessly to ensure its accuracy and completeness. These contributors are the backbone of the project, and you can see some of our top maintainers in action here:
 

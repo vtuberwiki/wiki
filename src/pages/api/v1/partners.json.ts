@@ -10,7 +10,7 @@ export async function GET() {
         name: _.data.name,
         link: _.data.url,
         description: _.data.description,
-        image: `/images/partners/${_.data.image}`,
+        image: `/static/images/partners/${_.data.image}`,
       }))}),
     };
   } catch (error) {

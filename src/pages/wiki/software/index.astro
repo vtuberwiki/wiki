@@ -28,7 +28,7 @@ const softwares = await getCollection("software");
           softwares.map((software) => (
             <div class="software-card">
               <div class="vw-card vw-card-default vw-box-shadow-medium vw-card-hover vw-card-body vw-inline border-radius-large border-xlight">
-                <a class="vw-position-cover" href={`/wiki/software/${software.slug}`}></a />
+                <a class="vw-position-cover" href={`/wiki/software/${software.slug}`}></a>
                 <img loading="lazy" src={software.data.image} alt={software.data.title} title={software.data.title} />
                 <h3 class="vw-card-title vw-margin">{software.data.title}</h3>
                 <p>{software.data.description}</p>

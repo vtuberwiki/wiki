@@ -1,11 +1,11 @@
 ---
 name: CottontailVA
 pubDate: 2023-10-24
-banner: "/vtubers/cottontailva/banner.jpg"
+banner: "/static/vtubers/cottontailva/banner.jpg"
 category: Lewd
 description: "Voice Actress✨ Streamer✨ email: cottontail@msm.gg ✨ Art Tag: #cottontart"
 author: withervt
-image: "/vtubers/cottontailva/photo.jpg"
+image: "/static/vtubers/cottontailva/photo.jpg"
 border_color: "#d97adc"
 links: 
     - https://twitch.tv/cottontailva

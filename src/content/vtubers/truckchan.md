@@ -1,11 +1,11 @@
 ---
 name: Truck Chan
 pubDate: 2023-10-24
-banner: "/vtubers/truckchan/banner.jpg"
+banner: "/static/vtubers/truckchan/banner.jpg"
 category: Seiso
 description: "Isekai Truck Girl 🚚"
 author: withervt
-image: "/vtubers/truckchan/photo.jpg"
+image: "/static/vtubers/truckchan/photo.jpg"
 border_color: "#5d4f9b"
 is_draft: true
 links: 

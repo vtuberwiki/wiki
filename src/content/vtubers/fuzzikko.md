@@ -1,11 +1,11 @@
 ---
 name: Fuzzikko
 pubDate: 2023-10-24
-banner: "/vtubers/fuzzikko/banner.jpg"
+banner: "/static/vtubers/fuzzikko/banner.jpg"
 category: Seiso
 description: 🐰 Vtuber Bunny Girl 🐇
 author: withervt
-image: "/vtubers/fuzzikko/photo.jpg"
+image: "/static/vtubers/fuzzikko/photo.jpg"
 border_color: "#0077D7"
 links: 
     - https://twitter.com/fuzzikkovt

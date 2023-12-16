@@ -1,11 +1,11 @@
 ---
 name: Whooith
 pubDate: 2023-10-24
-banner: "/vtubers/whooith/banner.jpg"
+banner: "/static/vtubers/whooith/banner.jpg"
 category: Seiso
 description: Digital Druid 🍃🪶
 author: withervt
-image: "/vtubers/whooith/photo.jpg"
+image: "/static/vtubers/whooith/photo.jpg"
 is_draft: true
 links: 
     - https://twitch.tv/whooith

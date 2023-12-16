@@ -28,7 +28,7 @@ const vtubers = await getCollection("vtubers");
           vtubers.map((vtuber) => (
             <div class="vtuber-card">
               <div class="vw-card vw-card-default vw-box-shadow-medium vw-card-hover vw-card-body vw-inline border-radius-large border-xlight">
-                <a class="vw-position-cover" href={`/wiki/vtubers/${vtuber.slug}`}></a />
+                <a class="vw-position-cover" href={`/wiki/vtubers/${vtuber.slug}`}></a>
                 <img loading="lazy" src={vtuber.data.image} alt={vtuber.data.name} style="width: 125px; border-radius: 50%;" title={vtuber.data.name} />
                 <h3 class="vw-card-title vw-margin">{vtuber.data.name}</h3>
                 <p>{vtuber.data.description}</p>
