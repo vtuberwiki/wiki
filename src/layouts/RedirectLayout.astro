@@ -1,0 +1,24 @@
+---
+import Layout from "./Layout.astro";
+
+interface Props {
+    url: string;
+    title: string;
+    time?: string;
+}
+
+const { url, title, time } = Astro.props;
+
+const getTime = time || "5";
+---
+
+<Layout title={title}>
+    <meta http-equiv="refresh" content={`${getTime}; URL=${url}`} />
+    <div class="vw-section">
+        <div class="vw-container vw-container-small">
+            <h2 class="vw-h2 vw-text-center">Redirecting you to:</h2>
+            <h2 class="vw-h1 vw-text-center">{title}</h2>
+            <h2 class="vw-h4 vw-text-center">Please wait...</h2>
+        </div>
+    </div>
+</Layout>

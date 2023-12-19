@@ -1,7 +1,6 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import RedirectLayout from "../layouts/RedirectLayout.astro";
 ---
 
-<Layout title="Discord Bot" description="Invite Our Discord Bot!">
-    <meta http-equiv="refresh" content="0; URL=https://discord.com/api/oauth2/authorize?client_id=1164189020922843257&permissions=8&scope=bot+applications.commands" />
-</Layout>
+<RedirectLayout title="The Discord Bot" url="https://discord.com/api/oauth2/authorize?client_id=1164189020922843257&permissions=8&scope=bot+applications.commands" time="3">
+</RedirectLayout>
