@@ -50,12 +50,6 @@ export default defineConfig({
     JavaScript: true,
     SVG: true
   }), preact(), sitemap({
-    filter: page => {
-      if (page.includes('/interface/')) {
-        return false;
-      } else {
-        return true;
-      }
-    }
+    filter: page => !page.includes('/interface/')
   }), mdx()],
 });
