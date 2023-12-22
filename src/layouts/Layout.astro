@@ -127,6 +127,8 @@ const Favicon = () => {
     <script is:inline src="/static/js/awesomplete.js"></script>
     <script is:inline src="/static/js/custom.js"></script>
     <script is:inline src="/static/js/uikit.js"></script>
+    <script is:inline src="/static/js/@include/commits.js"></script>
+    <script is:inline defer src="/static/js/@include/lazy.js"></script>
     <script is:inline src="/static/js/@bootstrap/translate.js"></script>
     <script
       is:inline
@@ -175,7 +177,5 @@ const Favicon = () => {
     <Header />
     <slot />
     <Footer />
-
-    <script is:inline src="/static/js/@include/commits.js"></script>
   </body>
 </html>
