@@ -19,7 +19,7 @@
     "astro-compress": "^2.0.15",
     "axios": "^1.6.0",
     "developer-toolkit-utils": "^1.0.9",
-    "rehype-pretty-code": "^0.11.0",
+    "rehype-pretty-code": "^0.12.0",
     "remark-toc": "^9.0.0"
   }
 }
