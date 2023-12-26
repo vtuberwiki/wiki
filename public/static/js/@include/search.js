@@ -28,6 +28,7 @@ function replaceSpaceWithPlus(string) {
  * @param {string} query - The search query.
  */
 async function search(reqData, query) {
+  console.debug("search called with query:", query);
   let searchQuery = query;
   const resultsContainer = document.getElementById("results");
 
@@ -58,6 +59,7 @@ async function search(reqData, query) {
 
   window.history.replaceState({}, '', `?q=${encodeURIComponent(query)}`);
   if (noResultsFound) {
+    console.warn("No results found for query:", query);
     resultsContainer.innerHTML = errorMessages.NO_RESULTS.replace(
       "%{query}",
       `${searchQuery}`
@@ -204,6 +206,7 @@ const searchInput = document.getElementById("search");
 const debounce = (func, delay) => {
   let timeoutId;
   return (...args) => {
+    console.debug("Debouncing function call");
     clearTimeout(timeoutId);
     timeoutId = setTimeout(() => {
       func.apply(null, args);
@@ -216,6 +219,7 @@ const debounce = (func, delay) => {
  * @type {function}
  */
 const delayedSearch = debounce(async (query) => {
+  console.debug("delayedSearch called with query:", query);
   const reqData = await fetch(`/api/v1/search/q`).then((res) => res.json());
   await search(reqData, query);
 }, 500);
