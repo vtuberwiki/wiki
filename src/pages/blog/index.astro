@@ -13,7 +13,7 @@ const posts = await getCollection("posts");
 
             {posts.map((post) => (
                <BlogCard title={post.data.title} author={post.data.author} content={post.data.description} date={post.data.pubDate} slug={post.slug} />
-            ))
+            )).reverse()
             }
         </div>
     </div>
