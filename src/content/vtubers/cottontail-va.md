@@ -4,7 +4,7 @@ pubDate: 2023-10-24
 banner: "/static/vtubers/cottontailva/banner.jpg"
 category: Lewd
 description: "Voice Actress✨ Streamer✨ email: cottontail@msm.gg ✨ Art Tag: #cottontart"
-author: withervt
+author: 0xyami
 image: "/static/vtubers/cottontailva/photo.jpg"
 border_color: "#d97adc"
 links: 

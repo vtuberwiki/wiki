@@ -4,7 +4,7 @@ pubDate: 2023-10-24
 banner: "/static/vtubers/whooith/banner.jpg"
 category: Seiso
 description: Digital Druid 🍃🪶
-author: withervt
+author: 0xyami
 image: "/static/vtubers/whooith/photo.jpg"
 is_draft: true
 links: 
