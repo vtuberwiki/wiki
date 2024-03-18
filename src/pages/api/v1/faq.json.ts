@@ -5,7 +5,7 @@ import { getCollection } from "astro:content";
 
 export async function GET() {
   try {
-    const data = await getCollection("faq")).map((_) => ({
+    const data = (await getCollection("faq")).map((_) => ({
         title: _.data.title,
         body: _.body,
         slug: _.slug
