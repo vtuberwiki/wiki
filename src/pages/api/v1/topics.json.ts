@@ -20,8 +20,6 @@ export async function GET() {
         }
       }
     );
-
-    };
   } catch (error) {
     return {
       body: JSON.stringify({ status: 500, data: (error as Error).message }),
