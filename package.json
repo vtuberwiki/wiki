@@ -11,13 +11,14 @@
     "sync": "astro sync"
   },
   "dependencies": {
-    "@astrojs/mdx": "^1.1.5",
-    "@astrojs/node": "^6.0.3",
-    "@astrojs/preact": "^3.0.1",
-    "@astrojs/sitemap": "^3.0.3",
-    "astro": "^3.3.0",
-    "astro-compress": "^2.0.15",
-    "axios": "^1.6.0",
+    "@astrojs/mdx": "^2.2.0",
+    "@astrojs/node": "^8.2.4",
+    "@astrojs/preact": "^3.1.1",
+    "@astrojs/sitemap": "^3.1.1",
+    "@astrojs/vercel": "^7.3.6",
+    "astro": "^4.5.6",
+    "astro-compress": "^2.2.15",
+    "axios": "^1.6.8",
     "developer-toolkit-utils": "^1.0.9",
     "rehype-pretty-code": "^0.13.0",
     "remark-toc": "^9.0.0"
