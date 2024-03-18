@@ -5,8 +5,7 @@ import { getCollection } from "astro:content";
 
 export async function GET() {
   try {
-    return {
-      body: JSON.stringify({ status: 200, data: (await getCollection("vtubers")).map((vtuber) => ({
+    const data = (await getCollection("vtubers")).map((vtuber) => ({
         name: vtuber.data.name,
         link: `/wiki/vtubers/${vtuber.slug}`,
         description: vtuber.data.description,
@@ -19,8 +18,15 @@ export async function GET() {
         is_draft: vtuber.data.is_draft ? "Yes" : "No",
         border_color: vtuber.data.border_color,
         body: vtuber.body,
-      }))}),
-    };
+      })),
+
+    return new Response(
+    JSON.stringify(data), {
+        status: 200,
+        headers: {
+        "Content-Type": "application/json"
+        }
+    })
   } catch (error) {
     return {
       body: JSON.stringify({ status: 500, data: (error as Error).message }),

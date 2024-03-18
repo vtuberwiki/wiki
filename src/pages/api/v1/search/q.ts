@@ -147,9 +147,15 @@ export const GET: APIRoute = async () => {
       lookupTable: createLookupTable(dataKeys)
     };
 
-    return {
-      body: JSON.stringify({ status: 200, data: dataWithTable }),
-    };
+    return new Response(
+      JSON.stringify(dataWithTable), {
+        status: 200,
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }
+    );
+
   } catch (error) {
     return {
       body: JSON.stringify({ status: 500, error: (error as Error).message }),
