@@ -2,7 +2,7 @@
 name: VShojo
 pubDate: 2023-12-06T05:00:29.268Z
 description: VShojo is a VTuber agency that focuses on Western VTubers.
-author: withervt
+author: 0xyami
 is_draft: true
 links: 
     - name: Website

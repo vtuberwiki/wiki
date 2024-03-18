@@ -2,7 +2,7 @@
 title: VRoid Studio
 pubDate: 2023-10-24
 description: VRoid Studio is a 3D character creation software developed for you to freely express yourself, even without 3D modeling expertise. The software is easy-to-use. Even first-time users can fully enjoy the software by picking preset items and playing around with the parameters’ sliders.
-author: withervt
+author: 0xyami
 image: https://cdn.cloudflare.steamstatic.com/steam/apps/1486350/header.jpg?t=1695275750
 main_image: https://cdn.cloudflare.steamstatic.com/steam/apps/1486350/header.jpg?t=1695275750
 ---

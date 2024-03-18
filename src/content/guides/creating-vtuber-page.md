@@ -2,7 +2,7 @@
 title: "Crafting Your VTuber Profile: A Beginner-Friendly Guide"
 description: A Comprehensive Guide to Crafting a VTuber Profile
 pubDate: 2023-10-24
-author: withervt
+author: 0xyami
 ---
 
 ## Introduction

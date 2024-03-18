@@ -2,7 +2,7 @@
 title: VRChat
 pubDate: 2023-10-24
 description: VRChat is an online virtual world platform created by Graham Gaylor and Jesse Joudrey and operated by VRChat, Inc. The platform allows users to interact with others with user-created 3D avatars and worlds. VRChat is designed primarily for use with virtual reality headsets, such as the Oculus Rift and Oculus Quest series, SteamVR headsets (such as HTC Vive), and Windows Mixed Reality, but is also usable without VR in a "desktop" mode designed for either a mouse and keyboard or gamepad.
-author: withervt
+author: 0xyami
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Vrchatlogo.png/220px-Vrchatlogo.png
 main_image: https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Vrchatlogo.png/220px-Vrchatlogo.png
 ---

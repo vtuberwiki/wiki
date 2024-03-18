@@ -2,7 +2,7 @@
 title: VSeeFace
 pubDate: 2023-10-24
 description: VSeeFace is a free, highly configurable face and hand tracking VRM and VSFAvatar avatar puppeteering program for virtual youtubers with a focus on robust tracking and high image quality.
-author: withervt
+author: 0xyami
 image: https://www.vseeface.icu/assets/img/VSeeFaceScreenshot.png
 main_image: https://www.vseeface.icu/assets/img/VSeeFaceScreenshot.png
 ---
