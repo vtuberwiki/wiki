@@ -5,6 +5,7 @@ import remarkToc from 'remark-toc';
 import rehypePrettyCode from "rehype-pretty-code";
 import sitemap from '@astrojs/sitemap';
 import mdx from "@astrojs/mdx";
+import vercel from "@astrojs/vercel/serverless";
 
 
 const prettyCodeOptions = {
@@ -33,6 +34,7 @@ export default defineConfig({
     port: 4321
   },
   site: 'https://vtubers.wiki',
+
   markdown: {
     remarkPlugins: [remarkToc],
     extendDefaultPlugins: true,
@@ -43,6 +45,7 @@ export default defineConfig({
       langs: ["javascript", "typescript", "css", "html", "shell", "json", "yaml", "bash", "scss", "java", "python", "ruby", "php", "c", "c++", "go", "rust"]
     }
   },
+
   integrations: [Compress({
     CSS: true,
     HTML: true,
@@ -52,4 +55,7 @@ export default defineConfig({
   }), preact(), sitemap({
     filter: page => !page.includes('/interface/')
   }), mdx()],
+
+  output: "server",
+  adapter: vercel()
 });
