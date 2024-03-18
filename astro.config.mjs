@@ -5,7 +5,6 @@ import remarkToc from 'remark-toc';
 import rehypePrettyCode from "rehype-pretty-code";
 import sitemap from '@astrojs/sitemap';
 import mdx from "@astrojs/mdx";
-import vercel from "@astrojs/vercel/serverless";
 
 
 const prettyCodeOptions = {
@@ -56,6 +55,4 @@ export default defineConfig({
     filter: page => !page.includes('/interface/')
   }), mdx()],
 
-  output: "server",
-  adapter: vercel()
 });
