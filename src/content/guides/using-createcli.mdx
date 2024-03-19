@@ -5,11 +5,15 @@ pubDate: 2024-03-19
 author: 0xyami
 ---
 
+import Alert from "../../components/Alerts.astro"
+
 ## Introduction
 
 Are you ready to showcase your VTuber persona on The Vtuber Wiki? This guide, tailored for individuals with no prior experience in GitHub or programming, will walk you through the process step by step.
 
-<details><summary>Prerequisites</summary>
+
+<details>
+<summary>Prerequisites</summary>
 
 Before embarking on the journey to create your VTuber profile on The Vtuber Wiki, let's ensure you have everything you need. Here are the prerequisites for a smooth experience, even if you have no prior experience with GitHub or programming:
 
@@ -35,6 +39,7 @@ Before embarking on the journey to create your VTuber profile on The Vtuber Wiki
 Now that you've gathered the essentials, you're ready to dive into creating your VTuber profile. Follow the step-by-step guide provided earlier, and don't hesitate to refer back to this section if needed.
 
 </details>
+
 
 <br />
 
@@ -92,9 +97,14 @@ Run the CreateCLI tool to create a new VTuber page:
 The CreateCLI tool will prompt you to enter the essential details for your VTuber page. Follow the prompts to provide the required information.
 
 
+<Alert message="For new users, we recommend using GitHub Desktop (<a href='https://desktop.github.com'>desktop.github.com</a>)" type="danger" includeCloseButton={false} />
+
 ## Learn to Use Git
 
 Git is a version control system that helps you manage your code changes. Here's a basic overview of how to use Git:
+
+<details>
+<summary>Terminal</summary>
 
 1. **Clone a Repository**:
 
@@ -174,6 +184,45 @@ Replace `<file_name>` with the name of the file you want to unstage.
 
 These are the basic Git commands to get you started. As you become more familiar with Git, you can explore more advanced features and workflows.
 
+
+</details>
+
+
+<details>
+<summary>Desktop</summary>
+
+1. **Download GitHub Desktop**:
+
+First, download and install [GitHub Desktop](https://desktop.github.com) on your local machine.
+
+When you open GitHub Desktop for the first time, you'll be prompted to sign in to your GitHub account. Click on "Sign in to GitHub.com" and follow the instructions to sign in.
+
+![Introduction](/static/guides/using-createcli/1.png)
+
+2. **Getting Set Up**:
+
+Once you're signed in, you'll see the "Configure Git" screen. If you already have Git installed on your machine, GitHub Desktop will automatically detect it. If not, you can install Git directly from GitHub Desktop.
+
+<Alert message="DO NOT CHANGE ANYTHING UNLESS YOU KNOW WHAT YOU ARE DOING!" type="danger" includeCloseButton={false} />
+
+![Configure Git](/static/guides/using-createcli/2.png)
+
+3. **Clone a Repository**:
+
+To clone a repository, click on "Clone a repository from the Internet..." and enter `vtuberwiki/wiki` in the "Repository URL" field. Choose a local path where you want to clone the repository and click "Clone".
+
+![Clone Repository](/static/guides/using-createcli/3.png)
+
+4. **Commiting**:
+
+After making changes to your files, you'll need to commit those changes to Git. First, add the files you want to commit:
+
+> Note: In the summary field add `{type}: {some message}` with the type of change you made (e.g., `fix`, `docs`, `style`, `refactor`, etc.), and replace the message with a descriptive summary of the changes. Learn: [Commit Message Conventions](https://www.conventionalcommits.org/en/v1.0.0/)=
+
+![Commit Changes](/static/guides/using-createcli/4.png)
+
+
+</details>
 
 ## Create a GitHub Account
 
