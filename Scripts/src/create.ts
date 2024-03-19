@@ -6,7 +6,7 @@ import axios from "axios";
 import { promisify } from "util";
 import url from "url";
 import Editors from "./helpers/editors";
-import { createServer, getUserName, openBrowser } from "./helpers/git";
+import { checkGitInstallation } from "./helpers/git";
 
 
 const rl = readline.createInterface({ input: stdin, output: stdout });
@@ -22,6 +22,8 @@ const config = {
   author: "n/a",
   links: [],
   slug: "default",
+  graduated: false,
+  is_draft: true,
 };
 
 async function checkIfImageExists(url: string): Promise<boolean> {
@@ -144,12 +146,7 @@ async function downloadImage(url: string, dest: string) {
 }
 
 const createvt = async () => {
-  const author = await getUserName();
-  if (!author) {
-    console.log("You are not logged in. Please login first.");
-    await createServer();
-    await openBrowser();
-  }
+  let author = await checkGitInstallation();
 
   
 
@@ -164,9 +161,16 @@ const createvt = async () => {
   config.bannerUrl = await askQuestion("Banner Url: ", "url");
   config.borderColor = await askQuestion("Border Color: ", "hex");
   let links = await askQuestion("Links (comma separated): ", "string");
-  config.links = links.split(",").map((link: string) => link.trim()); // Trim leading and trailing spaces
+  config.links = links.split(",").map((link: string) => link.trim());
+  let graduated = await askQuestion("Graduated? (Y/N): ", "string");
   config.slug = slugify(config.name);
   config.author = author as string;
+
+  if (graduated.toLowerCase() === "y") {
+    config.graduated = true;
+  } else {
+    config.graduated = false;
+  }
 
   console.clear();
   console.log(`Does this look correct?`);
@@ -190,6 +194,19 @@ const createvt = async () => {
   console.clear();
 
   console.log(`Creating BASE entry for ${config.name}...`);
+
+
+  const $links = config.links.map((link: string) => {
+    if (link.startsWith("http://")) {
+        link = link.replace("http://", "https://");
+    }
+
+    // Remove the subdomain from the url
+    const parsedUrl = new URL(link);
+    parsedUrl.hostname = parsedUrl.hostname.replace(/^www\./, '');
+    return parsedUrl.toString();
+});
+
 
   const vtuberMarkdownPath = path.resolve(
     paths.vtuberMarkdown,
@@ -218,7 +235,9 @@ description: "${config.description}"
 author: ${config.author}
 image: "/static/vtubers/${config.slug}/photo.jpg"
 border_color: "${config.borderColor}"
-links: ${config.links
+graduated: ${config.graduated}
+is_draft: ${config.is_draft}
+links: ${$links
       .map(
         (link) => `
   - "${link}"

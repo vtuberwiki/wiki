@@ -1,91 +1,38 @@
-import express, { Request, Response } from 'express';
-import passport from 'passport';
-import { Strategy as GitHubStrategy } from 'passport-github';
-import fs from 'fs';
-import path from 'path';
-import { spawn } from 'child_process';
+import { exec } from 'child_process';
+import axios from 'axios';
 
 
-function open(url: string) {
-  const start = (process.platform == 'darwin' ? 'open' : process.platform == 'win32' ? 'start' : 'xdg-open');
+export function checkGitInstallation(): Promise<string | null> {
 
-  spawn(start, [url], { shell: true, stdio: "ignore", detached: true });
-}
+  return new Promise((resolve, reject) => {
+    // Check if Git is installed
+    exec('git --version', (error, stdout, stderr) => {
+      if (error || stderr) {
+        reject(new Error('Git is not installed. Please install Git and try again.'));
+      } else {
+        // Git is installed, try to get user's authenticated name
+        exec('git config user.email', async (userError, userStdout, userStderr) => {
+          if (userError || userStderr) {
+            reject(new Error('Failed to retrieve Git email.'));
+          } else {
+            const gitUserEmail = userStdout.trim();
 
-const GITHUB_CLIENT_ID = '98948cdfdaefb5e9f43a';
-const GITHUB_CLIENT_SECRET = '35058eb3d571e855c235f57aa38e4be835034fa9';
+            try {
+              const { data } = await axios.get(`https://api.github.com/search/users?q=${gitUserEmail}`, {
+                headers: {
+                  'Accept': 'application/vnd.github.v3+json',
+                }
+              });
+              const name = data.items[0].login;
 
-const DATA_DIR = path.resolve(__dirname, '..', '..', '..', '.keys');
-const DATA_FILE = path.resolve(DATA_DIR, 'name.txt');
-
-passport.use(new GitHubStrategy({
-    clientID: GITHUB_CLIENT_ID,
-    clientSecret: GITHUB_CLIENT_SECRET,
-    callbackURL: 'http://127.0.0.1:6691/auth/github/callback'
-},
-    function (accessToken, refreshToken, profile, done) {
-        return done(null, profile);
-    }
-));
-
-passport.serializeUser(function (user: any, done) {
-    done(null, user);
-});
-
-passport.deserializeUser(function (obj: any, done) {
-    done(null, obj);
-});
-
-const app = express();
-
-app.use(require('express-session')({
-    secret: '0xYami want CottontailVA to step on her and dominate her',
-    resave: true,
-    saveUninitialized: true
-}));
-app.use(passport.initialize());
-app.use(passport.session());
-
-app.get('/auth/github',
-    passport.authenticate('github'));
-
-app.get('/auth/github/callback',
-    passport.authenticate('github', { failureRedirect: '/login' }),
-    function (req, res) {
-        // Successful authentication, redirect home.
-
-        if (!fs.existsSync(DATA_DIR)) {
-            fs.mkdirSync(DATA_DIR);
-        }
-
-        fs.writeFileSync(DATA_FILE, (req.user as any).username);
-        res.redirect('/');
+              resolve(name);
+            } catch (axiosError) {
+              reject(new Error('Failed to fetch user data from GitHub API.'));
+            }
+          }
+        });
+      }
     });
-
-app.get('/', function (req: Request, res: Response) {
-    if (req.isAuthenticated()) {
-    res.send(`Please relaunch the CLI`);
-    process.exit(0);
-    } else {
-    res.redirect('/auth/github')
-    }
-
-});
-
-export async function createServer() {
-  app.listen(6691, "127.0.0.1", function () {
-    console.log('Server started on http://127.0.0.1:6691');
   });
 }
 
-export async function getUserName() {
-    if (fs.existsSync(DATA_FILE)) {
-        return fs.readFileSync(DATA_FILE, 'utf8');
-    } else {
-        return null;
-    }
-}
-
-export async function openBrowser() {
-    open('http://127.0.0.1:6691/auth/github');
-}
