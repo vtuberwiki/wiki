@@ -62,10 +62,10 @@ Meet the contributors who have made this project possible:
   <tbody>
     <tr>
       <td align="center">
-        <a href="https://github.com/withervt">
+        <a href="https://github.com/0xyami">
           <img src="https://avatars.githubusercontent.com/u/93791569" width="100px;" alt="withervt"/>
           <br />
-          <sub><b>withervt</b></sub>
+          <sub><b>0xyami</b></sub>
         </a>
         <br />
         <a href="https://https://github.com/vtuberwiki/wiki" title="Programming">⌨️</a><a href="https://https://github.com/vtuberwiki/wiki" title="Writing Documentation">🖋️</a>

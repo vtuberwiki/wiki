@@ -1,3 +1,21 @@
+import { exec } from "child_process";
+
+async function isEditorInstalled(editorCommand: string) {
+  return new Promise((resolve, reject) => {
+    const command =
+      process.platform === "win32"
+        ? `where ${editorCommand}`
+        : `which ${editorCommand}`;
+    exec(command, (error: any, stdout: any, stderr: any) => {
+      if (error || stderr) {
+        resolve(false); // Editor is not installed
+      } else {
+        resolve(true); // Editor is installed
+      }
+    });
+  });
+}
+
 const Editors = {
   "Visual Studio Code": "code",
   "Sublime Text": "subl",
@@ -16,4 +34,4 @@ const Editors = {
   TextMate: "mate",
 };
 
-export default Editors;
+export { isEditorInstalled, Editors };
