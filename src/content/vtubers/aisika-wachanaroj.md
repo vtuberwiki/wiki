@@ -1,11 +1,11 @@
 ---
 name: Aisika Wachanaroj
 pubDate: 2023-12-11
-banner: "/static/vtubers/aisha/banner.jpg"
+banner: "/static/vtubers/aisika-wachanaroj/banner.jpg"
 category: Unknown
 description: "Aisha is a friendly and cheerful person. She always loves to learn something new and enjoys studying lots. At times, she's also quite childish and demanding of her viewers to fulfill her small demands. She is also an easily hopeful person. "
 author: 0xyami
-image: "/static/vtubers/aisha/photo.jpg"
+image: "/static/vtubers/aisika-wachanaroj/photo.jpg"
 border_color: "#5458b1"
 links:
   - https://twitter.com/Aisha_Channel

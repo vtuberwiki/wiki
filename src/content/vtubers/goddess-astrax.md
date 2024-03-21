@@ -1,11 +1,11 @@
 ---
 name: Goddess Astrax
 pubDate: 2023-10-24
-banner: "/static/vtubers/goddessastra/banner.jpg"
+banner: "/static/vtubers/goddess-astrax/banner.jpg"
 category: Lewd
 description: "The Celestial Wolf Goddess of Stars, Prophecy, and Vengeance is ready to meet you~"
 author: 0xyami
-image: "/static/vtubers/goddessastra/photo.jpg"
+image: "/static/vtubers/goddess-astrax/photo.jpg"
 is_draft: true
 border_color: "#d97adc"
 links: 
