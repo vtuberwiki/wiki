@@ -38,7 +38,7 @@ async function search(reqData, query) {
 
   resultsContainer.innerHTML = "";
 
-  const results = reqData.data;
+  const results = reqData;
   let noResultsFound = true;
   const uniqueResults = new Set();
 

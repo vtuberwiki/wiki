@@ -6,13 +6,15 @@
         }
         const contributors = await response.json();
 
-        const length = contributors.data.length;
+        console.log(contributors);
+
+        const length = contributors.length;
 
         document.getElementById('contributors_description').innerHTML = ` We are a team of ${length} contributor${length > 1 ? 's' : ''}.`;
 
         let contributorsHTML = ''; // Initialize an empty string to accumulate HTML
 
-        for (const contributor of contributors.data) {
+        for (const contributor of contributors) {
             contributorsHTML += `<div>
                 <div class="vw-card">
                     <img loading="lazy" class="vw-border-circle" src="${contributor.avatar_url}" alt="${contributor.login}" />
