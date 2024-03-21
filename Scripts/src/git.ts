@@ -8,6 +8,10 @@ import {
   status,
   getCurrentBranch,
   isUpToDate,
+  viewIssues,
+  viewIssueComments,
+  viewPullRequests,
+  log
 } from "./helpers/git";
 import { exec } from "child_process";
 import {
@@ -18,6 +22,8 @@ import {
   destoryLoadingBar,
 } from "./helpers/cmd";
 import chalk from "chalk";
+import { fDate } from "developer-toolkit-utils";
+import VimLike from "./helpers/vimlike";
 
 const options = [
   {
@@ -49,6 +55,14 @@ const options = [
     name: "restore",
     description: "Restore working tree files",
   },
+  {
+    name: "issues",
+    description: "List all issues or a specific issue",
+  },
+  {
+    name: "pull requests",
+    description: "List all pull requests or a specific pull request",
+  },
 ];
 
 const pushOptions = [
@@ -71,8 +85,7 @@ const pushOptions = [
   },
   {
     name: "refactor",
-    description:
-      "A code change that neither fixes a bug nor adds a feature",
+    description: "A code change that neither fixes a bug nor adds a feature",
   },
   {
     name: "style",
@@ -81,14 +94,13 @@ const pushOptions = [
   },
   {
     name: "test",
-    description:
-      "Adding missing tests or correcting existing tests",
+    description: "Adding missing tests or correcting existing tests",
   },
   {
     name: "pref",
     description: "A performance improvement",
-  }
-]
+  },
+];
 
 async function main() {
   const gitUser = await checkGitInstallation();
@@ -98,15 +110,17 @@ async function main() {
 
   let option = "";
 
-  const optionTypes = options.map((option) => option.name);
-
   console.log(
-    `Available options:\n${optionTypes
-      .map((option) => `    - ${chalk.green(option)}`)
+    `Available options:\n${options
+      .map(
+        (option) => `    - ${chalk.green(option.name)}: ${option.description}`
+      )
       .join("\n")}\n`
   );
 
   option = await askQuestion(`What would you like to do?`, "string");
+
+  const optionTypes = options.map((option) => option.name);
 
   if (!optionTypes.includes(option)) {
     console.log(
@@ -114,8 +128,7 @@ async function main() {
         ", "
       )}`
     );
-    closeRL();
-    return;
+    process.exit(0);
   }
 
   const optionLowerCase = option.toLowerCase();
@@ -152,7 +165,9 @@ async function main() {
 
       console.log(
         `Available options:
-${pushOptions.map((option) => `    - ${chalk.green(option.name)}: ${option.description}`).join("\n")}
+${pushOptions
+  .map((option) => `    - ${chalk.green(option.name)}: ${option.description}`)
+  .join("\n")}
         `
       );
 
@@ -292,15 +307,10 @@ ${pushOptions.map((option) => `    - ${chalk.green(option.name)}: ${option.descr
       });
       break;
     case "log":
-      exec(`git log`, (error, stdout, stderr) => {
-        if (error) {
-          console.error(`exec error: ${error}`);
-          return;
-        }
-        const out = stdout ? stdout : stderr;
-
-        console.log(out);
-      });
+      const log_ = await log();
+      if (log_) {
+        const vim = new VimLike(log_);
+      }
       break;
     case "restore":
       const files_ = await askQuestion(
@@ -317,6 +327,105 @@ ${pushOptions.map((option) => `    - ${chalk.green(option.name)}: ${option.descr
         console.log(out);
         process.exit(0);
       });
+      break;
+    case "issues":
+      const issueId = await askQuestion(
+        `Enter the issue number (leave blank to list all issues):`,
+        "string"
+      );
+
+      const data = await viewIssues(issueId);
+
+      function stateToColor(state: string) {
+        switch (state) {
+          case "open":
+            return chalk.green(`[${state.toUpperCase()}]`);
+          case "closed":
+            return chalk.red(`[${state.toUpperCase()}]`);
+          default:
+            return state;
+        }
+      }
+
+      if (typeof data === "string") {
+        console.log(data);
+      } else if (Array.isArray(data)) {
+        console.log(`Listing all issues:`);
+        console.log(`Total issues: ${chalk.green(data.length)}`);
+        data.forEach((issue) => {
+          console.log(
+            `Issue: ${issue.number} - ${issue.title} - ${stateToColor(
+              issue.state
+            )}`
+          );
+        });
+      } else {
+        console.log(
+          `Issue: ${data.number} - ${data.title} - ${stateToColor(data.state)}`
+        );
+        console.log(`URL: ${data.url}`);
+        console.log(`User: ${data.user?.login}`);
+        console.log(
+          `Created At: ${fDate(new Date(data.createdAt))} at ${new Date(
+            data.createdAt
+          ).toLocaleTimeString()}`
+        );
+
+        const showComments = await askQuestion(
+          `Would you like to see the comments? (yes/no)`,
+          "yesno"
+        );
+
+        if (showComments === "yes") {
+          const comments = await viewIssueComments(data.number.toString());
+          if (comments.length > 0) {
+            console.log(`Comments:`);
+            let text = "";
+            comments.forEach((comment) => {
+              text += `- ${comment.user?.login}: ${comment.body}\n`;
+            });
+
+            const vim = new VimLike(text);
+          } else {
+            console.log(chalk.yellow("No comments found."));
+            process.exit(0);
+          }
+        } else {
+          process.exit(0);
+        }
+      }
+      break;
+    case "pull requests":
+      const pullId = await askQuestion(
+        `Enter the pull request number (leave blank to list all pull requests):`,
+        "string"
+      );
+
+      const data_ = await viewPullRequests(pullId);
+
+      if (typeof data_ === "string") {
+        console.log(data_);
+      } else if (Array.isArray(data_)) {
+        console.log(`Listing all pull requests:`);
+        console.log(`Total pull requests: ${chalk.green(data_.length)}`);
+        data_.forEach((pull) => {
+          console.log(
+            `Pull Request: ${pull.number} - ${pull.title} - ${pull.state}`
+          );
+        });
+      } else {
+        console.log(
+          `Pull Request: ${data_.number} - ${data_.title} - ${data_.state}`
+        );
+        console.log(`URL: ${data_.url}`);
+        console.log(`User: ${data_.user?.login}`);
+        console.log(
+          `Created At: ${fDate(new Date(data_.createdAt))} at ${new Date(
+            data_.createdAt
+          ).toLocaleTimeString()}`
+        );
+      }
+      process.exit(0);
       break;
     default:
       console.log(

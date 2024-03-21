@@ -1,5 +1,6 @@
 import { exec, execSync } from "child_process";
 import axios from "axios";
+import { Octokit } from "@octokit/rest";
 
 export type PushStatus =
   | "feat"
@@ -9,6 +10,8 @@ export type PushStatus =
   | "style"
   | "test"
   | "chore";
+
+const gh = new Octokit();
 
 export function checkGitInstallation(): Promise<string | null> {
   return new Promise((resolve, reject) => {
@@ -66,7 +69,9 @@ export function createPush(
         if (error || stderr) {
           const errorMessage: string = (error || stderr || stdout) as string;
           if (errorMessage.includes("Bypassed rule violations")) {
-            console.log("Warning: Bypassed rule violations occurred, but continuing...");
+            console.log(
+              "Warning: Bypassed rule violations occurred, but continuing..."
+            );
             resolve(); // Resolve without rejecting
           } else {
             reject(new Error(`Failed to push to GitHub: ${errorMessage}`));
@@ -78,7 +83,6 @@ export function createPush(
     );
   });
 }
-
 
 export function createCommit(
   type: PushStatus,
@@ -162,6 +166,106 @@ export function isUpToDate() {
   try {
     const stdout = execSync("git status").toString();
     return stdout.includes("Your branch is up to date with");
+  } catch (error) {
+    console.error(`exec error: ${error}`);
+    return null;
+  }
+}
+
+export async function viewIssues(id?: string) {
+  const issues = await gh.issues.listForRepo({
+    owner: "vtuberwiki",
+    repo: "wiki",
+    state: "all",
+  });
+
+  const filteredIssues = issues.data.filter((issue) => issue.pull_request);
+
+  if (!id) {
+    return filteredIssues.map((issue) => {
+      return {
+        number: issue.number,
+        title: issue.title,
+        state: issue.state,
+        url: issue.html_url,
+        user: issue.user,
+        createdAt: issue.created_at,
+      };
+    });
+  } else {
+    const issue = filteredIssues.find((issue) => issue.number === +id);
+    if (issue) {
+      return {
+        number: issue.number,
+        title: issue.title,
+        state: issue.state,
+        url: issue.html_url,
+        user: issue.user,
+        createdAt: issue.created_at,
+      };
+    } else {
+      return "Issue not found.";
+    }
+  }
+}
+
+export async function viewPullRequests(id?: string) {
+  const pulls = await gh.pulls.list({
+    owner: "vtuberwiki",
+    repo: "wiki",
+    state: "all",
+  });
+
+  if (!id) {
+    return pulls.data.map((pull) => {
+      return {
+        number: pull.number,
+        title: pull.title,
+        state: pull.state,
+        url: pull.html_url,
+        user: pull.user,
+        createdAt: pull.created_at,
+      };
+    });
+  } else {
+    const pull = pulls.data.find((pull) => pull.number === +id);
+    if (pull) {
+      return {
+        number: pull.number,
+        title: pull.title,
+        state: pull.state,
+        url: pull.html_url,
+        user: pull.user,
+        createdAt: pull.created_at,
+      };
+    } else {
+      return "Pull request not found.";
+    }
+  }
+}
+
+export async function viewIssueComments(id: string) {
+  const comments = await gh.issues.listComments({
+    owner: "vtuberwiki",
+    repo: "wiki",
+    issue_number: +id,
+  });
+
+  let number = 1;
+  return comments.data.map((comment) => {
+    return {
+      user: comment.user,
+      createdAt: comment.created_at,
+      body: comment.body,
+      index: number++,
+    };
+  });
+}
+
+export async function log() {
+  try {
+    const stdout = execSync("git log").toString();
+    return stdout;
   } catch (error) {
     console.error(`exec error: ${error}`);
     return null;
