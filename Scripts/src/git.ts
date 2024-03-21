@@ -51,6 +51,45 @@ const options = [
   },
 ];
 
+const pushOptions = [
+  {
+    name: "chore",
+    description:
+      "Changes to the build process or auxiliary tools and libraries such as documentation generation",
+  },
+  {
+    name: "docs",
+    description: "Documentation only changes",
+  },
+  {
+    name: "feat",
+    description: "A new feature",
+  },
+  {
+    name: "fix",
+    description: "A bug fix",
+  },
+  {
+    name: "refactor",
+    description:
+      "A code change that neither fixes a bug nor adds a feature",
+  },
+  {
+    name: "style",
+    description:
+      "Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)",
+  },
+  {
+    name: "test",
+    description:
+      "Adding missing tests or correcting existing tests",
+  },
+  {
+    name: "pref",
+    description: "A performance improvement",
+  }
+]
+
 async function main() {
   const gitUser = await checkGitInstallation();
 
@@ -94,7 +133,14 @@ async function main() {
         }
         const out = stdout ? stdout : stderr;
 
-        console.log(out + "\n");
+        if (out.includes("rule violations")) {
+          console.log(
+            "Warning: Bypassed rule violations occurred, but continuing..."
+          );
+        } else {
+          console.log(out);
+        }
+
         process.exit(0);
       });
       break;
@@ -106,21 +152,7 @@ async function main() {
 
       console.log(
         `Available options:
-        - ${chalk.green(
-          "chore"
-        )}: Changes to the build process or auxiliary tools and libraries such as documentation generation
-        - ${chalk.green("docs")}: Documentation only changes
-        - ${chalk.green("feat")}: A new feature
-        - ${chalk.green("fix")}: A bug fix
-        - ${chalk.green(
-          "refactor"
-        )}: A code change that neither fixes a bug nor adds a feature
-        - ${chalk.green(
-          "style"
-        )}: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
-        - ${chalk.green(
-          "test"
-        )}: Adding missing tests or correcting existing tests
+${pushOptions.map((option) => `    - ${chalk.green(option.name)}: ${option.description}`).join("\n")}
         `
       );
 

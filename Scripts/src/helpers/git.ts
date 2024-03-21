@@ -64,9 +64,13 @@ export function createPush(
       )}" && git push origin main`,
       (error, stdout, stderr) => {
         if (error || stderr) {
-          reject(
-            new Error(`Failed to push to GitHub: ${error || stderr || stdout}`)
-          );
+          const errorMessage: string = (error || stderr || stdout) as string;
+          if (errorMessage.includes("Bypassed rule violations")) {
+            console.log("Warning: Bypassed rule violations occurred, but continuing...");
+            resolve(); // Resolve without rejecting
+          } else {
+            reject(new Error(`Failed to push to GitHub: ${errorMessage}`));
+          }
         } else {
           resolve();
         }
@@ -74,6 +78,7 @@ export function createPush(
     );
   });
 }
+
 
 export function createCommit(
   type: PushStatus,
