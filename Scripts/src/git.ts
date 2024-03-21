@@ -11,7 +11,7 @@ import {
   viewIssues,
   viewIssueComments,
   viewPullRequests,
-  log
+  log,
 } from "./helpers/git";
 import { exec } from "child_process";
 import {
@@ -148,7 +148,9 @@ async function main() {
 
         if (out.includes("rule violations")) {
           console.log(
-            "Warning: Bypassed rule violations occurred, but continuing..."
+            chalk.yellow(
+              "Warning: Bypassed rule violations occurred, but continuing..."
+            )
           );
         } else {
           console.log(out);
