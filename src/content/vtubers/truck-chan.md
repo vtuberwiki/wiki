@@ -24,9 +24,9 @@ She started in 2022 and she has reached over 25k followers on twitter respective
 ## Featured Clips
 
 <video controls>
-  <source src="/vtubers/truckchan/clips/AT-cm MHjpGtosO1Ozi6xzDbJZWg.mp4" type="video/mp4" />
+  <source src="/static/vtubers/truck-chan/clips/AT-cm MHjpGtosO1Ozi6xzDbJZWg.mp4" type="video/mp4" />
 </video>
 
 <video controls>
-  <source src="/vtubers/truckchan/clips/AT-cm WObpRu1A0Fg4aHppL1ZgSw.mp4" type="video/mp4" />
+  <source src="/static/vtubers/truck-chan/clips/AT-cm WObpRu1A0Fg4aHppL1ZgSw.mp4" type="video/mp4" />
 </video>
