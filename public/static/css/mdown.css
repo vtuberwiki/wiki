@@ -6,8 +6,6 @@ kbd {
 
 pre>code {
     display: grid;
-    border-left: 3px solid #60a5fa;
-    padding: 10px;
     border-radius: 3px;
     counter-reset: line;
 }

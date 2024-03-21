@@ -147,19 +147,20 @@ strong {
  * 2. Correct the odd `em` font sizing in all browsers.
  * 3. Style
  */
-:not(pre) > code,
-:not(pre) > kbd,
-:not(pre) > samp {
-  /* 1 */
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
-  /* 2 */
-  font-size: 0.875rem;
-  /* 3 */
-  color: #05b98b;
-  white-space: nowrap;
-  padding: 2px 6px;
-  background: #f8f8f8;
-}
+ :not(pre) > code,
+ :not(pre) > kbd,
+ :not(pre) > samp {
+   /* 1 */
+   font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+   /* 2 */
+   font-size: 0.875rem;
+   /* 3 */
+   color: #000000;
+   white-space: nowrap;
+   padding: 3px 6px;
+   background: rgba(35, 83, 255, 0.1)
+ }
+ 
 
 /*
  * Emphasize

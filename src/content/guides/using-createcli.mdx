@@ -1,6 +1,6 @@
 ---
-title: "Using our CreateCLI"
-description: "A guide to using our CreateCLI to create a new VTuber page."
+title: "Creating Your VTuber Page with CreateCLI"
+description: "Learn how to create your VTuber page effortlessly using our CreateCLI tool."
 pubDate: 2024-03-19
 author: 0xyami
 ---
@@ -9,231 +9,127 @@ import Alert from "../../components/Alerts.astro"
 
 ## Introduction
 
-Are you ready to showcase your VTuber persona on The Vtuber Wiki? This guide, tailored for individuals with no prior experience in GitHub or programming, will walk you through the process step by step.
+Ready to showcase your VTuber persona on The Vtuber Wiki? This guide, designed for newcomers to GitHub and programming, will walk you through the process step by step.
 
+<Alert message="Make sure to have Git downloaded for CreateCLI. (git-scm.com/downloads)" type="info" includeCloseButton={false} />
 
 <details>
 <summary>Prerequisites</summary>
 
-Before embarking on the journey to create your VTuber profile on The Vtuber Wiki, let's ensure you have everything you need. Here are the prerequisites for a smooth experience, even if you have no prior experience with GitHub or programming:
+Before diving into creating your VTuber profile, ensure you have everything you need:
 
-1. GitHub Account:
-    - If you don't have a GitHub account, [create one](https://github.com/join). This account will be your gateway to managing and contributing to your VTuber page.
+1. **GitHub Account**:
+    - If you don't have one, [create a GitHub account](https://github.com/join). It's your gateway to managing and contributing to your VTuber page.
 
-    Learn: [Create a GitHub Account](#create-a-github-account)
+2. **Node.js and npm**:
+    - Install [Node.js and npm](https://nodejs.org/en/download/) on your local machine. These tools are necessary for running CreateCLI, a command-line interface (CLI) tool for creating VTuber pages.
 
-2. Basic Understanding of Markdown:
+3. **Basic Understanding of Markdown**:
+    - Familiarize yourself with basic [Markdown syntax](https://www.markdownguide.org/basic-syntax/) as your VTuber profile will be written in this lightweight markup language.
 
-    - Familiarize yourself with basic [Markdown syntax](https://www.markdownguide.org/basic-syntax/) since your VTuber profile will be written in this lightweight markup language.
+4. **Access to Git**:
+    - Install [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) on your local machine. Git helps you manage your code changes.
 
-3. Access to Git:
+5. **Text Editor**:
+    - Choose a text editor for editing your Markdown files. If you don't have a preference, [Visual Studio Code](https://code.visualstudio.com/) is a popular choice.
 
-    - Install [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) on your local machine. Git is the version control system that helps you manage your code changes.
-
-    Learn: [Learn Git](#learn-to-use-git)
-
-4. Text Editor:
-
-    - Choose a text editor for editing your Markdown files. If you don't have a preferred one, [Visual Studio Code](https://code.visualstudio.com/) is a popular and user-friendly choice.
-
-Now that you've gathered the essentials, you're ready to dive into creating your VTuber profile. Follow the step-by-step guide provided earlier, and don't hesitate to refer back to this section if needed.
+Now that you have the essentials, let's create your VTuber profile.
 
 </details>
-
 
 <br />
 
 ## Essential Details
 
-When creating your VTuber page, it's crucial to include the following key information:
+Include the following key information when creating your VTuber page:
 
-- `Name`: Your VTuber's name.
-- `Description`: A concise overview of your VTuber persona.
-- `Author`: Your name or username (GitHub).
-- `Is a draft`: Set to `true` if you're still working on your VTuber page.
-- `Banner Image`: A URL link to your banner image.
-- `Avatar Image`: URL link to your VTuber avatar.
-- `Border Color`: The color for your VTuber's profile card.
-- `Links`: Relevant URLs, such as Discord server, social media profiles, and streaming platform.
+- **Name**: Your VTuber's name.
+- **Description**: A concise overview of your VTuber persona.
+- **Author**: Your name or username (GitHub).
+- **Graduated**: Indicate if your VTuber persona has graduated.
+- **Banner Image**: URL link to your banner image.
+- **Avatar Image**: URL link to your VTuber avatar.
+- **Border Color**: Color for your VTuber's profile card.
+- **Links**: Relevant URLs like Discord server, social media profiles, and streaming platforms.
 
 ## Using CreateCLI
 
-The Vtuber Wiki provides a command-line interface (CLI) tool, CreateCLI, to help you create a new VTuber page with ease. Here's how you can use it:
+Our CreateCLI tool makes creating a new VTuber page a breeze:
 
 1. **Clone the Repository**:
-
-First, clone the repository to your local machine using the following command:
-
-```bash 
-    git clone https://git.vtubers.wiki/wiki
-```
+    ```bash 
+    git clone https://github.com/vtuberwiki/wiki
+    ```
 
 2. **Navigate to the Directory**:
-    
-Change your working directory to the `wiki` folder:
-    
-```bash
-  cd wiki
-```
+    ```bash
+    cd wiki
+    ```
 
 3. **Install Dependencies**:
-
-Install the dependencies required for CreateCLI:
-
-```bash
-  npm run iall # This command will install all dependencies required for the main project and any scripts.
-```
+    ```bash
+    npm run iall # This command installs all necessary dependencies.
+    ```
 
 4. **Run CreateCLI**:
-
-Run the CreateCLI tool to create a new VTuber page:
-
-```bash
-  npm run create
-```
+    ```bash
+    npm run create
+    ```
 
 5. **Follow the Prompts**:
-
-The CreateCLI tool will prompt you to enter the essential details for your VTuber page. Follow the prompts to provide the required information.
-
-
-<Alert message="For new users, we recommend using GitHub Desktop (<a href='https://desktop.github.com'>desktop.github.com</a>)" type="danger" includeCloseButton={false} />
-
-## Learn to Use Git
-
-Git is a version control system that helps you manage your code changes. Here's a basic overview of how to use Git:
-
-<details>
-<summary>Terminal</summary>
-
-1. **Clone a Repository**:
-
-To get started, you'll need to clone the repository to your local machine. Use the following command:
-
-```bash 
-git clone <repository_URL>
-```
-
-Replace `<repository_URL>` with the URL of the repository you want to clone.
-
-2. **Navigate to the Directory**:
-
-Once the repository is cloned, navigate to the directory of the repository:
-
-```bash
-cd <repository_directory>
-```
-___
-
-3. **Commit Changes**:
-
-After making changes to your files, you'll need to commit those changes to Git. First, add the files you want to commit:
-
-```bash
-git add <file_name>
-```
-
-Replace `<file_name>` with the name of the file you want to add. You can also use `.` to add all changed files.
-
-Next, commit the changes:
-
-```bash
-git commit -m "feat: Add new feature
-
-Add a descriptive message about the changes you made."
-```
-
-> Note: Replace `feat: Add new feature` with the type of change you made (e.g., `fix`, `docs`, `style`, `refactor`, etc.), and replace the message with a descriptive summary of the changes. Learn: [Commit Message Conventions](https://www.conventionalcommits.org/en/v1.0.0/)
-
-___
-
-4. **Push Changes**:
-
-Once your changes are committed, you can push them to the remote repository:
-
-```bash
-git push
-```
-
-This will push your changes to the default remote repository.
-
-___
-
-
-5. **Pull Changes**:
-
-If there are changes in the remote repository that you don't have locally, you can pull them:
-
-```bash
-git pull
-```
-
-This will fetch the changes from the remote repository and merge them into your local branch.
-
-___
-
-6. **Remove Files from Commits**:
-
-If you accidentally added a file to a commit that you don't want to include, you can unstage it:
-
-```bash
-git reset HEAD <file_name>
-```
-
-Replace `<file_name>` with the name of the file you want to unstage.
-
-These are the basic Git commands to get you started. As you become more familiar with Git, you can explore more advanced features and workflows.
-
-
-</details>
-
-
-<details>
-<summary>Desktop</summary>
-
-1. **Download GitHub Desktop**:
-
-First, download and install [GitHub Desktop](https://desktop.github.com) on your local machine.
-
-When you open GitHub Desktop for the first time, you'll be prompted to sign in to your GitHub account. Click on "Sign in to GitHub.com" and follow the instructions to sign in.
-
-![Introduction](/static/guides/using-createcli/1.png)
-
-2. **Getting Set Up**:
-
-Once you're signed in, you'll see the "Configure Git" screen. If you already have Git installed on your machine, GitHub Desktop will automatically detect it. If not, you can install Git directly from GitHub Desktop.
-
-<Alert message="DO NOT CHANGE ANYTHING UNLESS YOU KNOW WHAT YOU ARE DOING!" type="danger" includeCloseButton={false} />
-
-![Configure Git](/static/guides/using-createcli/2.png)
-
-3. **Clone a Repository**:
-
-To clone a repository, click on "Clone a repository from the Internet..." and enter `vtuberwiki/wiki` in the "Repository URL" field. Choose a local path where you want to clone the repository and click "Clone".
-
-![Clone Repository](/static/guides/using-createcli/3.png)
-
-4. **Commiting**:
-
-After making changes to your files, you'll need to commit those changes to Git. First, add the files you want to commit:
-
-> Note: In the summary field add `{type}: {some message}` with the type of change you made (e.g., `fix`, `docs`, `style`, `refactor`, etc.), and replace the message with a descriptive summary of the changes. Learn: [Commit Message Conventions](https://www.conventionalcommits.org/en/v1.0.0/)=
-
-![Commit Changes](/static/guides/using-createcli/4.png)
-
-
-</details>
+    Answer the prompts to provide the required information for your VTuber page.
 
 ## Create a GitHub Account
 
-If you don't already have a GitHub account, follow these steps:
+If you haven't already, follow these steps to create a GitHub account:
 
-1. **Go to GitHub**: Visit [github.com](https://github.com/join) and click on "Sign up."
+1. **Go to GitHub**:
+    Visit [github.com](https://github.com/join) and click "Sign up."
 
-2. **Fill Out the Form**: Enter your desired username, email address, and password.
+2. **Fill Out the Form**:
+    Enter your desired username, email address, and password.
 
-3. **Verify Your Email**: GitHub will send you an email to verify your email address. Click on the link in the email to complete the verification process.
+3. **Verify Your Email**:
+    Complete the email verification process by clicking the link in the email GitHub sends you.
 
-4. **Choose Your Plan**: GitHub offers both free and paid plans. For most users, the free plan is sufficient. Select the free plan and continue.
+4. **Choose Your Plan**:
+    GitHub offers free and paid plans. Most users opt for the free plan.
 
-5. **Welcome to GitHub!**: Once you've completed the signup process, you'll be redirected to your GitHub dashboard. You're now ready to start using GitHub!
+5. **Welcome to GitHub!**:
+    Once you've signed up, you're ready to use GitHub.
+
+## Using our Custom Git
+
+If you're new to Git, our custom Git can simplify the process:
+
+1. **Setup Git**:
+    - Download and install Git from [here](https://git-scm.com/downloads).
+    - Configure Git with your GitHub account credentials:
+        ```bash
+        git config --global user.name "Your Name"
+        git config --global user.email "Your Email"
+        ```
+
+2. **Clone the Repository**:
+    - [Fork](https://github.com/vtuberwiki/wiki/fork) the repository and clone it to your local machine:
+        ```bash 
+        git clone https://github.com/YourUsername/wiki
+        ```
+
+3. **Navigate to the Directory**:
+    ```bash
+    cd wiki
+    ```
+
+4. **Install Dependencies**:
+    ```bash
+    npm run iall # This command installs all necessary dependencies.
+    ```
+
+5. **Running Git**:
+    Use our custom Git to push your changes to your forked repository:
+    ```bash
+    npm run git
+    ```
+
+Remember to follow our [Contributing Guidelines](/contributing-guidelines) and [Pull Request Formatting](/formatting) for your changes to be accepted.

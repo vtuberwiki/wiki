@@ -1,0 +1,29 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+const guidelines = await getCollection("misc")
+
+const _ = guidelines.find((a) => a.slug === "guidelines");
+
+const { Content } = await _.render();
+---
+
+<Layout title="Code of Conduct">
+  <div class="vw-section">
+    <div class="vw-container vw-container-small">
+      <h2 class="vw-h1 vw-text-center">Code of Conduct</h2>
+      <p class="vw-text-center vw-text-lead">
+        We want to make sure that everyone feels welcome and safe in our community.
+      </p>
+
+      <div class="article-content link-primary">
+        <Content />
+      </div>
+    </div>
+  </div>
+  <style is:inline>
+    code {
+      color: black;
+    }
+  </style>
+</Layout>

@@ -8,7 +8,7 @@ import mdx from "@astrojs/mdx";
 
 
 const prettyCodeOptions = {
-  theme: "github-dark",
+  theme: "github-light",
   onVisitLine(node) {
     if (node.children.length === 0) {
       node.children = [{
