@@ -42,9 +42,7 @@ const softwareCollection = defineCollection({
     title: z.string(),
     pubDate: z.date(),
     description: z.string(),
-    author: z.string(),
-    image: z.string(),
-    main_image: z.string(),
+    author: z.string()
   })
 });
 

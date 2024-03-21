@@ -3,8 +3,6 @@ title: VSeeFace
 pubDate: 2023-10-24
 description: VSeeFace is a free, highly configurable face and hand tracking VRM and VSFAvatar avatar puppeteering program for virtual youtubers with a focus on robust tracking and high image quality.
 author: 0xyami
-image: https://www.vseeface.icu/assets/img/VSeeFaceScreenshot.png
-main_image: https://www.vseeface.icu/assets/img/VSeeFaceScreenshot.png
 ---
 
 VSeeFace offers functionality similar to Luppet, 3tene, Wakaru and similar programs. VSeeFace runs on Windows 8 and above (64 bit only). Perfect sync is supported through iFacialMocap/FaceMotion3D/VTube Studio/MeowFace. VSeeFace can send, receive and combine tracking data using the VMC protocol, which also allows support for tracking through Virtual Motion Capture, Tracking World, Waidayo and more. Capturing with native transparency is supported through OBS’s game capture, Spout2 and a virtual camera.

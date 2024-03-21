@@ -10,7 +10,7 @@ export async function GET() {
         value: `/wiki/software/${_.slug}`,
         description: _.data.description,
         author: _.data.author,
-        image: _.data.image,
+        image: `https://vtubers.wiki/static/software/${_.slug}/icon.jpg`,
         body: _.body,
       }))
 

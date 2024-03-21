@@ -27,7 +27,7 @@ const slugify = (str: string) => {
 }
 ---
 
-<Layout title={data.title} description={data.description} img={data.image}>
+<Layout title={data.title} description={data.description} img={`/static/software/${entry.slug}/icon.jpg`}>
   <div class="vw-section">
     <div class="vw-container">
       <div class="vw-grid-large" data-vw-grid>
@@ -41,7 +41,7 @@ const slugify = (str: string) => {
               <h1 id={slugify(data.title)} style="text-align: center;">{data.title}</h1>
               <p>
                 <img
-                  src={data.main_image}
+                src={`/static/software/${entry.slug}/banner.jpg`}
                   alt={`${data.title} main image`}
                   style="width: 100%; border-radius: 10px;"
                   loading="lazy"
