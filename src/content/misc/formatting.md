@@ -5,7 +5,7 @@
 Messages must be matched by the following regex:
 
 ```js
-/^revert: ?(chore|docs|feat|fix|perf|refactor|style|test)(\(.+\))?: .{1,72}/;
+/^revert(Item): ?(chore|docs|feat|fix|perf|refactor|style|test)(\(.+\))?: .{1,72}/;
 ```
 
 ## Known issues

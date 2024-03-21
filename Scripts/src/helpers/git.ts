@@ -54,6 +54,7 @@ export function checkGitInstallation(): Promise<string | null> {
 
 export function createPush(
   type: PushStatus,
+  item: string,
   message: string,
   desc: string[],
   autoAdd: boolean
@@ -62,7 +63,7 @@ export function createPush(
     exec(
       `${
         autoAdd ? "git add . &&" : ""
-      } git commit -m "${type}: ${message}" -m "${desc.join(
+      } git commit -m "${type}(${item}): ${message}" -m "${desc.join(
         "\n"
       )}" && git push origin main`,
       (error, stdout, stderr) => {
@@ -86,12 +87,13 @@ export function createPush(
 
 export function createCommit(
   type: PushStatus,
+  item: string,
   message: string,
   desc: string[]
 ) {
   return new Promise<void>((resolve, reject) => {
     exec(
-      `git commit -m "${type}: ${message}" -m "${desc.join("\n")}"`,
+      `git commit -m "${type}(${item}): ${message}" -m "${desc.join("\n")}"`,
       (error, stdout, stderr) => {
         if (error || stderr) {
           reject(

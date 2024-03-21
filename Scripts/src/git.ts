@@ -161,7 +161,8 @@ async function main() {
       break;
     case "push":
       const branch = "origin";
-      let message;
+      let item;
+      let message = "";
       let desc = [];
       let descInput = "";
 
@@ -174,8 +175,12 @@ ${pushOptions
       );
 
       const type = await askQuestion(`Enter the type of push:`, "string");
-      message = await askQuestion(
+      item = await askQuestion(
         `Enter the item changed (Example: Vtubers):`,
+        "string"
+      );
+      message = await askQuestion(
+        `Enter the message (Example: changed viewport):`,
         "string"
       );
       descInput = await askQuestion(
@@ -199,7 +204,7 @@ ${pushOptions
         "yesno"
       );
 
-      await createPush(type as PushStatus, message, desc, autoAdd === "yes");
+      await createPush(type as PushStatus, item, message, desc, autoAdd === "yes");
       process.exit(0);
       break;
     case "status":
@@ -249,32 +254,25 @@ ${pushOptions
     case "commit":
       const branch_ = "origin";
       let message_ = "";
+      let item_;
       let desc_: any[] = [];
       let descInput_ = "";
 
       console.log(
         `Available options:
-        - ${chalk.green(
-          "chore"
-        )}: Changes to the build process or auxiliary tools and libraries such as documentation generation
-        - ${chalk.green("docs")}: Documentation only changes
-        - ${chalk.green("feat")}: A new feature
-        - ${chalk.green("fix")}: A bug fix
-        - ${chalk.green(
-          "refactor"
-        )}: A code change that neither fixes a bug nor adds a feature
-        - ${chalk.green(
-          "style"
-        )}: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
-        - ${chalk.green(
-          "test"
-        )}: Adding missing tests or correcting existing tests
+${pushOptions
+  .map((option) => `    - ${chalk.green(option.name)}: ${option.description}`)
+  .join("\n")}
         `
       );
 
       const type_ = await askQuestion(`Enter the type of push:`, "string");
-      message_ = await askQuestion(
+      item_ = await askQuestion(
         `Enter the item changed (Example: Vtubers):`,
+        "string"
+      );
+      message_ = await askQuestion(
+        `Enter the message (Example: changed viewport):`,
         "string"
       );
       descInput_ = await askQuestion(
@@ -293,7 +291,7 @@ ${pushOptions
 
       desc_ = desc_.filter((desc) => desc !== "");
 
-      await createCommit(type_ as PushStatus, message_, desc_);
+      await createCommit(type_ as PushStatus, item_, message_, desc_);
       process.exit(0);
       break;
     case "pull":
