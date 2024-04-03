@@ -23,27 +23,29 @@ However, a group of researchers, being sent by the X.A.L.T.Z. agency, sent her a
 
 ## Videos
 
+
+
 ### Debut
 
 <video controls width="560" height="315">
-  <source src="/static/vtubers/aisha/media/videos/debut.mp4" type="video/mp4" />
+  <source src="/static/vtubers/@wiki::slug/media/videos/debut.mp4" type="video/mp4" />
 </video>
 
 ### Self Introduction
 
 <video controls width="560" height="315">
-  <source src="/static/vtubers/aisha/media/videos/intro.mp4" type="video/mp4" />
+  <source src="/static/vtubers/@wiki::slug/media/videos/intro.mp4" type="video/mp4" />
 </video>
 
 ## Images
 
 ### Live2D
 
-<img src="/static/vtubers/aisha/media/images/live2d.webp" type="image/webp" />
+<img src="/static/vtubers/@wiki::slug/media/images/live2d.webp" type="image/webp" />
 
 ### 3D
 
-<img src="/static/vtubers/aisha/media/images/3d.webp" type="image/webp" style="border-radius: 50px;" />
+<img src="/static/vtubers/@wiki::slug/media/images/3d.webp" type="image/webp" style="border-radius: 50px;" />
 
 ## Appearance
 

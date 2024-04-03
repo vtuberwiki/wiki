@@ -17,20 +17,27 @@ const { entry } = Astro.props;
 const { data } = entry;
 
 const { Content } = await entry.render();
+
+const htData = {
+  ...data,
+  slug: entry.slug,
+};
 ---
 
 <Layout title={`Agency • ${data.name}`} description={data.description} favicon={`/agencies/${entry.slug}/logo.png`}>
   <div class="vw-section">
     <div class="vw-container">
       <div class="vw-grid-large" data-vw-grid>
-        
+        <div id="vt-info" style="display: none;">
+          {JSON.stringify(htData, null, 2)}
+        </div>
         <div class="vw-width-1-1 vw-width-expand@m">
           <article class="vw-article">
             <h1 class="vw-article-title">Agency • {data.name}</h1>
             <p class="vw-text-lead vw-text-muted">{data.description}</p>
             <br />
             <div class="article-content link-primary">
-              {data.is_draft ? <Alert type="warning" message="This page is a draft and is not ready for public viewing. So please note that some data is incomplete." includeCloseButton={false} /> : ""}
+              {data.is_draft ? <Alert type="warning" message="This page is currently a draft and is not ready for public viewing. Please be aware that certain data may be incomplete at this stage." includeCloseButton={false} /> : ""}
               <p>
                 <img
                   src={`/static/agencies/${entry.slug}/banner.png`}
@@ -62,6 +69,7 @@ const { Content } = await entry.render();
     </div>
   </div>
   <script src="/static/js/docs.js" is:inline></script>
+  <script src="/static/js/replacer.js" is:inline></script>
   <script is:inline>
     var disqus_config = function () {
       this.page.url = window.location.href;
