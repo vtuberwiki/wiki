@@ -1,4 +1,4 @@
 {
-  "recommendations": ["astro-build.astro-vscode"],
+  "recommendations": ["astro-build.astro-vscode", "deepscan.vscode-deepscan", "GitHub.vscode-codeql", "aaron-bond.better-comments", "usernamehw.errorlens"],
   "unwantedRecommendations": []
 }

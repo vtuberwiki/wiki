@@ -1,0 +1,16 @@
+Scripts:
+- changed-files:
+  - any-glob-to-any-file: 'Scripts/**'
+
+Wiki:
+- changed-files:
+  - any-glob-to-any-file: 'src/content/**'
+
+Github:
+- changed-files:
+  - any-glob-to-any-file: '.github/**'
+
+
+Npm:
+- changed-files:
+  - any-glob-to-any-file: '.npm/**'

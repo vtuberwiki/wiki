@@ -54,7 +54,7 @@ By contributing to this project, you agree that your contributions will be licen
 
 ## Contact
 
-If you have any questions or need assistance, feel free to reach out to us through the project's [issue tracker](https://github.com/vtuberswiki/wikiissues).
+If you have any questions or need assistance, feel free to reach out to us through the project's [issue tracker](https://github.com/vtuberswiki/wiki/issues).
 
 
 <p align="center"> Thank you for contributing to the Vtuber Wiki! 🎉 </p>
