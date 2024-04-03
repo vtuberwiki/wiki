@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "wiki",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -11,7 +11,7 @@
     "sync": "astro sync",
     "create": "ts-node ./Scripts/src/create.ts",
     "git": "ts-node ./Scripts/src/git.ts",
-    "iall": "node ./.npm/install.js"
+    "postinstall": "node ./.npm/install.js"
   },
   "dependencies": {
     "@astrojs/mdx": "^2.2.0",
