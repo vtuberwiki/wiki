@@ -10,7 +10,7 @@
 
         
       var data = await fetch("/api/v1/search-list.json").then(response => response.json());
-      var list = data.data.map((_) => ({
+      var list = data.map((_) => ({
         label: _.label,
         value: _.value
       }))

@@ -36,12 +36,12 @@ const htData = {
   favicon={data.image}
   description={data.description}
   img={data.image}
-  ,
   CustomSeo={{ keywords: MakeProperSeo() }}
 >
   <div class="vw-section">
     <div class="vw-container">
       <div class="vw-grid-large" data-vw-grid>
+        <Sidebar />
         <div id="vt-info" style="display: none;">
           {JSON.stringify(htData, null, 2)}
         </div>
