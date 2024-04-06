@@ -101,7 +101,7 @@ const Favicon = () => {
     <meta property="og:site_name" content="@VtubersWiki" />
     <meta property="og:title" content={`${makeTitle(seo.title as string)}`} />
     <meta property="og:description" content={seo.description} />
-    <meta property="og:image" content={`${seo.img}`} />
+    <meta property="og:image" id="og:image" content={`${seo.img}`} />
     <meta property="og:url" content={`${Astro.url}`} />
 
     <!-- Twitter -->
