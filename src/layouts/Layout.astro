@@ -86,7 +86,7 @@ const Favicon = () => {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type={Favicon()} href={seo.favicon} />
+    <link rel="icon" type={`${Favicon()}`} href={`${seo.favicon}`} />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <meta name="generator" content={seo.generator} />
     <title>{makeTitle(seo.title as string)}</title>
@@ -99,26 +99,26 @@ const Favicon = () => {
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="@VtubersWiki" />
-    <meta property="og:title" content={makeTitle(seo.title as string)} />
+    <meta property="og:title" content={`${makeTitle(seo.title as string)}`} />
     <meta property="og:description" content={seo.description} />
-    <meta property="og:image" content={seo.img} />
-    <meta property="og:url" content={Astro.url} />
+    <meta property="og:image" content={`${seo.img}`} />
+    <meta property="og:url" content={`${Astro.url}`} />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@VtubersWiki" />
     <meta name="twitter:creator" content="@VtubersWiki" />
-    <meta name="twitter:title" content={makeTitle(seo.title as string)} />
-    <meta name="twitter:description" content={seo.description} />
-    <meta name="twitter:image" content={seo.img} />
+    <meta name="twitter:title" content={`${makeTitle(seo.title as string)}`} />
+    <meta name="twitter:description" content={`${seo.description}`} />
+    <meta name="twitter:image" content={`${seo.img}`} />
 
     <!-- Additional Metadata -->
     <link rel="manifest" href="/manifest.json" />
-    <meta name="keywords" content={makeKeywords(seo.keywords as string)} />
+    <meta name="keywords" content={`${makeKeywords(seo.keywords as string)}`} />
     <meta name="author" content="@VtubersWiki" />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href={Astro.url} />
-    <meta name="msapplication-TileColor" content={seo.ThemeColor} />
+    <link rel="canonical" href={`${Astro.url}`} />
+    <meta name="msapplication-TileColor" content={`${seo.ThemeColor}`} />
 
     <link rel="stylesheet" href="/static/css/main.css" />
     <link rel="stylesheet" href="/static/css/mdown.css" />
