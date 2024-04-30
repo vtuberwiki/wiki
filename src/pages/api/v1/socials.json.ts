@@ -21,7 +21,7 @@ const data = [
     {
         name: "Discord",
         icon: "/static/images/socials/discord.{{ext}}",
-        href: "https://discord.gg/kPRTP3eya4",
+        href: "https://discord.gg/zCkbdv4qkW",
     },
     {
         name: "Patreon",
