@@ -31,7 +31,7 @@
     "passport": "^0.7.0",
     "passport-github": "^1.1.0",
     "querystring": "^0.2.1",
-    "rehype-pretty-code": "^0.13.0",
+    "rehype-pretty-code": "^0.14.0",
     "remark-toc": "^9.0.0"
   }
 }
